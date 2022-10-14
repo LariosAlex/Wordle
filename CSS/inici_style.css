@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    height: 300px;
+    width: 250px;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+form{
+    display: inline;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: center;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 600px;
+    text-align: center;
+    font-size: 30px;
+}
+button{
+    height: 50px;
+    width: 605px;
+    font-size: 25px;
+}
+h1{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+button{
+    display: block;
+}
+main{
+    display: grid;
+    grid-template-rows: 70px 400px 200px;
+    grid-template-columns: 400px 1fr;
+}
+
+main p{
+    grid-column: 1/3;
+    grid-row: 3/4;
+    text-align: center;
+}
+footer p{
+    text-align: center;
+}
