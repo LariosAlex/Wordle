@@ -15,7 +15,7 @@
         
         ?>
         <form action="joc.php">
-            <input type="text" name="nom_usuari">
+            <input type="text" name="nom_usuari" required>
             <button>Jugar</button>
         </form>
         <p>Instruccions</p>
