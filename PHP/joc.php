@@ -8,16 +8,23 @@
     <title>Wordle</title>
 </head>
 <body>
-    
+        <?php
+            include "joc_funcions.php";
+            $nomUsuari = $_POST['nom_usuari'];
+        ?>
+    <header>
+        <?php echo "<div id='nomUsuari'><strong>$nomUsuari</strong></div>\n<br>\n"; ?>
+    </header>
+    <article>
+        <?php
+            generarTaula(5,6);
+        ?>
+    </article>
+    <br>
+    <article>
     <?php
-        include "joc_funcions.php";
-        //$_POST['nom_usuari']
-        $nomUsuari = "Pau Rius";
-
-        echo "<div id='nomUsuari'><strong>$nomUsuari</strong></div>\n<br>\n";
-        generarTaula(5,6);
-        echo "\n<br>\n";
-        generarTeclat(10,3);
+        generarTeclat();
     ?>
+    </article>
 </body>
 </html>

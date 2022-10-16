@@ -11,50 +11,26 @@
         echo "</table>";
     }
 
-    function generarTeclat($w,$h){
-        $lletres1 = "QWERTYUIOP";
-        $lletres2 = "ASDFGHJKL7";
-        $lletres3 = ["ENVIAR","Z","X","C","V","B","N","M","<--"];
-        echo "<table>\n";
-        for($i = 0; $i < $h;$i++){
-            echo "<tr id = 'tr$i'>\n";
-            if($i != $h-1){
-                for($j = 0; $j < $w;$j++){
-                    $id = "";
-                    if($i == 0){
-                        $id = $id = substr($lletres1,$j,1);
-                        if($j == $w){
-                            $id = "tdOcult";
-                        }
-                        echo "<td id = '$id'>".substr($lletres1,$j,1)."</td>\n";
-                    }else{
-                        $id = $id = substr($lletres2,$j,1);
-                        if($j == $w){
-                            $id = "tdOcult";
-                        }
-                        echo "<td id = '$id'>".substr($lletres2,$j,1)."</td>\n";
-                    }
-                    
-                    
-                    
-                    
-                }
-            }else{
-                for($j = 0; $j < $w-1;$j++){
-                    $span = 0;
-                    $id = $lletres3[$j];
-                    if($j == $w-1){
-                        $id = "tdOcult";
-                    }
-                    if($j == 0  || $id == "<--"){
-                        $span = 2;
-                    }
-                    echo "<td colspan=$span id = '$id'>".$lletres3[$j]."</td>\n";
-                }
-
+    function generarTeclat(){
+        $llista = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ç","ENVIAR","Z","X","C","V","B","N","M","ESBORRAR"];
+        echo "<table>\n
+            <tr>\n";
+        foreach($llista as $tecla){
+            if($tecla == "ENVIAR" || $tecla == "<--"){
+                echo "<td id='$tecla' colspan=2>$tecla</td>\n";
             }
-            echo "</tr>";
+            else{
+                echo "<td id='$tecla'>$tecla</td>\n";
+            }
+            
+            if ($tecla == "P"){
+                echo "</tr>\n<tr>\n";
+            }else if($tecla == "Ç"){
+                echo "</tr>\n</table>\n<table>\n";
+            }
+
+            
         }
-        echo "</table>";
+        echo "</tr>\n</table>\n";
     }
 ?>
