@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/joc_estil.css">
     <title>Wordle</title>
+    <script src="../JS/funcions.js"></script>
 </head>
 <body>
         <?php
@@ -34,5 +35,8 @@
     ?>
     </article>
     <script src="../JS/funcions.js"></script>
+    <?php
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
+    ?>
 </body>
 </html>
