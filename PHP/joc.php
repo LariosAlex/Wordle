@@ -13,6 +13,7 @@
 </head>
 <body>
         <?php
+            $paraula = $_SESSION['paraula'];
             $nomUsuari = $_POST['nom_usuari'];
         ?>
     <header>
@@ -32,5 +33,6 @@
         generarTeclat();
     ?>
     </article>
+    <script src="../JS/funcions.js"></script>
 </body>
 </html>

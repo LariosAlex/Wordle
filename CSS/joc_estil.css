@@ -16,3 +16,32 @@ td{
     border-radius: 5px;
     text-align: center;
 }
+
+
+#teclat {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #teclat div {
+    display: flex;
+  }
+
+  #tecla{
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px;
+    margin: 5px ;
+    text-transform: uppercase;
+    border: none;
+    background-color: rgb(226,232,240);
+    border-radius: 5px;
+  }
+
+  #tecla:hover{
+    background-color:#002ead;
+    color: white;
+}
+
