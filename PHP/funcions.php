@@ -32,7 +32,7 @@
             <tr>\n";
         foreach($llista as $tecla){
             if($tecla == "ENVIAR"){
-                echo "<td id='$tecla' colspan=2>$tecla</td>\n";
+                echo "<td id='$tecla' colspan=2><button onclick='enviar()'>$tecla</button></td>\n";
             }else if ($tecla == "ESBORRAR"){
                 echo "<td id='$tecla' colspan=2><button onclick='esborrar()'>$tecla</button></td>\n";
             }else{

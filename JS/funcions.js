@@ -1,4 +1,4 @@
-let palabra = "";
+let palabra = "hacer";
 let fila = 0;
 function escriuParaula(par){
     for(let i = 0;i < 5;i++){
@@ -17,6 +17,10 @@ escriuParaula(palabra);
 function esborrar(){
     palabra = palabra.substring(0,palabra.length-1);
     escriuParaula(palabra);
-    
-    
+}
+function enviar(){
+    if(palabra.length === 5){
+        fila += 1;
+        palabra = "";
+    }
 }
