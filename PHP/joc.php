@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -13,12 +16,15 @@
             $nomUsuari = $_POST['nom_usuari'];
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>$nomUsuari</strong></div>\n<br>\n"; ?>
+        <?php echo "<div id='nomUsuari'><strong>$nomUsuari</strong></div>\n<br>\n"; 
+        ?>
     </header>
     <article>
+        <div>
         <?php
             generarTaula(5,6);
         ?>
+        </div>
     </article>
     <br>
     <article>

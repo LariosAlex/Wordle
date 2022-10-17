@@ -1,5 +1,6 @@
 <?php
-include('funcions.php');
+    session_start();
+    include('funcions.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,10 +17,7 @@ include('funcions.php');
         <h1>Benvingut al Wordle!</h1>
         <img src="../SRC/imatgeWordle.png" alt="">
         <?php
-        if(isset($_POST['botoJugar'])){
-            ///Palabra random del diccionario guardada
-            $_POST['paraula'] = obtenirParaula('cat5.txt');
-        };
+        $_SESSION['paraula'] = obtenirParaula('cat5.txt');
         ?>
         <form action="joc.php" method="post">
             <input type="text" name="nom_usuari" required>
