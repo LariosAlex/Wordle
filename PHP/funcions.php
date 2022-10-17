@@ -25,7 +25,7 @@
         }
         echo "</table>";
     }
-
+    
     function generarTeclat(){
         $llista = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ç","ENVIAR","Z","X","C","V","B","N","M","ESBORRAR"];
         echo "<div id='teclat'>";
@@ -35,9 +35,9 @@
                 echo "<button id='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
             }else{
                 if($tecla == 'ENVIAR'){
-                    echo "<button id='tecla' type='button' onclick='enviar(\"$tecla\")'>$tecla</button>\n";
+                    echo "<button id='tecla' type='button' onclick='enviar()'>$tecla</button>\n";
                 }elseif($tecla == 'ESBORRAR'){
-                    echo "<button id='tecla' type='button' onclick='esborrar(\"$tecla\")'>$tecla</button>\n";
+                    echo "<button id='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
                 }
             }
             if($tecla == "P" || $tecla == "Ç")  {
