@@ -1,0 +1,17 @@
+#nomUsuari{
+    float:right;
+}
+table{
+    display: flex;
+    justify-content: center;
+}
+tr{
+    align-items: center;
+}
+td{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
