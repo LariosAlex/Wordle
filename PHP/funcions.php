@@ -25,16 +25,17 @@
         }
         echo "</table>";
     }
-
+    
     function generarTeclat(){
         $llista = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ç","ENVIAR","Z","X","C","V","B","N","M","ESBORRAR"];
         echo "<table>\n
             <tr>\n";
         foreach($llista as $tecla){
-            if($tecla == "ENVIAR" || $tecla == "<--"){
+            if($tecla == "ENVIAR"){
                 echo "<td id='$tecla' colspan=2>$tecla</td>\n";
-            }
-            else{
+            }else if ($tecla == "ESBORRAR"){
+                echo "<td id='$tecla' colspan=2><button onclick='esborrar()'>$tecla</button></td>\n";
+            }else{
                 echo "<td id='$tecla'>$tecla</td>\n";
             }
             

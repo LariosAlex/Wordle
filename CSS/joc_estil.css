@@ -16,3 +16,6 @@ td{
     border-radius: 5px;
     text-align: center;
 }
+table tr td button{
+    height: 50px;
+}
