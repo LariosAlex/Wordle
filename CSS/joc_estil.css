@@ -1,3 +1,7 @@
+*{
+  background-color: #D6D6B1;
+}
+
 #nomUsuari{
     display: flex;
     justify-content: flex-end;
@@ -12,7 +16,8 @@ tr{
 td{
     width: 50px;
     height: 50px;
-    border: 1px solid black;
+    border: 1px solid #DE541E;
+    background-color: white;
     border-radius: 5px;
     text-align: center;
 }
@@ -41,7 +46,7 @@ td{
   }
 
   #tecla:hover{
-    background-color:#002ead;
+    background-color:#DE541E;
     color: white;
 }
 
