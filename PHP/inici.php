@@ -16,9 +16,7 @@
     <main>
         <h1>Benvingut al Wordle!</h1>
         <img src="../SRC/imatgeWordle.png" alt="">
-        <?php
-        $_SESSION['paraula'] = obtenirParaula('cat5.txt');
-        ?>
+        
         <form action="joc.php" method="post">
             <input type="text" name="nom_usuari" required>
             <input type="submit" name="botoJugar" value="Jugar">

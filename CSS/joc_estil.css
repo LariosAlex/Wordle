@@ -16,7 +16,6 @@ td{
     border-radius: 5px;
     text-align: center;
 }
-<<<<<<< HEAD
 
 
 #teclat {
@@ -46,8 +45,7 @@ td{
     color: white;
 }
 
-=======
-table tr td button{
-    height: 50px;
+#resultat{
+  display: none;
+  text-align: center;
 }
->>>>>>> origin/spec9

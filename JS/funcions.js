@@ -59,18 +59,32 @@ function crearDiccionariContadorLletres(paraula){
     return resultat;
 }
 
+function resultatPartida(contador,filaActual){
+    if (contador==5){
+        document.getElementById('resultat').style.display ="block";
+        document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
+        fila = 6;
+    }else if(filaActual == 5){
+        document.getElementById('resultat').style.display ="block";
+        document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
+    }
+}
 
-function revisarParaula(fila){
-    let paraulaSecreta = document.getElementById("paraulaSecreta").innerHTML;
+function revisarParaula(filaActual){
+    let paraulaSecreta = (document.getElementById("paraulaSecreta").innerHTML).toUpperCase();
     let diccionariContadorLletresSecreta = crearDiccionariContadorLletres(paraulaSecreta);
+    let letrasCorrectes = 0;
     for(vuelta=0;vuelta<=1;vuelta++){
         for(i=0;i<=4;i++){
-            let selector = String(fila)+i;
+            let selector = String(filaActual)+String(i);
             let lletraSeleccionada = document.getElementById(selector).innerHTML;
 
             if(lletraSeleccionada == paraulaSecreta[i]){
                 document.getElementById(selector).style.backgroundColor ="green";
                 diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
+                if (vuelta==0){
+                    letrasCorrectes += 1;   
+                }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
                 document.getElementById(selector).style.backgroundColor ="yellow";
                 if(vuelta==1){
@@ -81,6 +95,7 @@ function revisarParaula(fila){
             }
         }
     }
+    setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
 }
 
 

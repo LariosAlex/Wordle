@@ -14,15 +14,19 @@
     <script src="../JS/funcions.js"></script>
 </head>
 <body>
+    <h1></h1>
         <?php
-            $paraula = $_SESSION['paraula'];
+            $paraula = $_POST['paraula'];
             $nomUsuari = $_POST['nom_usuari'];
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>$nomUsuari</strong></div>\n<br>\n"; 
+        <?php echo "<div id='nomUsuari'><strong>Usuari: $nomUsuari</strong></div>\n<br>\n"; 
         ?>
     </header>
     <article>
+        <div>
+            <h1 id="resultat"></h1>
+        </div>
         <div>
         <?php
             generarTaula(5,6);
@@ -37,7 +41,8 @@
     </article>
     <script src="../JS/funcions.js"></script>
     <?php
-        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
+        $_POST['paraula'] = obtenirParaula('cat5.txt');
+        echo "<p id='paraulaSecreta' hidden>".$_POST['paraula'] ."</p>";
     ?>
 </body>
 </html>
