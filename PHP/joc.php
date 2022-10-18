@@ -42,7 +42,7 @@
     <script src="../JS/funcions.js"></script>
     <?php
         $_POST['paraula'] = obtenirParaula('cat5.txt');
-        echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
+        echo "<p id='paraulaSecreta' hidden>".$_POST['paraula'] ."</p>";
     ?>
 </body>
 </html>
