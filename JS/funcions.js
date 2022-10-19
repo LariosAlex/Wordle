@@ -81,8 +81,9 @@ function revisarParaula(filaActual){
 
             if(lletraSeleccionada == paraulaSecreta[i]){
                 document.getElementById(selector).style.backgroundColor ="green";
-                diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
-                if (vuelta==0){
+                if(vuelta==0){
+                    diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
+                }                if (vuelta==0){
                     letrasCorrectes += 1;   
                 }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
