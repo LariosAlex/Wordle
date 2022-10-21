@@ -1,10 +1,12 @@
 /*
     Style pagina index.php
 */
+body{
+    background-color: #D6D6B1;
+}
 #index{
     margin: 0;
     padding: 0;
-    background-color: #D6D6B1;
 }
 
 #index img{
@@ -84,9 +86,6 @@
 /*
     Style pagina game.php
 */
-#game{
-    background-color: #D6D6B1;
-}
 
 #game #nomUsuari{
     display: flex;
@@ -136,4 +135,16 @@
 #game #resultat{
     display: none;
     text-align: center;
+}
+
+
+/*
+    Style pagina win.php
+*/
+
+#estadistiques {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
 }

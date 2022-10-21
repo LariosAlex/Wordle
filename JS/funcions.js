@@ -63,12 +63,14 @@ function resultatPartida(contador,filaActual){
     if (contador==5){
         //document.getElementById('resultat').style.display ="block";
         //document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
-        window.location.href = "win.php";
+        document.getElementById('formGame').action = "win.php";
+        //window.location.href = "win.php";
         fila = 6;
     }else if(filaActual == 5){
         //document.getElementById('resultat').style.display ="block";
         //document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
-        window.location.href = "lose.php";
+        //window.location.href = "lose.php";
+        document.getElementById('formGame').action = "lose.php";
     }
 }
 

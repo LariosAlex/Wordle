@@ -43,5 +43,8 @@
         $_POST['paraula'] = obtenirParaula('cat5.txt');
         echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
     ?>
+    <form id="formGame" action="">
+        <input type="text" hidden value="<?php $_POST['paraula']?>">
+    </form>
 </body>
 </html>
