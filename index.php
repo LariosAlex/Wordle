@@ -15,7 +15,7 @@
 <body id="index">
     <main>
         <h1>Benvingut al Wordle!</h1>
-        <img src="../SRC/imatgeWordle.png" alt="">
+        <img src="./SRC/imatgeWordle.png" alt="">
         
         <form action="game.php" method="post">
             <input type="text" name="nom_usuari" required id="nom_usuari">
