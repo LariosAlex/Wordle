@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     
     <title>Wordle</title>
-    <script src="../JS/funcions.js"></script>
+    <script src="./JS/funcions.js"></script>
 </head>
 <body id="game">
     <h1></h1>
@@ -39,7 +39,6 @@
         generarTeclat();
     ?>
     </article>
-    <script src="../JS/funcions.js"></script>
     <?php
         $_POST['paraula'] = obtenirParaula('cat5.txt');
         echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
