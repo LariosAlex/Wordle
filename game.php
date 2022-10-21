@@ -14,7 +14,14 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body id="game">
-    <h1></h1>
+    <nav>
+        <div>
+            <a href="index.php">HOME</a>
+        </div>
+        <div>
+            <a href="game.php">JUGAR</a>
+        </div>
+    </nav>
         <?php
             $paraula = $_POST['paraula'];
             $nomUsuari = $_POST['nom_usuari'];

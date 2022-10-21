@@ -8,6 +8,14 @@
     <title>Wordle</title>
 </head>
 <body>
+    <nav>
+        <div>
+            <a href="index.php">HOME</a>
+        </div>
+        <div>
+            <a href="game.php">JUGAR</a>
+        </div>
+    </nav>
     <h1>HAS PERDUT!!</h1>
 </body>
 </html>
