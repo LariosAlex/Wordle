@@ -1,6 +1,64 @@
 /*
     Style pagina index.php
 */
+#nomUsuari{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#resultadoPartida{
+    animation: apareixer 4s;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    display: inline;
+}
+
+
+@keyframes apareixer {
+    0%{
+        opacity: 0%;
+    }
+    
+    20%{
+        opacity: 100%;
+    }
+
+    40%{
+        opacity: 0%;
+    }
+    60%{
+        opacity: 100%;
+
+    }
+    80%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+
+    }
+}
+
+#loseParaulaSecreta{
+    animation: apareixer2 8s;
+    text-align: center;
+}
+
+@keyframes apareixer2 {
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+
+    }
+}
+
 #index{
     margin: 0;
     padding: 0;

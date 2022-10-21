@@ -11,7 +11,10 @@
     <title>Wordle</title>
 </head>
 <body>
-    <h1>HAS GUANYAT!!</h1>
+    <div id="resultadoPartida">
+        <h1>HAS GUANYAT!!</h1>
+    </div>
     <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";?>
+    
 </body>
 </html>
