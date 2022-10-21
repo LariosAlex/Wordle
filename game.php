@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="style.css">
     
     <title>Wordle</title>
-    <script src="../JS/funcions.js"></script>
+    <script src="./JS/funcions.js"></script>
 </head>
 <body id="game">
     <h1></h1>
         <?php
             $paraula = $_POST['paraula'];
-            $nomUsuari = $_POST['nom_usuari'];
+            $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>Usuari: $nomUsuari</strong></div>\n<br>\n"; 
+        <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n"; 
         ?>
     </header>
     <article>
@@ -39,7 +39,6 @@
         generarTeclat();
     ?>
     </article>
-    <script src="../JS/funcions.js"></script>
     <?php
         $_POST['paraula'] = obtenirParaula('cat5.txt');
         echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";

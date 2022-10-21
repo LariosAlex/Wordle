@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -9,5 +12,6 @@
 </head>
 <body>
     <h1>HAS GUANYAT!!</h1>
+    <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";?>
 </body>
 </html>
