@@ -61,12 +61,14 @@ function crearDiccionariContadorLletres(paraula){
 
 function resultatPartida(contador,filaActual){
     if (contador==5){
-        document.getElementById('resultat').style.display ="block";
-        document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
+        //document.getElementById('resultat').style.display ="block";
+        //document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
+        window.location.href = "win.php";
         fila = 6;
     }else if(filaActual == 5){
-        document.getElementById('resultat').style.display ="block";
-        document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
+        //document.getElementById('resultat').style.display ="block";
+        //document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
+        window.location.href = "lose.php";
     }
 }
 

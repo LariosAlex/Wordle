@@ -1,0 +1,139 @@
+/*
+    Style pagina index.php
+*/
+#index{
+    margin: 0;
+    padding: 0;
+    background-color: #D6D6B1;
+}
+
+#index img{
+    height: 300px;
+    width: 250px;
+    grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+#index form{
+    display: inline;
+    grid-row: 2/3;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: center;
+}
+#index input{
+    display: block;
+    height: 50px;
+    width: 600px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#index h1{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+
+#index #nom_usuari{
+    background-color: white;
+    border-radius:12px;
+}
+
+#index #butoJugar{
+    display: block;
+    width: 605px;
+    font-size: 20px;
+    background-color: #3f3f37;
+    border-radius:12px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin:4px 2px;
+    cursor: pointer;
+}
+
+#index main{
+    display: grid;
+    grid-template-rows: 60px 380px 280px ;
+    grid-template-columns: 400px 1fr;
+}
+
+
+#index footer p{
+    text-align: center;
+}
+
+#index #instruccions{
+    display: block;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    width: 700px;
+    justify-self: center;
+
+}
+
+#index #listaInstruccions{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/*
+    Style pagina game.php
+*/
+#game{
+    background-color: #D6D6B1;
+}
+
+#game #nomUsuari{
+    display: flex;
+    justify-content: flex-end;
+}
+#game table{
+    display: flex;
+    justify-content: center;
+}
+#game tr{
+    align-items: center;
+}
+#game td{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #DE541E;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+#game #teclat {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
+#game #teclat div {
+    display: flex;
+}  
+#game #tecla{
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px;
+    margin: 5px ;
+    text-transform: uppercase;
+    border: none;
+    background-color: rgb(226,232,240);
+    border-radius: 5px;
+}
+
+#game #tecla:hover{
+    background-color:#DE541E;
+    color: white;
+}
+
+#game #resultat{
+    display: none;
+    text-align: center;
+}
