@@ -18,9 +18,10 @@
         <?php
             $paraula = $_POST['paraula'];
             $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
+            $_SESSION['idioma'] = $_POST['idioma'];
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n"; 
+        <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['idioma']."</strong></div>\n<br>\n"; 
         ?>
     </header>
     <article>

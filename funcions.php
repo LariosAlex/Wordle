@@ -2,6 +2,11 @@
         if(isset($_POST['botoJugar'])){
             obtenirParaula('cat5.txt');
         };
+
+        function nouIdioma($idioma){
+            $_GET['idioma'] == $idioma;
+        }
+
         function obtenirParaula($nomArxiu){
             $liniesArxiu = file($nomArxiu);
             $paraules = [];
@@ -25,24 +30,30 @@
         }
         echo "</table>";
     }
-    
+    function llistaParaulesIdioma($idioma){
+        $liniesArxiu = file($idioma.'Teclat.txt');
+        $tecles = [];
+        foreach($liniesArxiu as $tecla) {
+            $tecles = explode(",", $tecla);
+        }
+        return $tecles;
+    }
     function generarTeclat(){
-        $llista = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ç","ENVIAR","Z","X","C","V","B","N","M","ESBORRAR"];
+        $llista = llistaParaulesIdioma($_SESSION['idioma']);
         echo "<div id='teclat'>";
         echo "<div id='filaTeclas'>";
         foreach($llista as $tecla){
-            if($tecla != 'ENVIAR' && $tecla !='ESBORRAR'){
-                echo "<button id='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
+            if($tecla == 'ENVIAR' || $tecla == 'SEND'){
+                echo "</div><br><div id='filaTeclas'>\n";
+                echo "<button id='tecla' type='button' onclick='enviar()'>$tecla</button>\n";
+            }elseif($tecla == 'ESBORRAR' || $tecla == 'BORRAR' || $tecla == 'BACK'){
+                echo "<button id='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
             }else{
-                if($tecla == 'ENVIAR'){
-                    echo "<button id='tecla' type='button' onclick='enviar()'>$tecla</button>\n";
-                }elseif($tecla == 'ESBORRAR'){
-                    echo "<button id='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
+                echo "<button id='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
+                if($tecla == "P")  {
+                    echo "</div><br>
+                    <div id='filaTeclas'>\n";
                 }
-            }
-            if($tecla == "P" || $tecla == "Ç")  {
-                echo "</div><br>
-                <div id='filaTeclas'>\n";
             }
         }
         echo "</div>";
