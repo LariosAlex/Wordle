@@ -9,13 +9,6 @@ function afegirLletraParaula(lletra){
     }
 }
 
-function nouIidioma(){
-    //var radios = document.getElementsByName("idioma");
-    //var selected = Array.from(radios).find(radio => radio.checked);
-    //window(selected.value);
-    window('Entra');
-}
-
 function crearDiccionariContadorLletres(paraula){
     resultat = {};
     for(i=0;i<=4;i++){

@@ -1,11 +1,13 @@
 <?php
         if(isset($_POST['botoJugar'])){
-            obtenirParaula('cat5.txt');
+            if($_SESSION['idioma'] = 'ca'){
+                obtenirParaula('cat5.txt');
+            }elseif($_SESSION['idioma'] = 'es'){
+                obtenirParaula('5.txt');
+            }elseif($_SESSION['idioma'] = 'en'){
+                obtenirParaula('5.txt');
+            }
         };
-
-        function nouIdioma($idioma){
-            $_GET['idioma'] == $idioma;
-        }
 
         function obtenirParaula($nomArxiu){
             $liniesArxiu = file($nomArxiu);
@@ -30,6 +32,17 @@
         }
         echo "</table>";
     }
+
+    function idioma($ìdioma){
+        if ($file = fopen("./".$ìdioma."Instruccions.txt", "r")) {
+            while(!feof($file)) {
+                $line = fgets($file);
+               echo ("$line");
+            }
+            fclose($file);
+        }  
+    }
+
     function llistaParaulesIdioma($idioma){
         $liniesArxiu = file($idioma.'Teclat.txt');
         $tecles = [];
