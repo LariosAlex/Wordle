@@ -9,12 +9,16 @@
 </head>
 <body>
     <nav>
-        <div>
-            <a href="index.php">HOME</a>
-        </div>
-        <div>
-            <a href="game.php">JUGAR</a>
-        </div>
+        <a href="index.php">
+            <div>
+                HOME
+            </div>
+        </a>
+        <a href="game.php">
+            <div>
+                JUGAR
+            </div>
+        </a>
     </nav>
     <h1>HAS PERDUT!!</h1>
 </body>
