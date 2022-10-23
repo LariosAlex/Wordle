@@ -1,6 +1,8 @@
 
 let fila = 0;
 var paraula ="";
+const soError = new Audio('../SRC/soError.mp3');
+
 /*
 function palabras(){
     var files = document.getElementById("taulaParaules").rows.length;
@@ -72,10 +74,16 @@ function resultatPartida(contador,filaActual){
     }
 }
 
+function executarSo(so){
+    let soPerExecutar = new Audio(so);
+    soPerExecutar.play();
+}
+
 function revisarParaula(filaActual){
     let paraulaSecreta = (document.getElementById("paraulaSecreta").innerHTML).toUpperCase();
     let diccionariContadorLletresSecreta = crearDiccionariContadorLletres(paraulaSecreta);
     let letrasCorrectes = 0;
+    let stringInsertado = "";
     for(vuelta=0;vuelta<=1;vuelta++){
         for(i=0;i<=4;i++){
             let selector = String(filaActual)+String(i);
@@ -85,18 +93,26 @@ function revisarParaula(filaActual){
                 document.getElementById(selector).style.backgroundColor ="green";
                 if(vuelta==0){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
-                }                if (vuelta==0){
-                    letrasCorrectes += 1;   
+                    letrasCorrectes += 1;
+                }else if(vuelta == 1){
+                    stringInsertado += lletraSeleccionada;
                 }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
                 document.getElementById(selector).style.backgroundColor ="yellow";
                 if(vuelta==1){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
+                    stringInsertado += lletraSeleccionada;
                 }
             }else{
                 document.getElementById(selector).style.backgroundColor ="grey";
+                if (vuelta==1){
+                    stringInsertado += lletraSeleccionada;
+                }
             }
         }
+    }
+    if(paraulaSecreta!=stringInsertado){
+        soError.play();
     }
     setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
 }
