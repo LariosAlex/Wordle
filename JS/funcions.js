@@ -1,5 +1,6 @@
 let fila = 0;
 var paraula ="";
+var partidaActual = [];
 /*
 function palabras(){
     var files = document.getElementById("taulaParaules").rows.length;
@@ -58,8 +59,8 @@ function crearDiccionariContadorLletres(paraula){
     return resultat;
 }
 
-function resultatPartida(contador,filaActual){
-    if (contador==5){
+function resultatPartida(encerts,filaActual){
+    if (encerts==5){
         document.getElementById("formGame").setAttribute("action", "win.php");
         document.getElementById("formGame").setAttribute("onsubmit", "return true");
         fila = 6;
@@ -69,9 +70,14 @@ function resultatPartida(contador,filaActual){
     }else{
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
-    document.getElementById("inputGame").setAttribute("name", "fila");
-    document.getElementById('inputGame').value = filaActual;
-    
+
+    let identificador = String(filaActual)+4;
+    let valor = document.getElementById(identificador).innerHTML;
+    if( valor != undefined || valor != null){
+        partidaActual.push([filaActual+"-"+encerts]);
+    }
+    document.getElementById("inputGame").setAttribute("name", "estadistiques");
+    document.getElementById('inputGame').value = partidaActual;  
 
 }
 
@@ -131,6 +137,7 @@ function enviar(){
         fila += 1;
         paraula = "";
     }else{
-        resultatPartida(0,fila)
+        //resultatPartida(0,fila)
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }

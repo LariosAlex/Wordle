@@ -2,6 +2,7 @@
     session_start();
     include('funcions.php');
     $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => []];
+    $_SESSION['totalPartides'] = [];
 ?>
 
 <!DOCTYPE html>

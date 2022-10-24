@@ -55,7 +55,7 @@
     function estadistiques($llista){
         foreach($llista['guanyades'] as $partida => $intent){
             $partida += 1;
-            echo "<p>A la partida $partida has guanyat amb $intent intent/os</p>";
+            echo "<p>A la partida $partida has guanyat amb $intent[0] intent/os $intent[1]</p>";
         }
         $perdudes = $llista['perdudes'];
         echo "<h4>Nº de partides perdudes perdudes: $perdudes </h4>";
