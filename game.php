@@ -43,8 +43,8 @@
     ?>
     </article>
     <?php
-        $_POST['paraula'] = obtenirParaula('cat5.txt');
-        echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
+        $_SESSION['paraula'] = obtenirParaula('cat5.txt');
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula'] ."</p>";
     ?>
 </body>
 </html>

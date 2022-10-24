@@ -129,3 +129,7 @@ function enviar(){
         paraula = "";
     }
 }
+
+function borrarParaula(idParaulaPerEsborrar){
+    document.getElementById(idParaulaPerEsborrar).innerHTML="";
+}

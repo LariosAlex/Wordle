@@ -14,7 +14,11 @@
     </noscript>
 </head>
 <body>
-    <h1>HAS PERDUT!!</h1>
-    <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";?>
+    <div id="resultadoPartida">
+        <h1>HAS PERDUT!!</h1>
+    </div>
+    <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
+          echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'> La paraula secreta era: ".$_SESSION['paraula'] ."</h2></div>";?>
+
 </body>
 </html>
