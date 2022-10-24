@@ -73,6 +73,9 @@
     grid-column: 2/2;
     grid-row: 4/4;
     justify-self: center;
+    border: 1px solid #DE541E;
+    padding: 10px;
+    max-width: 60%;
 }
 
 #index #divLlenguatge{

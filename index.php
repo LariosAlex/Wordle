@@ -1,6 +1,13 @@
 <?php
     session_start();
     include('funcions.php');
+    if($_POST['idioma'] == 'ca'){
+        include('lang_ca.php');
+    }elseif($_POST['idioma'] == 'es'){
+        include('lang_es.php');
+    }elseif($_POST['idioma'] == 'en'){
+        include('lang_en.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +29,7 @@
         }
     ?>
     <main>
-        <h1>Benvingut al Wordle!</h1>
+        <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
         <img src="./SRC/imatgeWordle.png" alt="">
         <div id="divLlenguatge">
             <p>Escull idioma / Escoge idioma / Choose language:</p>
@@ -55,13 +62,23 @@
         <div id="divNom">
             <form action="game.php" method="post" id="formNom">
                 <input type="text" name="nom_usuari" required id="nom_usuari">
-                <input type="submit" name="botoJugar" value="Jugar" id="butoJugar">
+                <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
             </form>
         </div>
         <div id="instruccions">
         <?php 
-            idioma($_SESSION['idioma']);
+            echo "<h1>".$index['title']."</h1>";
+            echo "<p>".$index['punt1']."<p>";
+            echo "<p>".$index['punt2']."<p>";
+            echo "<p>".$index['punt3']."<p>";
         ?> 
+        <ul>
+        <?php 
+            echo "<li>".$index['punt1']."</li>";
+            echo "<li>".$index['punt2']."</li>";
+            echo "<li>".$index['punt3']."</li>";
+        ?> 
+        </ul>
         </div>
     </main>
     <footer>

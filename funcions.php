@@ -1,11 +1,11 @@
 <?php
         if(isset($_POST['botoJugar'])){
-            if($_SESSION['idioma'] = 'ca'){
-                obtenirParaula('cat5.txt');
-            }elseif($_SESSION['idioma'] = 'es'){
-                obtenirParaula('5.txt');
-            }elseif($_SESSION['idioma'] = 'en'){
-                obtenirParaula('5.txt');
+            if($_SESSION['idioma'] == 'ca'){
+                $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
+            }elseif($_SESSION['idioma'] == 'es'){
+                $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
+            }elseif($_SESSION['idioma'] == 'en'){
+                $_SESSION['paraula'] = obtenirParaula('english_5.txt');
             }
         };
 
@@ -17,6 +17,7 @@
             }
             return $paraules[numeroRandom(0, count($paraules) - 1)];
         }
+
         function numeroRandom($min, $max){
             return rand($min, $max);
         }
@@ -33,14 +34,29 @@
         echo "</table>";
     }
 
-    function idioma($ìdioma){
-        if ($file = fopen("./".$ìdioma."Instruccions.txt", "r")) {
+    function idioma($idioma, $pagina){
+        $contPagina = [];
+        $paginaActual = false;
+        $paginaUpper = strtoupper($pagina);
+        if ($file = fopen("./".$idioma."Instruccions.txt", "r")) {
             while(!feof($file)) {
                 $line = fgets($file);
-               echo ("$line");
+                if($line == "//$pagina//"){
+                    $paginaActual = false;
+                    echo '<script>alert("...FALSE...")</script>';
+                }
+                if($paginaActual == true){
+                    $liniaActual = explode("-->", $line);
+                    $contPagina = [$liniaActual[0] => $liniaActual[1]];
+                }
+                if($line == "--INDEX--"){
+                    echo '<script>alert("...TRUE...")</script>';
+                    $paginaActual = true;
+                }
             }
             fclose($file);
-        }  
+        } 
+        return $contPagina;
     }
 
     function llistaParaulesIdioma($idioma){

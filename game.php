@@ -1,6 +1,13 @@
 <?php
     session_start();
     include('funcions.php');
+    if($_SESSION['idioma'] == 'ca'){
+        include('lang_ca.php');
+    }elseif($_SESSION['idioma'] == 'es'){
+        include('lang_es.php');
+    }elseif($_SESSION['idioma'] == 'en'){
+        include('lang_en.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -18,10 +25,9 @@
         <?php
             $paraula = $_POST['paraula'];
             $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
-            $_SESSION['idioma'] = $_POST['idioma'];
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['idioma']."</strong></div>\n<br>\n"; 
+        <?php echo "<div id='nomUsuari'><strong>".$index['nomUsuari'].$_SESSION['nom_usuari']."</strong></div>\n<br>\n"; 
         ?>
     </header>
     <article>
@@ -41,8 +47,7 @@
     ?>
     </article>
     <?php
-        $_POST['paraula'] = obtenirParaula('cat5.txt');
-        echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
     ?>
 </body>
 </html>
