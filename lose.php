@@ -15,6 +15,18 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body onload="executarSo('../SRC/soPerdida.mp3')">
+<nav>
+    <a href="index.php">
+        <div>
+            HOME
+        </div>
+    </a>
+    <a href="game.php">
+        <div>
+            JUGAR
+        </div>
+    </a>
+    </nav>
     <div id="resultadoPartida">
         <h1>HAS PERDUT!!</h1>
     </div>

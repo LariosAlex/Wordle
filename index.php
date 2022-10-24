@@ -16,9 +16,22 @@
     </noscript>
 </head>
 <body id="index">
+    <!--
+    <nav>
+        <ul class="nav">
+				<li><a href=""><img id="imatgeBoto" src="./SRC/boto_menu.png"></a></li>
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="game.php">JUGAR</a></li>
+                    
+                </ul>
+				</li>
+			</ul>
+    </nav>
+    -->
     <main>
         <h1>Benvingut al Wordle!</h1>
-        <img src="./SRC/imatgeWordle.png" alt="">
+        <img src="./SRC/imatgeWordle.png" id ="imatgeWordle">
         
         <form action="game.php" method="post">
             <input type="text" name="nom_usuari" required id="nom_usuari">
