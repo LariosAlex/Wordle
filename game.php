@@ -12,6 +12,9 @@
     
     <title>Wordle</title>
     <script src="./JS/funcions.js"></script>
+    <noscript>
+        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
+    </noscript>
 </head>
 <body id="game">
     <h1></h1>

@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Wordle</title>
+    <noscript>
+        <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
+    </noscript>
 </head>
 <body>
     <h1>HAS GUANYAT!!</h1>
