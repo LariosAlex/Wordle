@@ -1,6 +1,5 @@
-/*
-    Style pagina index.php
-*/
+/*    ESTILS GLOBALS      */
+
 #nomUsuari{
     position: absolute;
     top: 20px;
@@ -65,27 +64,12 @@
     background-color: #D6D6B1;
 }
 
-#index img{
-    height: 300px;
-    width: 250px;
-    grid-row: 2/3;
-    grid-column: 1/2;
-    align-self: center;
-    justify-self: center;
-}
 #index form{
     display: inline;
     grid-row: 2/3;
     grid-column: 2/3;
     align-self: center;
     justify-self: center;
-}
-#index input{
-    display: block;
-    height: 50px;
-    width: 600px;
-    text-align: center;
-    font-size: 30px;
 }
 
 #index h1{
@@ -99,26 +83,6 @@
     background-color: white;
     border-radius:12px;
 }
-
-#index #butoJugar{
-    display: block;
-    width: 605px;
-    font-size: 20px;
-    background-color: #3f3f37;
-    border-radius:12px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    margin:4px 2px;
-    cursor: pointer;
-}
-
-#index main{
-    display: grid;
-    grid-template-rows: 60px 380px 280px ;
-    grid-template-columns: 400px 1fr;
-}
-
 
 #index footer p{
     text-align: center;
@@ -139,9 +103,6 @@
     flex-direction: column;
 }
 
-/*
-    Style pagina game.php
-*/
 #game{
     background-color: #D6D6B1;
 }
@@ -156,34 +117,6 @@
 }
 #game tr{
     align-items: center;
-}
-#game td{
-    width: 50px;
-    height: 50px;
-    border: 1px solid #DE541E;
-    background-color: white;
-    border-radius: 5px;
-    text-align: center;
-}
-#game #teclat {
-    margin: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-    
-#game #teclat div {
-    display: flex;
-}  
-#game #tecla{
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 15px;
-    margin: 5px ;
-    text-transform: uppercase;
-    border: none;
-    background-color: rgb(226,232,240);
-    border-radius: 5px;
 }
 
 #game #tecla:hover{
@@ -225,4 +158,328 @@
     background-color: #D6D6B1;
     border-radius:12px;
     cursor: pointer;
+}
+
+
+
+
+/* PC */
+@media screen and (max-width: 1920px){
+    #index img{
+        height: 300px;
+        width: 250px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    #index input{
+        display: block;
+        height: 50px;
+        width: 600px;
+        text-align: center;
+        font-size: 30px;
+    }
+    
+    #index #butoJugar{
+        display: block;
+        width: 605px;
+        font-size: 20px;
+        background-color: #3f3f37;
+        border-radius:12px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        margin:4px 2px;
+        cursor: pointer;
+    }
+    
+    #index main{
+        display: grid;
+        grid-template-rows: 60px 320px 315px ;
+        grid-template-columns: 350px 1fr;
+    }
+    
+    /*
+        Style pagina game.php
+    */
+    #game td{
+        width: 50px;
+        height: 50px;
+        border: 1px solid #DE541E;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+    #game #teclat {
+        margin: 50px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        
+    #game #teclat div {
+        display: flex;
+    }  
+    #game #tecla{
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 15px;
+        margin: 5px ;
+        text-transform: uppercase;
+        border: none;
+        background-color: rgb(226,232,240);
+        border-radius: 5px;
+    }
+    
+}
+
+
+/* TABLET (800X600) */
+
+@media screen and (max-width: 800px){
+    
+    #index img{
+        margin-left: 60px;
+        height: 170px;
+        width: 150px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #index input{
+        display: block;
+        height: 50px;
+        width: 400px;
+        text-align: center;
+        font-size: 30px;
+    }
+    
+    #index #butoJugar{
+        display: block;
+        width: 405px;
+        font-size: 20px;
+        background-color: #3f3f37;
+        border-radius:12px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        margin:4px 2px;
+        cursor: pointer;
+    }
+    
+    #index main{
+        display: grid;
+        grid-template-rows: 50px 200px 305px;
+        grid-template-columns: 200px 1fr;
+    }
+    
+    /*
+        Style pagina game.php
+    */
+    #game td{
+        width: 45px;
+        height: 45px;
+        border: 1px solid #DE541E;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+    #game #teclat {
+        margin: 15px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        
+    #game #teclat div {
+        display: flex;
+    }  
+    #game #tecla{
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px;
+        margin: 3px ;
+        text-transform: uppercase;
+        border: none;
+        background-color: rgb(226,232,240);
+        border-radius: 5px;
+    }
+}
+
+
+
+/* MOVIL (375x667) */
+@media screen and (max-width: 800px){
+    #index img{
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: 100px;
+        width: 80px;
+        margin-left: 0;
+    }
+    
+    #index form{
+        display: inline;
+        grid-row: 2/3;
+        grid-column: 1/3;
+        align-self: center;
+        justify-self: center;
+    }
+    #index input{
+        display: block;
+        height: 50px;
+        width: 300px;
+        text-align: center;
+        font-size: 30px;
+    }
+    
+    #index h1{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    #index #nom_usuari{
+        background-color: white;
+        border-radius:12px;
+    }
+    
+    #index #butoJugar{
+        display: block;
+        width: 305px;
+        font-size: 20px;
+        background-color: #3f3f37;
+        border-radius:12px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        margin:4px 2px;
+        cursor: pointer;
+    }
+    
+    #index main{
+        display: grid;
+        grid-template-rows: 90px 160px 375px;
+        grid-template-columns: 90px 1fr;
+    }
+    
+    
+    #index footer p{
+        text-align: center;
+    }
+    
+    #index #instruccions{
+        margin-top: -25px;
+        display: block;
+        grid-column: 1/3;
+        grid-row: 3/4;
+        width: 340px;
+        justify-self: center;
+    
+    }
+
+    #index #instruccions p{
+        margin-top: -7px;
+    }
+    
+    #index #listaInstruccions{
+        margin-left: -25px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    /*
+        Style pagina game.php
+    */
+    #game{
+        background-color: #D6D6B1;
+    }
+    
+    #game #nomUsuari{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #game table{
+        display: flex;
+        justify-content: center;
+    }
+    #game tr{
+        align-items: center;
+    }
+    #game td{
+        width: 45px;
+        height: 45px;
+        border: 1px solid #DE541E;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+    #game #teclat {
+        margin: 15px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        
+    #game #teclat div {
+        display: flex;
+    }  
+    #game #tecla{
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 13px;
+        margin: 3px ;
+        text-transform: uppercase;
+        border: none;
+        background-color: rgb(226,232,240);
+        border-radius: 5px;
+    }
+    
+    #game #tecla:hover{
+        background-color:#DE541E;
+        color: white;
+    }
+    
+    #game #resultat{
+        display: none;
+        text-align: center;
+    }
+    
+    #errorJavascript{
+        background-color: #DE541E;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        grid-template-rows: 700px;
+    }
+    
+    #errorJavascript div{
+        grid-row: 0/1;
+        grid-column: 0/1;
+    }
+    
+    #errorJavascript h1{
+        text-align: center;
+    }
+    
+    #errorJavascript h2{
+        text-align: center;
+    }
+    
+    #errorJavascript button{
+        width: 160px;
+        height: 50px;
+        font-size: 30px;
+        background-color: #D6D6B1;
+        border-radius:12px;
+        cursor: pointer;
+    }
 }
