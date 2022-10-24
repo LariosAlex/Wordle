@@ -40,11 +40,18 @@
     ?>
     </article>
     <?php
-        $_POST['paraula'] = obtenirParaula('cat5.txt');
-        echo "<p id='paraulaSecreta'>".$_POST['paraula'] ."</p>";
+        $_SESSION['paraula'] = obtenirParaula('cat5.txt');
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula'] ."</p>";
     ?>
-    <form id="formGame" action="">
-        <input type="text" hidden value="<?php $_POST['paraula']?>">
-    </form>
+    
+        <?php
+        /*
+            echo "<form id='formGame'>";
+            echo "<input type='text' value='$_POST[paraula]'>";
+            echo "</form>";
+        */
+        ?>
+        
+    
 </body>
 </html>

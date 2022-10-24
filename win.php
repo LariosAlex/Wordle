@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //key($_SESSION['partides']['guanyades'][0]) += 1; 
+    include "funcions.php";
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -17,13 +17,10 @@
     <div id="estadistiques">
         <h4>Partides guanyades:</h4>
         <?php
-        echo $_POST['paraula'];
-        foreach($_SESSION['partides']['guanyades'] as $partida => $intent){
-            echo "<p>A la partida $partida has guanyat amb $intent intent/os</p>";
-        }
+            array_push($_SESSION['partides']['guanyades'],$_POST['fila']+1);
+            estadistiques($_SESSION['partides']);
         ?>
-        <h4>Nº de partides perdudes perdudes: <?php echo $_SESSION['partides']['perdudes'];?></h4>
-        
+
     </div>
 </body>
 </html>

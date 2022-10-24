@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "funcions.php";
     $_SESSION['partides']['perdudes'] += 1;
 ?>
 <!DOCTYPE html>
@@ -13,16 +14,17 @@
 </head>
 <body>
     <h1>HAS PERDUT!!</h1>
+    <?php
+        $paraulaOculta = $_SESSION['paraula'];
+        echo "<p>La paraula oculta es: <strong>$paraulaOculta</strong></p>";
+    ?>
     <h3>Estadistiques:</h3>
     <div id="estadistiques">
         <h4>Partides guanyades:</h4>
         <?php
-        foreach($_SESSION['partides']['guanyades'] as $partida => $intent){
-            echo "<p>A la partida $partida has guanyat amb $intent intent/os</p>";
-        }
+            
+            estadistiques($_SESSION['partides']);
         ?>
-        <h4>Nº de partides perdudes perdudes: <?php echo $_SESSION['partides']['perdudes'];?></h4>
-        
     </div>
 </body>
 </html>

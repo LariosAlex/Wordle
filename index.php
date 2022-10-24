@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('funcions.php');
-    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => [0 => 20,1=>4,2=>3]];
+    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => []];
 ?>
 
 <!DOCTYPE html>

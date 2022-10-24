@@ -1,4 +1,3 @@
-
 let fila = 0;
 var paraula ="";
 /*
@@ -61,17 +60,19 @@ function crearDiccionariContadorLletres(paraula){
 
 function resultatPartida(contador,filaActual){
     if (contador==5){
-        //document.getElementById('resultat').style.display ="block";
-        //document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
-        document.getElementById('formGame').action = "win.php";
-        //window.location.href = "win.php";
+        document.getElementById("formGame").setAttribute("action", "win.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
         fila = 6;
     }else if(filaActual == 5){
-        //document.getElementById('resultat').style.display ="block";
-        //document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
-        //window.location.href = "lose.php";
-        document.getElementById('formGame').action = "lose.php";
+        document.getElementById("formGame").setAttribute("action", "lose.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
+    }else{
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
+    document.getElementById("inputGame").setAttribute("name", "fila");
+    document.getElementById('inputGame').value = filaActual;
+    
+
 }
 
 function revisarParaula(filaActual){
@@ -129,5 +130,7 @@ function enviar(){
         revisarParaula(fila);
         fila += 1;
         paraula = "";
+    }else{
+        resultatPartida(0,fila)
     }
 }
