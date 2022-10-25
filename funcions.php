@@ -74,17 +74,75 @@
         foreach($llista as $tecla){
             if($tecla == 'ENVIAR' || $tecla == 'SEND'){
                 echo "</div><br><div id='filaTeclas'>\n";
-                echo "<button id='tecla' type='button' onclick='enviar()'>$tecla</button>\n";
+                echo "<form id='formGame' method='post'>\n";
+                echo "<input type='text' id='inputGame' hidden>\n";
+                echo "<input type='submit' id='tecla' type='button' onclick='enviar()' value='$tecla'>\n";
+                echo "</form>\n";
             }elseif($tecla == 'ESBORRAR' || $tecla == 'BORRAR' || $tecla == 'BACK'){
                 echo "<button id='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
             }else{
                 echo "<button id='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
-                if($tecla == "P")  {
-                    echo "</div><br>
-                    <div id='filaTeclas'>\n";
-                }
+            }
+            if($tecla == "P")  {
+                echo "</div><br>
+                <div id='filaTeclas'>\n";
             }
         }
         echo "</div>";
     }
-    ?>
+
+    function afegirPartida($resumPartida){
+        $arrayPartida = explode(",",$resumPartida);
+        $partidaActual = [];
+        foreach($arrayPartida as $FilaIntents){
+            $arrayResumIntents = explode("-",$FilaIntents);
+            array_push($partidaActual,$arrayResumIntents);
+        }
+        array_push($_SESSION['totalPartides'],$partidaActual);
+        
+    }
+
+    function mostrarPartides(){
+        echo "<table>\n<tr>\n
+        <th>Partida</th>\n
+        <th>Intents</th>\n
+        <th>Puntuacio</th>\n
+        </tr>\n";
+        for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
+            echo "<tr>\n";
+            $puntuacio = 0;
+            foreach($_SESSION['totalPartides'][$p] as $intentos){
+                $fila = ((int)$intentos[0])+1;
+                $encert = (int)$intentos[1];
+                
+                $puntuacio += calculPuntuacio($fila,$encert);
+            }
+            echo "<td>". $p+1 ."</td>\n";
+            echo "<td>$fila</td>\n";
+            echo "<td>$puntuacio</td>\n";
+            echo "</tr>\n";
+        }
+        echo "</table>\n";
+        echo "<p><h4>Partides perdudes: </h4><strong>". $_SESSION['partides']['perdudes'] ."</strong></p>";
+        
+    }
+    function calculPuntuacio($fila,$encerts){
+        $puntuacio = 0;
+            if($fila == 1){
+                $puntuacio = $encerts * 1 * 100;
+            }else if($fila == 2){
+                $puntuacio += $encerts * 0.8 * 100;
+            }else if($fila == 3){
+                $puntuacio += $encerts * 0.6 * 100;
+            }else if($fila == 4){
+                $puntuacio += $encerts * 0.4 * 100;
+            }else if($fila == 5){
+                $puntuacio += $encerts * 0.2 * 100;
+            }else if($fila == 6){
+                $puntuacio += $encerts * 0.1 * 100;
+            }else if($fila == 6 && $encerts != 5){
+                $puntuacio = 0;
+            }
+        return $puntuacio;
+    }
+?>

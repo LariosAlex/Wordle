@@ -1,8 +1,8 @@
-
 let fila = 0;
 var paraula ="";
 const soError = new Audio('../SRC/soError.mp3');
 
+var partidaActual = [];
 /*
 function palabras(){
     var files = document.getElementById("taulaParaules").rows.length;
@@ -58,17 +58,26 @@ function crearDiccionariContadorLletres(paraula){
     return resultat;
 }
 
-function resultatPartida(contador,filaActual){
-    if (contador==5){
-        //document.getElementById('resultat').style.display ="block";
-        //document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
-        window.location.href = "win.php";
+function resultatPartida(encerts,filaActual){
+    if (encerts==5){
+        document.getElementById("formGame").setAttribute("action", "win.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
         fila = 6;
     }else if(filaActual == 5){
-        //document.getElementById('resultat').style.display ="block";
-        //document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
-        window.location.href = "lose.php";
+        document.getElementById("formGame").setAttribute("action", "lose.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
+    }else{
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
+
+    let identificador = String(filaActual)+4;
+    let valor = document.getElementById(identificador).innerHTML;
+    if( valor != undefined || valor != null){
+        partidaActual.push([filaActual+"-"+encerts]);
+    }
+    document.getElementById("inputGame").setAttribute("name", "estadistiques");
+    document.getElementById('inputGame').value = partidaActual;  
+
 }
 
 function executarSo(so){
@@ -140,9 +149,8 @@ function enviar(){
         revisarParaula(fila);
         fila += 1;
         paraula = "";
+    }else{
+        //resultatPartida(0,fila)
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
-}
-
-function borrarParaula(idParaulaPerEsborrar){
-    document.getElementById(idParaulaPerEsborrar).innerHTML="";
 }

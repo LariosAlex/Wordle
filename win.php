@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "funcions.php";
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -21,5 +22,14 @@
     <?php 
         echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
     ?>
+    <h3>Estadistiques:</h3>
+    <div id="estadistiques">
+        <h4>Partides guanyades:</h4>
+        <?php
+            afegirPartida($_POST['estadistiques']);
+            mostrarPartides();
+        ?>
+
+    </div>
 </body>
-</html>
+</html> 

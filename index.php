@@ -8,6 +8,8 @@
     }elseif($_POST['idioma'] == 'en'){
         include('lang_en.php');
     }
+    $_SESSION['partides'] = ["perdudes" => 0];
+    $_SESSION['totalPartides'] = [];
 ?>
 
 <!DOCTYPE html>

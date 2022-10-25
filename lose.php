@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include "funcions.php";
+    $_SESSION['partides']['perdudes'] += 1;
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -22,6 +24,15 @@
         echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
         echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'> La paraula secreta era: ".$_SESSION['paraula'] ."</h2></div>";
     ?>
+        <h3>Estadistiques:</h3>
+    <div id="estadistiques">
+        <h4>Partides guanyades:</h4>
+        <?php
+            afegirPartida($_POST['estadistiques']);
+            mostrarPartides();
+        ?>
 
-    </body>
+    </div>
+    </div>
+</body>
 </html>
