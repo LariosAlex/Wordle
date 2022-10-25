@@ -53,11 +53,35 @@
     }
 
     function estadistiques($llista){
-        foreach($llista['guanyades'] as $partida => $intent){
-            $partida += 1;
-            echo "<p>A la partida $partida has guanyat amb $intent[0] intent/os $intent[1]</p>";
+        if(count($llista['guanyades']) != 0){
+            foreach($llista['guanyades'] as $partida => $estadistiques){
+                $partida += 1;
+                echo "<p>A la partida $partida has guanyat amb ". intval($estadistiques[0])+1 ." intent/os amb un total de $estadistiques[1] punts</p>";
+            }
+        }else{
+            echo "<p>NINGUNA</p>";
         }
+        
         $perdudes = $llista['perdudes'];
         echo "<h4>Nº de partides perdudes perdudes: $perdudes </h4>";
+    }
+
+    function generarPuntuacio($llista){
+        $estadistiquesPartida = explode(",",$llista);
+        $puntuacio = 0;
+        $multiplicador = 1;
+        $ultimaFila = "";
+        foreach($estadistiquesPartida as $estadistiquesFila){
+            $estadistiquesFila = explode("-",$estadistiquesFila);
+            $puntuacio += intval($estadistiquesFila[1]) * $multiplicador * 100;
+            $ultimaFila = $estadistiquesFila[0];
+
+            if($estadistiquesFila[0] !=4){
+                $multiplicador -= 0.2;
+            }else{
+                $multiplicador -= 0.1;
+            }
+        }
+        return [$ultimaFila,$puntuacio];
     }
     ?>

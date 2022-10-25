@@ -20,6 +20,9 @@
     ?>
     <h3>Estadistiques:</h3>
     <div id="estadistiques">
+        <?php
+            echo "<p>La teva puntuacio es: <strong>".generarPuntuacio($_POST['estadistiques'])[1]."</strong></p>";
+        ?>
         <h4>Partides guanyades:</h4>
         <?php
             

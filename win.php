@@ -15,10 +15,16 @@
     <h1>HAS GUANYAT!!</h1>
     <h3>Estadistiques:</h3>
     <div id="estadistiques">
-        <h4>Partides guanyades:</h4>
         <?php
-        //echo $_POST['estadistiques']."<br>";
+            echo "<p>La teva puntuacio es: <strong>".generarPuntuacio($_POST['estadistiques'])[1]."</strong></p>";
+        ?>
+        <h4>Partides guanyades:</h4>
+        <?php        
+        array_push($_SESSION['partides']['guanyades'],generarPuntuacio($_POST['estadistiques']));
 
+        estadistiques($_SESSION['partides']);
+
+        /*
             function afegirPartida($resumPartida){
                 $arrayPartida = explode(",",$resumPartida);
                 $partidaActual = [];
@@ -38,12 +44,12 @@
                         $fila = ((int)$intentos[0])+1;
                         $encert = (int)$intentos[1];
                         
-                        echo calculPuntuacio($fila,$encert)."<br>";
+                        echo calculPuntuacio($fila,$encert,1)."<br>";
                     }
                 }
             }
 
-            function calculPuntuacio($fila,$encerts){
+            function calculPuntuacio($fila,$encerts,$multiplicador){
                 $puntuacio = 0;
                     if($fila == 1){
                         $puntuacio = $encerts * 1 * 100;
@@ -53,12 +59,10 @@
                 return $puntuacio;
             }
             
-            afegirPartida($_POST['estadistiques']);
-            mostrarPartides();
+            //afegirPartida($_POST['estadistiques']);
+            //mostrarPartides();
             
-
-
-            //estadistiques($_SESSION['partides']);
+        */
         ?>
 
     </div>
