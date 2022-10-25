@@ -24,7 +24,18 @@
     </noscript>
 </head>
 <body id="game">
-    <h1></h1>
+<nav>
+        <a href="index.php">
+            <div>
+                HOME
+            </div>
+        </a>
+        <a href="game.php">
+            <div>
+                JUGAR
+            </div>
+        </a>
+    </nav>
         <?php
             $paraula = $_POST['paraula'];
             $_SESSION['nom_usuari'] = $_POST['nom_usuari'];

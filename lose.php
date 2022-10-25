@@ -17,14 +17,23 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body onload="executarSo('../SRC/soPerdida.mp3')">
+<nav>
+    <a href="index.php">
+        <div>
+            HOME
+        </div>
+    </a>
+    <a href="game.php">
+        <div>
+            JUGAR
+        </div>
+    </a>
+    </nav>
     <div id="resultadoPartida">
         <h1>HAS PERDUT!!</h1>
     </div>
-    <?php 
-        echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
-        echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'> La paraula secreta era: ".$_SESSION['paraula'] ."</h2></div>";
-    ?>
-        <h3>Estadistiques:</h3>
+    <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
+          echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'> La paraula secreta era: ".$_SESSION['paraula'] ."</h2></div>";?>
     <div id="estadistiques">
         <h4>Partides guanyades:</h4>
         <?php
@@ -32,7 +41,6 @@
             mostrarPartides();
         ?>
 
-    </div>
     </div>
 </body>
 </html>
