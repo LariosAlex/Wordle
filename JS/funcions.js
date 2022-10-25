@@ -44,9 +44,6 @@ function afegirLletraParaula(lletra){
     }
 }
 
-
-
-
 function crearDiccionariContadorLletres(paraula){
     resultat = {};
     for(i=0;i<=4;i++){
