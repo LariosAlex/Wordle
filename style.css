@@ -152,7 +152,7 @@ nav ul ul li{
 */
 
 
-#index form{
+#index #formIdioma{
     display: inline;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -231,6 +231,8 @@ nav ul ul li{
     height: 20px;
 }
 
+
+
 /*
     Style pagina game.php
 */
@@ -306,7 +308,7 @@ nav ul ul li{
 
 /* PC */
 @media screen and (max-width: 1920px){
-    #index img{
+    #imatgeWordle{
         height: 300px;
         width: 250px;
         grid-row: 2/3;
@@ -315,7 +317,7 @@ nav ul ul li{
         justify-self: center;
     }
     
-    #index input{
+    #index #formNom input{
         display: block;
         height: 50px;
         width: 600px;
@@ -381,7 +383,7 @@ nav ul ul li{
 
 @media screen and (max-width: 800px){
     
-    #index img{
+    #imatgeWordle{
         margin-left: 60px;
         height: 170px;
         width: 150px;
@@ -455,7 +457,7 @@ nav ul ul li{
 
 /* MOVIL (375x667) */
 @media screen and (max-width: 800px){
-    #index img{
+    #imatgeWordle{
         position:absolute;
         top: 0;
         left: 0;

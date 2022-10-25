@@ -19,24 +19,24 @@
     <nav>
         <a href="index.php">
             <div>
-                HOME
+                <?php echo $general['boto2'];?> 
             </div>
         </a>
         <a href="game.php">
             <div>
-                JUGAR
+                <?php echo $general['boto1'];?> 
             </div>
         </a>
     </nav>
     <div id="resultadoPartida">
-        <h1>HAS GUANYAT!!</h1>
+        <h1><?php echo $fiPartida['titleWin'];?></h1>
     </div>
     <?php 
-        echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
+        echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
     ?>
-    <h3>Estadistiques:</h3>
+    <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <h4>Partides guanyades:</h4>
+        <h4><?php echo $fiPartida['pGuanyades'];?></h4>
         <?php
             afegirPartida($_POST['estadistiques']);
             mostrarPartides();

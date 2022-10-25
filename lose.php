@@ -30,17 +30,17 @@
     </a>
     </nav>
     <div id="resultadoPartida">
-        <h1>HAS PERDUT!!</h1>
+        <h1><?php echo $fiPartida['titleLose'];?></h1>
     </div>
     <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
-          echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'> La paraula secreta era: ".$_SESSION['paraula'] ."</h2></div>";?>
+          echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'>".$fiPartida['fraseParaulaSecreta'].strtoupper($_SESSION['paraula']) ."</h2></div>";?>
+    <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <h4>Partides guanyades:</h4>
+        <h4><?php echo $fiPartida['pGuanyades'];?></h4>
         <?php
             afegirPartida($_POST['estadistiques']);
             mostrarPartides();
         ?>
-
     </div>
 </body>
 </html>
