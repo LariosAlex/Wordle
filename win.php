@@ -16,13 +16,12 @@
     <h3>Estadistiques:</h3>
     <div id="estadistiques">
         <?php
-            echo "<p>La teva puntuacio es: <strong>".generarPuntuacio($_POST['estadistiques'])[1]."</strong></p>";
+            echo "<p>La teva puntuacio es: <strong>".intval(generarPuntuacio($_POST['estadistiques'])[1]) + 100 ."</strong></p>";
         ?>
         <h4>Partides guanyades:</h4>
-        <?php        
-        array_push($_SESSION['partides']['guanyades'],generarPuntuacio($_POST['estadistiques']));
-
-        estadistiques($_SESSION['partides']);
+        <?php
+            array_push($_SESSION['partides']['guanyades'],generarPuntuacio($_POST['estadistiques']));
+            estadistiques($_SESSION['partides']);
 
         /*
             function afegirPartida($resumPartida){

@@ -56,7 +56,7 @@
         if(count($llista['guanyades']) != 0){
             foreach($llista['guanyades'] as $partida => $estadistiques){
                 $partida += 1;
-                echo "<p>A la partida $partida has guanyat amb ". intval($estadistiques[0])+1 ." intent/os amb un total de $estadistiques[1] punts</p>";
+                echo "<p>A la partida $partida has guanyat amb ". intval($estadistiques[0])+1 ." intent/os amb un total de ". $estadistiques[1]+ 100 ." punts</p>";
             }
         }else{
             echo "<p>NINGUNA</p>";
