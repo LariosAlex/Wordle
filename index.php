@@ -35,38 +35,38 @@
     ?>
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
-        <img src="./SRC/imatgeWordle.png" alt="">
+        <img src="./SRC/imatgeWordle.png" alt="" id="imatgeWordle">
         <div id="divLlenguatge">
             <p>Escull idioma / Escoge idioma / Choose language:</p>
             <form action="index.php" method="post" id="formIdioma">
-                <label>
-                    <input type="radio" id="ca" name="idioma" value="ca" onchange="this.form.submit()" checked>
-                    <img src="./SRC/ca.png" alt="Bandera catalana">
-                        Català
+                <label id="labelCa" class="labelIdioma">
+                    <input type="radio" id="ca" name="idioma" value="ca" onchange="this.form.submit()" checked class="inputIdioma">
+                    <img src="./SRC/ca.png" alt="Bandera catalana" class="bandera">
+                    <p>Ca</p>
                 </label><br>
-                <label>
-                    <input type="radio" id="es" name="idioma" value="es" onclick="this.form.submit()"
+                <label id="labelEs" class="labelIdioma">
+                    <input type="radio" id="es" name="idioma" value="es" onclick="this.form.submit()" class="inputIdioma"
                     <?php if($_SESSION['idioma'] == 'es'){
                         echo " checked";
                     }?>
                     >
-                    <img src="./SRC/es.png" alt="Bandera española" width="60">
-                        Español
+                    <img src="./SRC/es.png" alt="Bandera española" class="bandera">
+                    <p>Es</p>    
                 </label><br>
-                <label>
-                    <input type="radio" id="en" name="idioma" value="en" onclick="this.form.submit()" 
+                <label id="labelEn" class="labelIdioma">
+                    <input type="radio" id="en" name="idioma" value="en" onclick="this.form.submit()"  class="inputIdioma"
                     <?php if($_SESSION['idioma'] == 'en'){
                         echo " checked";
                     }?>
                     >
-                    <img src="./SRC/en.png" alt="English flag">
-                        English 
+                    <img src="./SRC/en.png" alt="English flag" class="bandera">
+                    <p>En</p>     
                 </label>
             </form>
         </div>
         <div id="divNom">
             <form action="game.php" method="post" id="formNom">
-                <input type="text" name="nom_usuari" required id="nom_usuari">
+                <input type="text" name="nom_usuari" id="nom_usuari" required>
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
             </form>
         </div>
