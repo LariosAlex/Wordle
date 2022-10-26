@@ -1,11 +1,11 @@
 <?php
     session_start();
     include('funcions.php');
-    if($_SESSION['idioma'] == 'ca'){
+    if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
         include('lang_ca.php');
-    }elseif($_SESSION['idioma'] == 'es'){
+    }elseif( $_SESSION['idioma'] == 'es'){
         include('lang_es.php');
-    }elseif($_SESSION['idioma'] == 'en'){
+    }elseif( $_SESSION['idioma'] == 'en'){
         include('lang_en.php');
     }
 ?>
@@ -27,12 +27,12 @@
 <nav>
         <a href="index.php">
             <div>
-                HOME
+                <?php echo $general['boto2'];?> 
             </div>
         </a>
         <a href="game.php">
             <div>
-                JUGAR
+                <?php echo $general['boto1'];?> 
             </div>
         </a>
     </nav>

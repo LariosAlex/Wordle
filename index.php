@@ -1,13 +1,6 @@
 <?php
     session_start();
     include('funcions.php');
-    if($_POST['idioma'] == 'ca' or (!isset($_POST['idioma']))){
-        include('lang_ca.php');
-    }elseif($_POST['idioma'] == 'es'){
-        include('lang_es.php');
-    }elseif($_POST['idioma'] == 'en'){
-        include('lang_en.php');
-    }
     $_SESSION['partides'] = ["perdudes" => 0];
     $_SESSION['totalPartides'] = [];
 ?>
@@ -35,7 +28,7 @@
     ?>
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
-        <img src="./SRC/imatgeWordle.png" alt="" id="imatgeWordle">
+        <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="">
         <div id="divLlenguatge">
             <p>Escull idioma / Escoge idioma / Choose language:</p>
             <form action="index.php" method="post" id="formIdioma">

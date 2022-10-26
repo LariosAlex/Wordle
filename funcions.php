@@ -1,4 +1,12 @@
 <?php
+    if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
+        include('lang_ca.php');
+    }elseif( $_SESSION['idioma'] == 'es'){
+        include('lang_es.php');
+    }elseif( $_SESSION['idioma'] == 'en'){
+        include('lang_en.php');
+    }
+
         if(isset($_POST['botoJugar'])){
             if($_SESSION['idioma'] == 'ca'){
                 $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
@@ -103,10 +111,17 @@
     }
 
     function mostrarPartides(){
+        if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
+            include('lang_ca.php');
+        }elseif( $_SESSION['idioma'] == 'es'){
+            include('lang_es.php');
+        }elseif( $_SESSION['idioma'] == 'en'){
+            include('lang_en.php');
+        }
         echo "<table>\n<tr>\n
-        <th>Partida</th>\n
-        <th>Intents</th>\n
-        <th>Puntuacio</th>\n
+        <th>". $fiPartida['partida'] ."</th>\n
+        <th>". $fiPartida['intents'] ."</th>\n
+        <th>". $fiPartida['punts'] ."</th>\n
         </tr>\n";
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             echo "<tr>\n";
@@ -114,16 +129,15 @@
             foreach($_SESSION['totalPartides'][$p] as $intentos){
                 $fila = ((int)$intentos[0])+1;
                 $encert = (int)$intentos[1];
-                
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
-            echo "<td>". $p+1 ."</td>\n";
+            echo "<td>".($p+1)."</td>\n";
             echo "<td>$fila</td>\n";
             echo "<td>$puntuacio</td>\n";
             echo "</tr>\n";
         }
         echo "</table>\n";
-        echo "<p><h4>Partides perdudes: </h4><strong>". $_SESSION['partides']['perdudes'] ."</strong></p>";
+        echo "<p><h4>". $fiPartida['pPerdudes'] ."</h4><strong>". $_SESSION['partides']['perdudes'] ."</strong></p>";
         
     }
     function calculPuntuacio($fila,$encerts){
