@@ -137,7 +137,19 @@
             echo "</tr>\n";
         }
         echo "</table>\n";
-        echo "<p><h4>". $fiPartida['pPerdudes'] ."</h4><strong>". $_SESSION['partides']['perdudes'] ."</strong></p>";
+
+        echo "<br>\n<table>\n";
+        echo "<tr>\n";
+        echo "<th>". $fiPartida['pGuanyades'] ."</th>\n";
+        echo "<th>". $fiPartida['pPerdudes'] ."</th>\n";
+        echo "</tr>\n";
+        echo "<tr>\n";
+        echo "<td>". $_SESSION['partides']['guanyades'] ."</td>\n";
+        echo "<td>". $_SESSION['partides']['perdudes'] ."</td>\n";
+        echo "</tr>\n";
+        echo "</table>\n";
+        
+        $_SESSION['puntuacio'] = $puntuacio;
         
     }
     function calculPuntuacio($fila,$encerts){

@@ -2,6 +2,8 @@
     session_start();
     include "funcions.php";
     $_SESSION['partides']['perdudes'] += 1;
+    
+    afegirPartida($_POST['estadistiques']);
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -32,13 +34,14 @@
     <div id="resultadoPartida">
         <h1><?php echo $fiPartida['titleLose'];?></h1>
     </div>
-    <?php echo "<div id='nomUsuari'><strong>Usuari:".$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
-          echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'>".$fiPartida['fraseParaulaSecreta'].strtoupper($_SESSION['paraula']) ."</h2></div>";?>
+    <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
+        echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'>".$fiPartida['fraseParaulaSecreta'].strtoupper($_SESSION['paraula']) ."</h2></div>";
+    ?>
+
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
         <h4><?php echo $fiPartida['pGuanyades'];?></h4>
         <?php
-            afegirPartida($_POST['estadistiques']);
             mostrarPartides();
         ?>
     </div>
