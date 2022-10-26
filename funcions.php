@@ -171,4 +171,17 @@
             }
         return $puntuacio;
     }
+
+    function mostrarPuntuacio(){
+        for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
+            $puntuacio = 0;
+            foreach($_SESSION['totalPartides'][$p] as $intentos){
+                $fila = ((int)$intentos[0])+1;
+                $encert = (int)$intentos[1];
+                $puntuacio += calculPuntuacio($fila,$encert);
+            }
+        }
+        $_SESSION['puntuacio'] = $puntuacio;
+        
+    }
 ?>

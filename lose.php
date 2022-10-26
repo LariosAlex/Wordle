@@ -1,9 +1,11 @@
 <?php
     session_start();
     include "funcions.php";
-    $_SESSION['partides']['perdudes'] += 1;
     
+    $_SESSION['partides']['perdudes'] += 1;
+
     afegirPartida($_POST['estadistiques']);
+    mostrarPuntuacio()
 ?>
 <!DOCTYPE html>
 <html lang="ca">
