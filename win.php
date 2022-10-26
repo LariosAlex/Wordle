@@ -15,7 +15,7 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body onload="executarSo('../SRC/soGuanyar.mp3')">
+<body onload="executarSo('../SRC/soGuanyar.mp3')" id="win">
     <nav>
         <a href="index.php">
             <div>
@@ -36,12 +36,11 @@
     ?>
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <h4><?php echo $fiPartida['pGuanyades'];?></h4>
+        <div id="partidesGuanyades"><h4><?php echo $fiPartida['pGuanyades'];?></h4></div>
         <?php
             afegirPartida($_POST['estadistiques']);
             mostrarPartides();
         ?>
-
     </div>
 </body>
 </html>

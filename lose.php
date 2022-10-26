@@ -16,18 +16,18 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body onload="executarSo('../SRC/soPerdida.mp3')">
-<nav>
-    <a href="index.php">
-        <div>
-            HOME
-        </div>
-    </a>
-    <a href="game.php">
-        <div>
-            JUGAR
-        </div>
-    </a>
+<body onload="executarSo('../SRC/soPerdida.mp3')" id="lose">
+    <nav>
+        <a href="index.php">
+            <div>
+                <?php echo $general['boto2'];?> 
+            </div>
+        </a>
+        <a href="game.php">
+            <div>
+                <?php echo $general['boto1'];?> 
+            </div>
+        </a>
     </nav>
     <div id="resultadoPartida">
         <h1><?php echo $fiPartida['titleLose'];?></h1>
@@ -36,7 +36,7 @@
           echo "<div id='loseParaulaSecreta'><h2 id='paraulaSecreta'>".$fiPartida['fraseParaulaSecreta'].strtoupper($_SESSION['paraula']) ."</h2></div>";?>
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <h4><?php echo $fiPartida['pGuanyades'];?></h4>
+        <h4 id="partidesGuanyades"><?php echo $fiPartida['pGuanyades'];?></h4>
         <?php
             afegirPartida($_POST['estadistiques']);
             mostrarPartides();

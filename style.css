@@ -175,12 +175,6 @@ nav div{
 }
 
 
-#estadistiques {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
 /* PC */
 @media screen and (max-width: 1920px){
     #index main{
@@ -354,6 +348,58 @@ nav div{
     }
 
     /* FINAL */
+
+    #lose, #win{
+        background-color: #D6D6B1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px 60px 50px 320px;
+    }
+
+    #resultadoPartida{
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    #loseParaulaSecreta{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    #lose h3, #win h3{
+        grid-row: 3/4;
+        grid-column: 1/2;
+        text-align: center;
+    }
+
+    #estadistiques {
+        display: grid;
+        grid-row: 4/5;
+        grid-column: 1/2;
+        grid-template-columns: 1fr 300px 1fr;
+        grid-template-rows: 50px auto 50px;
+    }
+
+    #partidesPerdudes{
+        grid-row: 3/4;
+        grid-column: 2/3;
+        text-align: center;
+    }
+
+    #partidesGuanyades{
+        grid-row: 1/2;
+        grid-column: 2/3;
+        text-align: center;
+    }
+
+    table{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    td{
+        text-align: center;
+    }
 
 }
 

@@ -137,7 +137,7 @@
             echo "</tr>\n";
         }
         echo "</table>\n";
-        echo "<p><h4>". $fiPartida['pPerdudes'] ."</h4><strong>". $_SESSION['partides']['perdudes'] ."</strong></p>";
+        echo "<div id='partidesPerdudes'><h4>". $fiPartida['pPerdudes'] ."<strong>". $_SESSION['partides']['perdudes'] ."</strong></h4></div>";
         
     }
     function calculPuntuacio($fila,$encerts){
