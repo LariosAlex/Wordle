@@ -46,8 +46,8 @@
         </a>
     </nav>
         <?php
-            if(!isset($_SESSION['nom_usuari'])){
-                $_SESSION['nom_usuari'] = $_POST['nom_usuari'];   
+            if(isset($_POST['nom_usuari'])){
+                $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
             }
         ?>
     <header>
