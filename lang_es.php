@@ -9,12 +9,12 @@ $index = [
     'salutacio' => 'Bienvendio a WORDLE',
     'botoJugar' => 'Jugar',
     'title' => 'INSTRUCCIONES',
-    'punt1' => 'Todas las personas',
-    'punt2' => "L'objectiu és simple, endevinar la paraula oculta. La paraula té 5 lletresi tens 6 intents per endevinar-la. La paraula és la mateixa per a totesles persones en aquell dia.",
-    'punt3' => "Cada intent ha de ser una paraula vàlida. A cada ronda el joc pintacada lletra d'un color indicant si aquesta lletra es troba o no a laparaula i si es troba a la posició correcta.",
-    'itemList1' => 'VERD significa que la lletra R està a la paraula ia la posició <strong>CORRECTA.',
-    'itemList2' => 'GROC significa que la lletra és present a la paraula però en la posició INCORRECTA.',
-    'itemList3' => 'GRIS significa que la lletra <strong>NO</strong> és a la paraula.',
+    'punt1' => 'Cualquier persona puede jugar a la palabra del día.',
+    'punt2' => "El objetivo es simple, adivinar la palabra oculta. La palabra tiene 5 letras y tienes 6 intentos para adivinarla. La palabra es la misma para todas las personas en ese día.",
+    'punt3' => "Cada intento debe ser una palabra válida. En cada ronda el juego pinta cada letra de un color indicando si esa letra se encuentra o no en la palabra y si se encuentra en la posición correcta.",
+    'itemList1' => 'VERDE significa que la letra R está en la palabra y en la posición CORRECTA.',
+    'itemList2' => 'AMARILLO significa que la letra está presente en la palabra pero en la posición INCORRECTA.',
+    'itemList3' => 'GRIS significa que la letra NO está en la palabra.',
 ];
 
 $game = [
@@ -32,4 +32,8 @@ $fiPartida = [
     'punts' => 'Puntuación: ',
     'fraseParaulaSecreta' => 'La palabra secreta era: '
 ]
+$noscript{
+    'disculpa' => "Para jugar a WORDLE debes  tener activado Javascript en tu navegador",
+    'indicacio' => 'Una vez activado, dale click a INICIO',
+}
 ?>
