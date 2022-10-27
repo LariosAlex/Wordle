@@ -1,3 +1,6 @@
+<?php 
+    include "funcions.php";
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -9,8 +12,8 @@
 </head>
 <body id="errorJavascript">
     <div>
-    <h1>Ho sentim, pero has d'activar el Javascript al teo navegador, quan ho tinguis activat recarrega la pagina</h1>
-    <h2>Activa-ho i clica al botó per tornar a l'inici <a href="index.php"><br><br><button>Inici</button></a></h2>
+    <h1><?php echo $noscript['disculpa'];?></h1>
+    <h2><?php echo $noscript['indicacio'];?><a href="index.php"><br><br><button><?php echo $general['boto2'];?></button></a></h2>
     </div>
 </body>
 </html>

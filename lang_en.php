@@ -1,20 +1,20 @@
 <?php
 $general = [
-    'usuari' => 'Jugador: ',
-    'boto1' => 'JUGAR',
-    'boto2' => 'INICI'
+    'usuari' => 'Player: ',
+    'boto1' => 'PLAY',
+    'boto2' => 'START'
 ];
 
 $index = [
-    'salutacio' => 'Benvingut al WORDLE',
-    'botoJugar' => 'Jugar',
-    'title' => 'INSTRUCCIONS',
-    'punt1' => 'Totes les persones',
-    'punt2' => "L'objectiu és simple, endevinar la paraula oculta. La paraula té 5 lletresi tens 6 intents per endevinar-la. La paraula és la mateixa per a totesles persones en aquell dia.",
-    'punt3' => "Cada intent ha de ser una paraula vàlida. A cada ronda el joc pintacada lletra d'un color indicant si aquesta lletra es troba o no a laparaula i si es troba a la posició correcta.",
-    'itemList1' => 'VERD significa que la lletra R està a la paraula ia la posició <strong>CORRECTA.',
-    'itemList2' => 'GROC significa que la lletra és present a la paraula però en la posició INCORRECTA.',
-    'itemList3' => 'GRIS significa que la lletra <strong>NO</strong> és a la paraula.',
+    'salutacio' => 'Welcome to WORDLE',
+    'botoJugar' => 'Play',
+    'title' => 'INSTRUCTIONS',
+    'punt1' => 'Anyone can play word of the day.',
+    'punt2' => "The goal is simple, guess the hidden word. The word has 5 letters and you have 6 attempts to guess it. The word is the same for all people on that day.",
+    'punt3' => "Each guess must be a valid word. In each round the game paints each letter with a color indicating whether or not that letter is in the word and if it is in the correct position.",
+    'itemList1' => 'GREEN means that the letter R is in the word and in the CORRECT position.',
+    'itemList2' => 'YELLOW means that the letter is present in the word but in the WRONG position.',
+    'itemList3' => 'GRAY means the letter is NOT in the word.',
 ];
 
 $game = [
@@ -22,14 +22,17 @@ $game = [
 ];
 
 $fiPartida = [
-    'titleWin' => 'HAS GUANYAT!!',
-    'titleLose' => 'HAS PERDUT!!',
-    'estadistica' => 'Estadistiques: ',
-    'pGuanyades' => 'Partides Guanyades: ',
-    'pPerdudes' => 'Partides Perdudes: ',
-    'partida' => 'Partida: ',
-    'intents' => 'Intents: ',
-    'punts' => 'Puntuació: ',
-    'fraseParaulaSecreta' => 'La paraula secreta era: '
+    'titleWin' => 'YOU HAVE WON!!',
+    'titleLose' => 'YOU HAVE LOSE!!',
+    'estadistica' => 'Statistics: ',
+    'pGuanyades' => 'Matches won: ',
+    'pPerdudes' => 'Lost matches: ',
+    'partida' => 'Match: ',
+    'intents' => 'Attempts: ',
+    'punts' => 'Points: ',
+    'fraseParaulaSecreta' => 'The secret word was:'
 ]
-?>
+$noscript{
+    'disculpa' => "To play WORDLE you must have Javascript activated in your browser.",
+    'indicacio' => 'Once activated, click START',
+}
