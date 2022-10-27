@@ -1,12 +1,21 @@
 <?php
     session_start();
     include('funcions.php');
+    
     if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
         include('lang_ca.php');
     }elseif( $_SESSION['idioma'] == 'es'){
         include('lang_es.php');
     }elseif( $_SESSION['idioma'] == 'en'){
         include('lang_en.php');
+    }
+
+    if($_SESSION['idioma'] == 'ca'){
+        $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
+    }elseif($_SESSION['idioma'] == 'es'){
+        $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
+    }elseif($_SESSION['idioma'] == 'en'){
+        $_SESSION['paraula'] = obtenirParaula('english_5.txt');
     }
 ?>
 <!DOCTYPE html>
@@ -37,10 +46,7 @@
         </a>
     </nav>
         <?php
-        if(!isset($_SESSION['nom_usuari'])){
-            $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
-        }
-            
+            $_SESSION['nom_usuari'] = $_POST['nom_usuari'];            
         ?>
     <header>
         <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
@@ -63,7 +69,7 @@
     ?>
     </article>
     <?php
-        echo "<p id='paraulaSecreta'>".$_SESSION['paraula'] ."</p>";
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
     ?>
 </body>
 </html>

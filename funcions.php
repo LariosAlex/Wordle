@@ -6,32 +6,21 @@
     }elseif( $_SESSION['idioma'] == 'en'){
         include('lang_en.php');
     }
-
-        if(isset($_POST['botoJugar'])){
-            if($_SESSION['idioma'] == 'ca'){
-                $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
-            }elseif($_SESSION['idioma'] == 'es'){
-                $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
-            }elseif($_SESSION['idioma'] == 'en'){
-                $_SESSION['paraula'] = obtenirParaula('english_5.txt');
-            }
-        };
-
-        function obtenirParaula($nomArxiu){
-            $liniesArxiu = file($nomArxiu);
-            $paraules = [];
-            foreach($liniesArxiu as $paraula) {
-                array_push($paraules, $paraula);
-            }
-            return $paraules[numeroRandom(0, count($paraules) - 1)];
+    function obtenirParaula($nomArxiu){
+        $liniesArxiu = file($nomArxiu);
+        $paraules = [];
+        foreach($liniesArxiu as $paraula) {
+            array_push($paraules, $paraula);
         }
+        return $paraules[numeroRandom(0, count($paraules) - 1)];
+    }
 
-        function numeroRandom($min, $max){
-            return rand($min, $max);
-        }
+    function numeroRandom($min, $max){
+        return rand($min, $max);
+    }
 
-        function generarTaula($w,$h){ //columna - fila
-        echo "<table id='taulaParaules'>\n";
+    function generarTaula($w,$h){ //columna - fila
+    echo "<table id='taulaParaules'>\n";
         for($i = 0; $i < $h;$i++){
             echo "<tr>\n";
             for($j = 0; $j < $w;$j++){
