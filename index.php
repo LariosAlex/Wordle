@@ -32,7 +32,7 @@
 <body id="index">
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
-        <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="">
+        <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="imagen del icono de la pagina web (Worddle)">
         <div id="divLlenguatge">
             <p>Escull idioma / Escoge idioma / Choose language:</p>
             <form action="index.php" method="post" id="formIdioma">

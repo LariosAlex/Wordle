@@ -71,7 +71,7 @@
     ?>
     </article>
     <?php
-        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
+        echo "<p id='paraulaSecreta' hidden>".$_SESSION['paraula']."</p>";
     ?>
 </body>
 </html>

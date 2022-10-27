@@ -1,6 +1,8 @@
 let fila = 0;
 var paraula ="";
 const soError = new Audio('../SRC/soError.mp3');
+const soExit = new Audio('../SRC/soGuanyar.mp3');
+const soPerdre = new Audio('../SRC/soPerdida.mp3');
 
 var partidaActual = [];
 
@@ -47,9 +49,12 @@ function resultatPartida(encerts,filaActual){
 
 }
 
-function executarSo(so){
-    let soPerExecutar = new Audio(so);
-    soPerExecutar.play();
+function executarSo(resultat){
+    if(resultat == 'perdida'){
+        soPerdre.play();
+    } else if(resultat == 'guanyada'){
+        soExit.play();
+    }
 }
 
 function revisarParaula(filaActual){

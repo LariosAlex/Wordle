@@ -20,7 +20,7 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body onload="executarSo('../SRC/soPerdida.mp3')" id="lose">
+<body onload="executarSo('perdida')" id="lose">
     <nav>
         <a href="index.php">
             <div>
