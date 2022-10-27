@@ -3,10 +3,8 @@
     //Sel·lecco de idioma
     if(!isset($_POST['idioma'])){
         $_SESSION['idioma'] = 'ca';
-        echo "catala";
     }else{
         $_SESSION['idioma'] = $_POST['idioma'];
-        echo $_POST['idioma'];
     }
 
     //Importar funcions
