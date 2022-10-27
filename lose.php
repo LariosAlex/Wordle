@@ -42,7 +42,6 @@
 
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <h4 id="partidesGuanyades"><?php echo $fiPartida['pGuanyades'];?></h4>
         <?php
             mostrarPartides();
         ?>

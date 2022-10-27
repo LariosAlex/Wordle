@@ -46,7 +46,9 @@
         </a>
     </nav>
         <?php
-            $_SESSION['nom_usuari'] = $_POST['nom_usuari'];            
+            if(!isset($_SESSION['nom_usuari'])){
+                $_SESSION['nom_usuari'] = $_POST['nom_usuari'];   
+            }
         ?>
     <header>
         <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
