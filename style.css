@@ -356,9 +356,15 @@ nav div{
         grid-template-rows: 70px 60px 50px 320px;
     }
 
-    #resultadoPartida{
+    #lose #resultadoPartida{
         grid-column: 1/2;
         grid-row: 1/2;
+    }
+
+    #win #resultadoPartida{
+        margin-top: 0;
+        grid-column: 1/2;
+        grid-row: 2/3;
     }
 
     #loseParaulaSecreta{
@@ -372,12 +378,20 @@ nav div{
         text-align: center;
     }
 
-    #estadistiques {
+    #lose #estadistiques {
         display: grid;
         grid-row: 4/5;
         grid-column: 1/2;
         grid-template-columns: 1fr 300px 1fr;
         grid-template-rows: 50px auto 50px;
+    }
+
+    #win #estadistiques {
+        display: grid;
+        grid-row: 4/5;
+        grid-column: 1/2;
+        grid-template-columns: 1fr 300px 1fr;
+        grid-template-rows: 1px auto 50px;
     }
 
     #partidesPerdudes{
@@ -392,9 +406,14 @@ nav div{
         text-align: center;
     }
 
-    table{
+    #estadistiquesGenerals{
         grid-column: 2/3;
         grid-row: 2/3;
+    }
+
+    #resultatPartides{
+        grid-column: 2/3;
+        grid-row: 3/4;
     }
 
     td{

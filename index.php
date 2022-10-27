@@ -1,8 +1,9 @@
 <?php
     session_start();
     include('funcions.php');
-    $_SESSION['partides'] = ["perdudes" => 0];
+    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
     $_SESSION['totalPartides'] = [];
+    $_SESSION['puntuacio'] = 0;
 ?>
 
 <!DOCTYPE html>

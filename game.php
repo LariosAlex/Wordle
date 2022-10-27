@@ -37,11 +37,13 @@
         </a>
     </nav>
         <?php
-            $paraula = $_POST['paraula'];
+        if(!isset($_SESSION['nom_usuari'])){
             $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
+        }
+            
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>".$index['nomUsuari'].$_SESSION['nom_usuari']."</strong></div>\n<br>\n"; 
+        <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
         ?>
     </header>
     <article>

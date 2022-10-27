@@ -118,7 +118,7 @@
         }elseif( $_SESSION['idioma'] == 'en'){
             include('lang_en.php');
         }
-        echo "<table>\n<tr>\n
+        echo "<table id='estadistiquesGenerals'>\n<tr>\n
         <th>". $fiPartida['partida'] ."</th>\n
         <th>". $fiPartida['intents'] ."</th>\n
         <th>". $fiPartida['punts'] ."</th>\n
@@ -137,7 +137,19 @@
             echo "</tr>\n";
         }
         echo "</table>\n";
-        echo "<div id='partidesPerdudes'><h4>". $fiPartida['pPerdudes'] ."<strong>". $_SESSION['partides']['perdudes'] ."</strong></h4></div>";
+
+        echo "<br>\n<table id='resultatPartides'>\n";
+        echo "<tr>\n";
+        echo "<th>". $fiPartida['pGuanyades'] ."</th>\n";
+        echo "<th>". $fiPartida['pPerdudes'] ."</th>\n";
+        echo "</tr>\n";
+        echo "<tr>\n";
+        echo "<td>". $_SESSION['partides']['guanyades'] ."</td>\n";
+        echo "<td>". $_SESSION['partides']['perdudes'] ."</td>\n";
+        echo "</tr>\n";
+        echo "</table>\n";
+        
+        $_SESSION['puntuacio'] = $puntuacio;
         
     }
     function calculPuntuacio($fila,$encerts){
@@ -158,5 +170,18 @@
                 $puntuacio = 0;
             }
         return $puntuacio;
+    }
+
+    function mostrarPuntuacio(){
+        for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
+            $puntuacio = 0;
+            foreach($_SESSION['totalPartides'][$p] as $intentos){
+                $fila = ((int)$intentos[0])+1;
+                $encert = (int)$intentos[1];
+                $puntuacio += calculPuntuacio($fila,$encert);
+            }
+        }
+        $_SESSION['puntuacio'] = $puntuacio;
+        
     }
 ?>

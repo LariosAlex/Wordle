@@ -1,6 +1,11 @@
 <?php
     session_start();
     include "funcions.php";
+    
+    $_SESSION['partides']['guanyades'] += 1;
+
+    afegirPartida($_POST['estadistiques']);
+    mostrarPuntuacio()
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -28,19 +33,20 @@
             </div>
         </a>
     </nav>
+
     <div id="resultadoPartida">
         <h1><?php echo $fiPartida['titleWin'];?></h1>
     </div>
-    <?php 
-        echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."</strong></div>\n<br>\n";
-    ?>
+    <br>
+    <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
+        ?>
+
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
-        <div id="partidesGuanyades"><h4><?php echo $fiPartida['pGuanyades'];?></h4></div>
         <?php
-            afegirPartida($_POST['estadistiques']);
             mostrarPartides();
         ?>
+        
     </div>
 </body>
 </html>
