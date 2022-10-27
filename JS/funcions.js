@@ -6,7 +6,6 @@ const soPerdre = new Audio('../SRC/soPerdida.mp3');
 
 function carregarParaulaSecreta(){
     let paraula = document.getElementById("paraulaSecreta").innerHTML.toUpperCase();
-    document.getElementById("paraulaSecreta").innerHTML = "";
     return paraula;
 }
 

@@ -70,7 +70,7 @@
     ?>
     </article>
     <?php
-        echo "<p id='paraulaSecreta' hidden>".$_SESSION['paraula']."</p>";
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
     ?>
         <script src="./JS/funcions.js"></script>
 </body>
