@@ -1,7 +1,7 @@
 <?php
     session_start();
     include('funcions.php');
-    
+
     if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
         include('lang_ca.php');
     }elseif( $_SESSION['idioma'] == 'es'){
