@@ -31,9 +31,10 @@ $fiPartida = [
     'intents' => 'Intentos: ',
     'punts' => 'Puntuación: ',
     'fraseParaulaSecreta' => 'La palabra secreta era: '
-]
-$noscript{
+];
+
+$noscript = [
     'disculpa' => "Para jugar a WORDLE debes  tener activado Javascript en tu navegador",
     'indicacio' => 'Una vez activado, dale click a INICIO',
-}
+]
 ?>

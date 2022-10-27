@@ -31,12 +31,12 @@ $fiPartida = [
     'intents' => 'Intents: ',
     'punts' => 'Puntuació: ',
     'fraseParaulaSecreta' => 'La paraula secreta era: '
-]
+];
 
-$noscript{
+$noscript = [
     'disculpa' => "Per jugar a WORDLE has de teni activat Javascript al teu navegador.",
     'indicacio' => "Una vegada activat, dona click a INICI",
-}
+]
 ?>
 
 
