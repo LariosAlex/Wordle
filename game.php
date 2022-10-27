@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="style.css">
     
     <title>Wordle</title>
-    <script src="./JS/funcions.js"></script>
     <noscript>
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
     </noscript>
@@ -71,7 +70,8 @@
     ?>
     </article>
     <?php
-        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
+        echo "<p id='paraulaSecreta' hidden>".$_SESSION['paraula']."</p>";
     ?>
+        <script src="./JS/funcions.js"></script>
 </body>
 </html>

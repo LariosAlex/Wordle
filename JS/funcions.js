@@ -4,6 +4,14 @@ const soError = new Audio('../SRC/soError.mp3');
 const soExit = new Audio('../SRC/soGuanyar.mp3');
 const soPerdre = new Audio('../SRC/soPerdida.mp3');
 
+function carregarParaulaSecreta(){
+    let paraula = document.getElementById("paraulaSecreta").innerHTML.toUpperCase();
+    document.getElementById("paraulaSecreta").innerHTML = "";
+    return paraula;
+}
+
+var paraulaSecreta = carregarParaulaSecreta();
+
 var partidaActual = [];
 
 function afegirLletraParaula(lletra){
@@ -58,7 +66,6 @@ function executarSo(resultat){
 }
 
 function revisarParaula(filaActual){
-    let paraulaSecreta = (document.getElementById("paraulaSecreta").innerHTML).toUpperCase();
     let diccionariContadorLletresSecreta = crearDiccionariContadorLletres(paraulaSecreta);
     let letrasCorrectes = 0;
     let stringInsertado = "";
