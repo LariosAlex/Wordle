@@ -1,0 +1,694 @@
+/*    ESTILS GLOBALS      */
+
+#resultadoPartida{
+    animation: apareixer 4s;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    display: inline;
+}
+
+#loseParaulaSecreta{
+    animation: apareixer2 8s;
+    text-align: center;
+}
+
+
+@keyframes apareixer {
+    0%{
+        opacity: 0%;
+    }
+    20%{
+        opacity: 100%;
+    }
+    40%{
+        opacity: 0%;
+    }
+    60%{
+        opacity: 100%;
+    }
+    80%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;}}
+
+
+@keyframes apareixer2 {
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }} 
+
+
+#index{
+    margin: 0;
+    padding: 0;
+    background-color: #D6D6B1;
+}
+
+#nomUsuari{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/*    nav   */
+
+nav{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    margin: 10px 0 0 10px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black ;
+}
+
+nav div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #878472;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 70px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 13%;
+    border: 1px solid black;
+}
+
+#index h1{
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+#index #instruccions{
+    display: block;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    justify-self: center;
+}
+
+#index #divNom{
+    align-self: center;
+    justify-self: center;
+}
+
+#index #nom_usuari{
+    background-color: white;
+    border-radius:12px;
+    text-align: center;
+    font-size: 30px;
+    display: block;
+}
+
+#index footer p{
+    text-align: center;
+}
+
+#index #listaInstruccions{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+}
+
+#index #butoJugar{
+    display: block;
+    background-color: #3f3f37;
+    border-radius:12px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin:4px 2px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#formIdioma{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90px 90px 90px;
+}
+
+.labelIdioma{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelIdioma p{
+    grid-column: 3/4;
+    text-align: center;
+}
+
+.labelIdioma .bandera{
+    grid-column: 2/3;
+    justify-self: center;
+    align-self: center;
+}
+
+/*  game   */
+
+#game{
+    background-color: #D6D6B1;
+}
+
+#game table{
+    display: flex;
+    justify-content: center;
+}
+
+#game tr{
+    align-items: center;
+}
+
+#game td{
+    border: 1px solid #DE541E;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#game #teclat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game #teclat div {
+    display: flex;
+}  
+
+#game #tecla{
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: none;
+    background-color: rgb(226,232,240);
+    border-radius: 5px;
+}
+
+#game #tecla:hover{
+    background-color:#DE541E;
+    color: white;
+}
+
+#game #resultat{
+    display: none;
+    text-align: center;
+}
+
+/* FINAL */
+
+#lose, #win{
+    background-color: #D6D6B1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 60px 50px auto;
+}
+
+#lose #resultadoPartida{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+#win #resultadoPartida{
+    margin-top: 0;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#loseParaulaSecreta{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#lose h3, #win h3{
+    grid-row: 3/4;
+    grid-column: 1/2;
+    text-align: center;
+}
+
+#lose #estadistiques {
+    display: grid;
+    grid-row: 4/5;
+    grid-column: 1/2;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 50px auto 50px;
+}
+
+#win #estadistiques {
+    display: grid;
+    grid-row: 4/5;
+    grid-column: 1/2;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 1px auto 50px;
+}
+
+#partidesPerdudes{
+    grid-row: 3/4;
+    grid-column: 2/3;
+    text-align: center;
+}
+
+#partidesGuanyades{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    text-align: center;
+}
+
+#estadistiquesGenerals{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#resultatPartides{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+/* Error */
+
+#errorJavascript{
+    background-color: #DE541E;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: 700px;
+}
+
+#errorJavascript div{
+    grid-row: 0/1;
+    grid-column: 0/1;
+}
+
+#errorJavascript h1{
+    text-align: center;
+}
+
+#errorJavascript h2{
+    text-align: center;
+}
+
+#errorJavascript button{
+    width: 160px;
+    height: 50px;
+    font-size: 30px;
+    background-color: #D6D6B1;
+    border-radius:12px;
+    cursor: pointer;
+}
+
+
+/* PC */
+@media screen and (max-width: 1920px){
+    #index main{
+        display: grid;
+        grid-template-rows: 60px 320px 315px ;
+        grid-template-columns: 1fr auto 1fr 1fr;
+    }
+
+    #index h1{
+        grid-column: 1/6;
+        grid-row: 1/1;
+    }
+    
+    #index #imatgeWordle{
+        height: 300px;
+        width: 250px;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #index #instruccions{
+        grid-column: 3/4;
+        grid-row: 3/4;
+        max-width: 750px;
+        margin-top: -20px;
+    }
+
+    #index #instruccions h1{
+        line-height: 0.5;
+    }
+
+    #index #divNom{
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+
+    #nom_usuari{
+        height: 50px;
+        width: 600px;
+    }
+    
+    #index #butoJugar{
+        width: 605px;
+        height: 50px;
+    }
+
+    #index #divLlenguatge{
+        grid-column: 2/3;
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 270px;
+    }
+
+    #labelCa{
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    #labelEs{
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+
+    #labelEn{
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+
+    #divLlenguatge > p{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #labelCa .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEs .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEn .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    .bandera{
+        height: 50px;
+    }
+
+    /*  game   */
+
+    #game td{
+        width: 50px;
+        height: 50px;
+    }
+    #game #teclat {
+        margin: 50px 0;
+    }
+
+    #game #tecla{
+        font-weight: 700;
+        padding: 15px;
+        margin: 5px ;
+    }
+
+    td{
+        text-align: center;
+    }
+
+}
+
+
+/* TABLET (800X600) */
+
+@media screen and (max-width: 1000px){
+    #index main{
+        display: grid;
+        grid-template-rows: 50px 150px 365px;
+        grid-template-columns: 200px 1fr 1fr;
+    }
+
+    #index h1{
+        grid-column: 1/3;
+        grid-row: 1/2;
+        line-height: 0;
+    }
+
+    #index #imatgeWordle{
+        height: 150px;
+        width: 130px;
+        grid-row: 2/3;
+        grid-column: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    #index #instruccions{
+        grid-column: 2/4;
+        grid-row: 3/4;
+        max-width: 750px;
+    }
+
+    #index #divNom{
+        grid-row: 2/3;
+        grid-column: 2/4;
+    }
+
+    #nom_usuari{
+        height: 50px;
+        width: 400px;
+    }
+    
+    #index #butoJugar{
+        width: 405px;
+        height: 50px;
+    }
+
+    #index #divLlenguatge{
+        margin-top: 40px;
+        grid-column: 1/2;
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 270px;
+    }
+
+    #divLlenguatge > p{
+        grid-column: 1/3;
+        grid-row: 1/2;
+        align-self: center;
+        justify-self: center;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #labelCa .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEs .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEn .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    .bandera{
+        height: 40px;
+    }
+    
+    /*  game   */
+
+    #game td{
+        width: 45px;
+        height: 45px;
+    }
+
+    #game #teclat {
+        margin: 15px 0px;
+    }
+        
+    #game #tecla{
+        font-weight: 700;
+        padding: 13px;
+        margin: 3px ;
+    }
+
+}
+
+
+
+/* MOVIL (375x667) */
+@media screen and (max-width: 600px){
+
+    #index main{
+        display: grid;
+        grid-template-rows: 55px 80px 80px 395px;
+        grid-template-columns: 1px 1fr;
+    }
+    
+    #index h1{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        font-size: 24px;
+        line-height: 0;
+        margin-left: 35px;
+    }
+
+    #index #imatgeWordle{
+        position: absolute;
+        top: 0;
+        left: 0;
+        justify-content: start;
+        align-content: initial;
+        height: 60px;
+        width: 50px;
+    }
+
+    #nom_usuari{
+        height: 28px;
+        width: 195px;
+    }
+    
+    #index #butoJugar{
+        width: 200px;
+        height: 30px;
+    }
+
+    #index #instruccions{
+        grid-column: 2/3;
+        grid-row: 4/5;
+        max-width: 380px;
+        margin-top: -7px;
+        line-height: 1;
+    }
+    
+    #index #listaInstruccions{
+        margin-left: -25px;
+    }
+
+    #index #divLlenguatge{
+        margin-top: 0px;
+        grid-column: 2/3;
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20px 60px;
+    }
+
+    #formIdioma{
+        grid-row: 2/3;
+        grid-column: 1/6;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 60px;
+    }
+
+    #labelCa{
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+
+    #labelEs{
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+
+    #labelEn{
+        grid-row: 1/2;
+        grid-column: 4/5;
+    }
+
+    #divLlenguatge > p{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .labelIdioma p{
+        display: none;
+    }
+
+    #labelCa .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEs .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+
+    #labelEn .inputIdioma{
+        grid-column: 4/5;
+        grid-row: 1/2;
+    }
+    
+    /*  game   */
+
+    nav{
+        display: flex;
+        margin: 25px 0 0 20px;
+    }
+    
+    
+    nav div{
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 40px;
+    }
+
+    #game{
+        margin-top: 80px;
+    }
+    
+    #game #nomUsuari{
+        margin-top: 6px;
+        margin-right: 5px;
+    }
+    
+    #game td{
+        width: 35px;
+        height: 35px;
+    }
+
+    #game #teclat {
+        margin: 15px 0px;
+    }
+        
+    #game #tecla{
+        font-weight: lighter;
+        padding: 6px;
+        margin: 2px;
+    }
+    
+    #lose{
+        margin-top: 50px;
+    }
+}

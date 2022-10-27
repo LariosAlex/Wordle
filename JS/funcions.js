@@ -1,39 +1,10 @@
-
 let fila = 0;
 var paraula ="";
-/*
-function palabras(){
-    var files = document.getElementById("taulaParaules").rows.length;
-    let paraules = [];
-    for(let i = 0; i < files; i++){
-        var columnes = document.getElementById("taulaParaules").rows[i].cells.length;
-        let paraulaFila = "";
-        for(let j = 0; j < columnes; j++){
-            paraulaFila = paraulaFila + document.getElementById(String(i)+String(j)).innerHTML;
-        }
-        if(paraulaFila.length == 5){
-            paraules.push(paraulaFila);
-        }
-    }
-    alert(paraules.length);
-    return paraules;
-}
+const soError = new Audio('../SRC/soError.mp3');
+const soExit = new Audio('../SRC/soGuanyar.mp3');
+const soPerdre = new Audio('../SRC/soPerdida.mp3');
 
-function escriuLletra(lletra) {
-    var files = document.getElementById("taulaParaules").rows.length;
-    for(let i = 0; i < files; i++){
-        var columnes = document.getElementById("taulaParaules").rows[i].cells.length;
-        for(let j = 0; j < columnes; j++){
-            casilla =  document.getElementById(String(i)+String(j));
-            if(casilla.innerHTML == ""){
-                casilla.innerHTML = lletra;
-                j = columnes;
-                i = files;
-            }
-        }
-    }
-};
-*/
+var partidaActual = [];
 
 function afegirLletraParaula(lletra){
     if(paraula.length < 5){
@@ -41,9 +12,6 @@ function afegirLletraParaula(lletra){
         escriuParaula(paraula)
     }
 }
-
-
-
 
 function crearDiccionariContadorLletres(paraula){
     resultat = {};
@@ -59,14 +27,33 @@ function crearDiccionariContadorLletres(paraula){
     return resultat;
 }
 
-function resultatPartida(contador,filaActual){
-    if (contador==5){
-        document.getElementById('resultat').style.display ="block";
-        document.getElementById('resultat').innerHTML = "HAS GUANYAT!!";
+function resultatPartida(encerts,filaActual){
+    if (encerts==5){
+        document.getElementById("formGame").setAttribute("action", "win.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
         fila = 6;
     }else if(filaActual == 5){
-        document.getElementById('resultat').style.display ="block";
-        document.getElementById('resultat').innerHTML = "HAS PERDUT!!\n<br>La paraula secreta era "+document.getElementById('paraulaSecreta').innerHTML;
+        document.getElementById("formGame").setAttribute("action", "lose.php");
+        document.getElementById("formGame").setAttribute("onsubmit", "return true");
+    }else{
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
+    }
+
+    let identificador = String(filaActual)+4;
+    let valor = document.getElementById(identificador).innerHTML;
+    if( valor != undefined || valor != null){
+        partidaActual.push([filaActual+"-"+encerts]);
+    }
+    document.getElementById("inputGame").setAttribute("name", "estadistiques");
+    document.getElementById('inputGame').value = partidaActual;  
+
+}
+
+function executarSo(resultat){
+    if(resultat == 'perdida'){
+        soPerdre.play();
+    } else if(resultat == 'guanyada'){
+        soExit.play();
     }
 }
 
@@ -74,6 +61,7 @@ function revisarParaula(filaActual){
     let paraulaSecreta = (document.getElementById("paraulaSecreta").innerHTML).toUpperCase();
     let diccionariContadorLletresSecreta = crearDiccionariContadorLletres(paraulaSecreta);
     let letrasCorrectes = 0;
+    let stringInsertado = "";
     for(vuelta=0;vuelta<=1;vuelta++){
         for(i=0;i<=4;i++){
             let selector = String(filaActual)+String(i);
@@ -83,18 +71,26 @@ function revisarParaula(filaActual){
                 document.getElementById(selector).style.backgroundColor ="green";
                 if(vuelta==0){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
-                }                if (vuelta==0){
-                    letrasCorrectes += 1;   
+                    letrasCorrectes += 1;
+                }else if(vuelta == 1){
+                    stringInsertado += lletraSeleccionada;
                 }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
                 document.getElementById(selector).style.backgroundColor ="yellow";
                 if(vuelta==1){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
+                    stringInsertado += lletraSeleccionada;
                 }
             }else{
                 document.getElementById(selector).style.backgroundColor ="grey";
+                if (vuelta==1){
+                    stringInsertado += lletraSeleccionada;
+                }
             }
         }
+    }
+    if(paraulaSecreta!=stringInsertado){
+        soError.play();
     }
     setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
 }
@@ -125,5 +121,8 @@ function enviar(){
         revisarParaula(fila);
         fila += 1;
         paraula = "";
+    }else{
+        //resultatPartida(0,fila)
+        document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }
