@@ -1,6 +1,18 @@
 <?php
     session_start();
+    //Sel·lecco de idioma
+    if(!isset($_POST['idioma'])){
+        $_SESSION['idioma'] = 'ca';
+        echo "catala";
+    }else{
+        $_SESSION['idioma'] = $_POST['idioma'];
+        echo $_POST['idioma'];
+    }
+
+    //Importar funcions
     include('funcions.php');
+
+    //Declarar Sessions
     $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
     $_SESSION['totalPartides'] = [];
     $_SESSION['puntuacio'] = 0;
@@ -20,13 +32,6 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body id="index">
-    <?php
-        if(!isset($_POST['idioma'])){
-            $_SESSION['idioma'] = 'ca';
-        }else{
-            $_SESSION['idioma'] = $_POST['idioma'];
-        }
-    ?>
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
         <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="">

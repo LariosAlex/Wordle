@@ -1,9 +1,9 @@
 <?php
     if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
         include('lang_ca.php');
-    }elseif( $_SESSION['idioma'] == 'es'){
+    }else if( $_SESSION['idioma'] == 'es'){
         include('lang_es.php');
-    }elseif( $_SESSION['idioma'] == 'en'){
+    }else if( $_SESSION['idioma'] == 'en'){
         include('lang_en.php');
     }
     function obtenirParaula($nomArxiu){
