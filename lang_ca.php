@@ -10,9 +10,9 @@ $index = [
     'botoJugar' => 'Jugar',
     'title' => 'INSTRUCCIONS',
     'punt1' => 'Totes les persones poden jugar a la paraula del dia.',
-    'punt2' => "L'objectiu és simple, endevinar la paraula oculta. La paraula té 5 lletresi tens 6 intents per endevinar-la. La paraula és la mateixa per a totesles persones en aquell dia.",
+    'punt2' => "L'objectiu és simple, endevinar la paraula oculta. La paraula té 5 lletres i tens 6 intents per endevinar-la. La paraula és la mateixa per a totesles persones en aquell dia.",
     'punt3' => "Cada intent ha de ser una paraula vàlida. A cada ronda el joc pintacada lletra d'un color indicant si aquesta lletra es troba o no a laparaula i si es troba a la posició correcta.",
-    'itemList1' => '<strong>VERD</strong> significa que la lletra R està a la paraula ia la posició <strong>CORRECTA</strong>.',
+    'itemList1' => '<strong>VERD</strong> significa que la lletra està a la paraula ia la posició <strong>CORRECTA</strong>.',
     'itemList2' => '<strong>GROC</strong> significa que la lletra és present a la paraula però en la posició <strong>INCORRECTA</strong>.',
     'itemList3' => '<strong>GRIS</strong> significa que la lletra <strong>NO</strong> és a la paraula.',
 ];
@@ -34,8 +34,8 @@ $fiPartida = [
 ];
 
 $noscript = [
-    'disculpa' => "Per jugar a WORDLE has de teni activat Javascript al teu navegador.",
-    'indicacio' => "Una vegada activat, dona click a INICI",
+    'disculpa' => "Per jugar a WORDLE has de tenir activat Javascript al teu navegador.",
+    'indicacio' => "Una vegada activat, dona clic a INICI",
 ]
 ?>
 
