@@ -138,7 +138,6 @@
         echo "</tr>\n";
         echo "</table>\n";
         
-        $_SESSION['puntuacio'] = $puntuacio;
         
     }
     function calculPuntuacio($fila,$encerts){
@@ -170,7 +169,7 @@
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
         }
-        $_SESSION['puntuacio'] = $puntuacio;
+        $_SESSION['puntuacio'] += $puntuacio;
         
     }
 ?>

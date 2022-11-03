@@ -5,7 +5,7 @@
     $_SESSION['partides']['guanyades'] += 1;
 
     afegirPartida($_POST['estadistiques']);
-    mostrarPuntuacio()
+    mostrarPuntuacio();
 ?>
 <!DOCTYPE html>
 <html lang="ca">
