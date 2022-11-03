@@ -1,11 +1,11 @@
 <?php
     session_start();
     //Sel·lecco de idioma
-    if(!isset($_POST['idioma'])){
+    if(!isset($_SESSION['idioma'])){
         $_SESSION['idioma'] = 'ca';
-    }else{
+    }elseif(isset($_POST['idioma'])){
         $_SESSION['idioma'] = $_POST['idioma'];
-    }
+    } 
 
     //Importar funcions
     include('funcions.php');
@@ -63,7 +63,7 @@
         </div>
         <div id="divNom">
             <form action="game.php" method="post" id="formNom">
-                <input type="text" name="nom_usuari" id="nom_usuari" required>
+                <input type="text" name="nom_usuari" id="nom_usuari" placeholder="<?php echo $general['usuari']; ?>" value="<?php echo $_SESSION['nom_usuari']; ?>" required>
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
             </form>
         </div>
