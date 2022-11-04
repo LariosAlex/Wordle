@@ -77,10 +77,11 @@
             <form action="game.php" method="post" id="formNom">
                 <input type="text" name="nom_usuari" id="nom_usuari" placeholder="<?php echo $general['usuari']; ?>" value="<?php echo $_SESSION['nom_usuari']; ?>" required>
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
+                <input type="submit" name="botoChrono" value="<?php echo $index['botoChrono']; ?>" id="butoChrono">
             </form>
             <div id="botons">
-                    <button id="resetBtn" onclick="canviarVisibilitatPopup()">Resetear Sesion Actual</button>
-                    <button id="rankingBtn">Mostrar Ranking</button>
+                    <button id="resetBtn" onclick="canviarVisibilitatPopup()"><?php echo $index['botoReset'];?></button>
+                    <button id="rankingBtn"><?php echo $index['botoRanking'];?></button>
             </div>
         </div>
         <div id="instruccions">

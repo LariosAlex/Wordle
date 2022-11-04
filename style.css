@@ -112,6 +112,7 @@ nav div{
     text-align: center;
     font-size: 30px;
     display: block;
+    margin-bottom: 5px;
 }
 
 #index footer p{
@@ -126,13 +127,27 @@ nav div{
 }
 
 #index #butoJugar{
-    display: block;
     background-color: #3f3f37;
     border-radius:12px;
     color: white;
     text-align: center;
     text-decoration: none;
-    margin:4px 2px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+#index #butoChrono{
+    background-color: #3f3f37;
+    border-radius:12px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin:0;
+    margin-bottom: 5px;
+    padding: 0;
     cursor: pointer;
     font-size: 20px;
 }
@@ -400,7 +415,13 @@ nav div{
     }
     
     #index #butoJugar{
-        width: 605px;
+        width: 298px;
+        height: 50px;
+        display: inline;
+    }
+
+    #index #butoChrono{
+        width: 298px;
         height: 50px;
     }
 
@@ -541,9 +562,22 @@ nav div{
         width: 400px;
     }
     
+    #index #butoChrono{
+        width: 200px;
+        font-size: 16px;
+    }
+
+    #index #botons #resetBtn{
+        font-size: 16px;
+    }
+
+    #index #botons #rankingBtn{
+        font-size: 16px;
+    }
+
     #index #butoJugar{
-        width: 405px;
-        height: 50px;
+        width: 200px;
+        font-size: 16px;
     }
 
     #index #divLlenguatge{
@@ -639,8 +673,15 @@ nav div{
     }
     
     #index #butoJugar{
-        width: 325px;
-        height: 30px;
+        width: 160px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    #index #butoChrono{
+        font-size: 12px;
+        width: 160px;
+        height: 32px;
     }
 
     #index #instruccions{
@@ -665,15 +706,17 @@ nav div{
     }
 
     #index #botons #rankingBtn{
-        width: 128px;
+        width: 160px;
         height: 30px;
+        font-size: 12px;
     }
 
     #index #botons #resetBtn{
         height: 30px;
         background-color: #DE541E;
         color: black;
-        width: 192px;
+        width: 160px;
+        font-size: 12px;
     }
 
     #formIdioma{

@@ -7,7 +7,8 @@ $general = [
 
 $index = [
     'salutacio' => 'Welcome to WORDLE',
-    'botoJugar' => 'Play',
+    'botoJugar' => 'Play Normal Mode',
+    'botoChrono' => 'Play Time Trial Mode',
     'title' => 'INSTRUCTIONS',
     'punt1' => 'Anyone can play word of the day.',
     'punt2' => "The goal is simple, guess the hidden word. The word has 5 letters and you have 6 attempts to guess it. The word is the same for all people on that day.",
@@ -15,6 +16,8 @@ $index = [
     'itemList1' => '<strong>GREEN</strong> means that the letter is in the word and in the <strong>CORRECT</strong> position.',
     'itemList2' => '<strong>YELLOW</strong> means that the letter is present in the word but in the <strong>WRONG</strong> position.',
     'itemList3' => '<strong>GRAY</strong> means the letter is <strong>NOT</strong> in the word.',
+    'botoReset' => 'Reset Actual Session',
+    'botoRanking' => 'Show Ranking',
 ];
 
 $game = [
