@@ -315,6 +315,46 @@ nav div{
     cursor: pointer;
 }
 
+#popupReset{
+    position: absolute;
+    top: 200px;
+    height: 300px;
+    width: 100%;
+    background-color: #DE541E;
+    border-top: 5px dashed black;
+    border-bottom: 5px dashed black;
+    text-align: center;
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 70px 70px 80px;
+
+}
+
+#popupReset div{
+    grid-row: 3/4;
+}
+
+#popupReset div button{
+    width: 100px;
+    height: 50px;
+    border-radius: 6%;
+    cursor: pointer;
+}
+
+#popupReset div form{
+    display: inline;
+}
+
+#popupReset div input{
+    width: 100px;
+    height: 50px;
+    border-radius: 6%;
+    cursor: pointer;
+}
+
+#popupReset h2{
+    grid-row: 2/3;
+}
 
 /* PC */
 @media screen and (max-width: 1920px){
@@ -374,13 +414,27 @@ nav div{
 
     #index #botons{
         width: 100%;
+        text-align: center;
     }
 
     #index #botons button{
-        width: 302px;
+        width: 49.5%;
         margin: 0;
         padding: 0;
-        height: 30px;
+        height: 35px;
+        cursor: pointer;
+        background-color: #3f3f37;
+        border-radius:12px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #index #botons #resetBtn{
+        background-color: #DE541E;
+        color: black;
     }
 
     #labelCa{
@@ -452,7 +506,7 @@ nav div{
 @media screen and (max-width: 1000px){
     #index main{
         display: grid;
-        grid-template-rows: 50px 150px 365px;
+        grid-template-rows: 50px 200px 365px;
         grid-template-columns: 200px 1fr 1fr;
     }
 
@@ -555,7 +609,7 @@ nav div{
 
     #index main{
         display: grid;
-        grid-template-rows: 55px 80px 80px 395px;
+        grid-template-rows: 55px 130px 80px 335px;
         grid-template-columns: 1px 1fr;
     }
     
@@ -579,11 +633,13 @@ nav div{
 
     #nom_usuari{
         height: 28px;
-        width: 195px;
+        width: 317px;
+        font-size: 10px;
+        margin-left: 3px;
     }
     
     #index #butoJugar{
-        width: 200px;
+        width: 325px;
         height: 30px;
     }
 
@@ -606,6 +662,18 @@ nav div{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 20px 60px;
+    }
+
+    #index #botons #rankingBtn{
+        width: 128px;
+        height: 30px;
+    }
+
+    #index #botons #resetBtn{
+        height: 30px;
+        background-color: #DE541E;
+        color: black;
+        width: 192px;
     }
 
     #formIdioma{

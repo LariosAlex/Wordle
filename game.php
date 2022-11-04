@@ -46,6 +46,11 @@
     </nav>
         <?php
             if(isset($_POST['nom_usuari'])){
+                if($_POST['nom_usuari'] != $_SESSION['nom_usuari']){
+                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
+                    $_SESSION['totalPartides'] = [];
+                    $_SESSION['puntuacio'] = 0;
+                }
                 $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
             }
         ?>

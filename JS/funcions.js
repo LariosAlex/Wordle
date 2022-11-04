@@ -132,3 +132,12 @@ function enviar(){
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }
+
+function canviarVisibilitatPopup(){
+    popup = document.getElementById("popupReset");
+    if(popup.style.display == "grid"){
+        popup.style.display = "none"
+    }else{
+        popup.style.display = "grid"
+    }
+}

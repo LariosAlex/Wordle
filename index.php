@@ -10,10 +10,16 @@
     //Importar funcions
     include('funcions.php');
 
-    //Declarar Sessions
-    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
-    $_SESSION['totalPartides'] = [];
-    $_SESSION['puntuacio'] = 0;
+    //Declarar Sessions si no estan declaradas
+    if(!isset($_SESSION['partides'])){
+        $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
+    }
+    if(!isset($_SESSION['totalPartides'])){
+        $_SESSION['totalPartides'] = [];
+    }
+    if(!isset($_SESSION['puntuacio'])){
+        $_SESSION['puntuacio'] = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +36,12 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body id="index">
+    <?php 
+    if(isset($_POST["reset"])){
+        session_destroy();
+        header("location:index.php");
+    }
+    ?>
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
         <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="imagen del icono de la pagina web (Worddle)">
@@ -67,7 +79,7 @@
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
             </form>
             <div id="botons">
-                    <button id="resetBtn">Resetear Sesion Actual</button>
+                    <button id="resetBtn" onclick="canviarVisibilitatPopup()">Resetear Sesion Actual</button>
                     <button id="rankingBtn">Mostrar Ranking</button>
             </div>
         </div>
@@ -87,6 +99,15 @@
         </ul>
         </div>
     </main>
+    <div id="popupReset">
+        <h2>Deseas resetear la sesion actual?</h2>
+        <div>
+            <form method="post">
+            <input type="submit" name="reset" value="Si">
+            </form>
+            <button onclick="canviarVisibilitatPopup()">No</button>
+        </div>     
+    </div>
     <footer>
         <p>Ies Esteve Terradas</p>
     </footer>
