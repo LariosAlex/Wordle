@@ -315,6 +315,28 @@ nav div{
     cursor: pointer;
 }
 
+/* Ranking */
+
+#ranking{
+    background-color: #D6D6B1;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+#ranking table{
+    border: solid black 1px;
+    grid-column: 2/3;
+}
+
+#ranking th{
+    width: 33%;
+    height: 33%;
+}
+#ranking tr{
+    width: 33%;
+    height: 33%;
+}
 
 /* PC */
 @media screen and (max-width: 1920px){
