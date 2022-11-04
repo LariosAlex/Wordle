@@ -5,7 +5,7 @@
         $_SESSION['idioma'] = 'ca';
     }elseif(isset($_POST['idioma'])){
         $_SESSION['idioma'] = $_POST['idioma'];
-    } 
+    }
 
     //Importar funcions
     include('funcions.php');

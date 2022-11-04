@@ -4,8 +4,11 @@
     
     $_SESSION['partides']['perdudes'] += 1;
 
-    afegirPartida($_POST['estadistiques']);
-    mostrarPuntuacio();
+    
+    if(isset($_POST['estadistiques']) && isset($_SESSION)){
+        afegirPartida($_POST['estadistiques']);
+        mostrarPuntuacio();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ca">

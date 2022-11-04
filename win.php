@@ -4,10 +4,12 @@
     
     $_SESSION['partides']['guanyades'] += 1;
 
-    afegirPartida($_POST['estadistiques']);
-    mostrarPuntuacio();
-?>
-<!DOCTYPE html>
+    if(isset($_POST['estadistiques']) && isset($_SESSION)){
+        afegirPartida($_POST['estadistiques']);
+        mostrarPuntuacio();
+    }
+    
+?><!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
