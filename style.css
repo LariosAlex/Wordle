@@ -692,3 +692,19 @@ nav div{
         margin-top: 50px;
     }
 }
+
+/*
+    Forbidden
+*/
+#forbidden div{
+    margin: 10px;
+    height: 100px;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+#forbidden div #titol{
+    font-size: 40px;
+}
+#forbidden div #subTitol{
+    font-size: 20px;
+}

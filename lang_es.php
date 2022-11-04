@@ -36,5 +36,9 @@ $fiPartida = [
 $noscript = [
     'disculpa' => "Para jugar a WORDLE debes  tener activado Javascript en tu navegador",
     'indicacio' => 'Una vez activado, dale click a INICIO',
-]
+];
+
+$forbidden = [
+    'subtitol' => "No puedes acceder directamente a esta pagina"
+];
 ?>

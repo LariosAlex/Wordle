@@ -21,6 +21,13 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body onload="executarSo('perdida')" id="lose">
+    <?php
+        if(!isset($_POST['estadistiques'])){
+            http_response_code(403);
+            paginaForbidden();
+            die();
+        }
+    ?>
     <nav>
         <a href="index.php">
             <div>

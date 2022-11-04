@@ -172,4 +172,21 @@
         $_SESSION['puntuacio'] += $puntuacio;
         
     }
+
+    function paginaForbidden(){
+        if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
+            include('lang_ca.php');
+        }elseif( $_SESSION['idioma'] == 'es'){
+            include('lang_es.php');
+        }elseif( $_SESSION['idioma'] == 'en'){
+            include('lang_en.php');
+        }
+        echo "<div id='forbidden'>
+            <div>
+                <p id='titol'>403 - Forbidden</p>
+                <p id='subTitol'>". $forbidden['subtitol'] ."</p>
+            </div>
+    </div>\n</body>\n</html>";
+    }
+
 ?>
