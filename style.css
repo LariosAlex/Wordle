@@ -372,6 +372,17 @@ nav div{
         grid-template-rows: 30px 270px;
     }
 
+    #index #botons{
+        width: 100%;
+    }
+
+    #index #botons button{
+        width: 302px;
+        margin: 0;
+        padding: 0;
+        height: 30px;
+    }
+
     #labelCa{
         grid-row: 1/2;
         grid-column: 1/2;

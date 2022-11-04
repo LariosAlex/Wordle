@@ -65,6 +65,10 @@
             <form action="game.php" method="post" id="formNom">
                 <input type="text" name="nom_usuari" id="nom_usuari" placeholder="<?php echo $general['usuari']; ?>" value="<?php echo $_SESSION['nom_usuari']; ?>" required>
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
+                <div id="botons">
+                    <button id="resetBtn">Resetear Sesion Actual</button>
+                    <button id="rankingBtn">Mostrar Ranking</button>
+                </div>
             </form>
         </div>
         <div id="instruccions">
