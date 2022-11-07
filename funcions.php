@@ -209,4 +209,50 @@
     </div>\n</body>\n</html>";
     }
 
+
+    function getRanking($nomArxiu){
+        $liniesArxiu = file($nomArxiu);
+        $paraules = [];
+        foreach($liniesArxiu as $paraula) {
+            array_push($paraules, $paraula);
+        }
+        return $paraules;
+    }
+
+    function ordenarRanking($rankingJugador, $itemSort){
+        $keys = array_column($rankingJugador, $itemSort);
+        array_multisort($keys, SORT_DESC, $rankingJugador);
+        return $rankingJugador;
+    }
+
+    function ranking($ranking){
+        $dictRank = [];
+        foreach($ranking as $p){
+            $dades = explode(",", $p);  //Separamos los datos
+            
+            //Jugador
+            $jugador = $dades[0];
+
+            //Puntuacio
+            $puntuacio = $dades[2];
+
+            //Estadisticas
+            $estadistiques = [];
+            
+            if(trim(end($dades)) == 'active'){ //Jugador activo
+                $intents = explode("-", $dades[1]); //Separamos las partidas x intentos;
+                for($e = 0; $e < 6; $e++){
+                    $intent = $intents[$e]; //Partidas con $e intentos
+                    array_push($estadistiques, $intent);
+                }
+
+                array_push($dictRank,[
+                    'nombre' => $jugador, 
+                    'estadistiques' => $estadistiques,
+                    'puntuacio' => $puntuacio
+                ]);
+            }
+        }
+        return ordenarRanking($dictRank, 'puntuacio');
+    }
 ?>

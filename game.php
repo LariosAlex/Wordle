@@ -17,7 +17,12 @@
     }elseif($_SESSION['idioma'] == 'en'){
         $_SESSION['paraula'] = obtenirParaula('english_5.txt');
     }
-?>
+
+    $rankingTXT = getRanking('record.txt');
+    $ranking = ranking($rankingTXT);
+    $usuariHallFame = $ranking[0]['nombre'];
+    $puntuacioHallFame = $ranking[0]['puntuacio'];
+?> 
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -55,8 +60,8 @@
             }
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
-        ?>
+        <?php echo "<div id='nomUsuariHall'><strong>Hall of Fame: ".$usuariHallFame."</strong></div>\n<br>\n";?>
+        <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari'].' - '.$fiPartida['punts'].$_SESSION['puntuacio']."</strong></div>\n<br>\n";?>
     </header>
     <article>
         <div id="contenedor">
@@ -78,6 +83,6 @@
     <?php
         echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
     ?>
-        <script src="./JS/funcions.js"></script>
+    <script src="./JS/funcions.js"></script>
 </body>
 </html>

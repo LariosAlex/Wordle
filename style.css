@@ -57,6 +57,12 @@
     top: 20px;
     right: 20px;
 }
+#nomUsuariHall{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: gold;
+}
 
 /*    nav   */
 
@@ -379,6 +385,53 @@ nav div{
 
 #popupReset h2{
     grid-row: 2/3;
+}
+/* Ranking */
+
+#ranking{
+    background-color: #D6D6B1;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 3fr;
+}
+
+
+#ranking h1{
+    grid-row: 1/3;
+    grid-column: 2/3;
+    text-align: center;
+    height: 15%;
+}
+
+#ranking #imgTrofeo{
+    width: 75px;
+    height: 50px;
+}
+
+#ranking #iconInfo{
+    width: 20px;
+    height: 20px;
+}
+
+#ranking #rankingTable{
+    grid-column: 1 / span 3;
+    grid-row: 3/3;
+}
+
+#ranking #rankingTable th, tr{
+    width: 25%;
+    height: 5px;
+}
+
+#ranking #rankingTable td{
+    border: 1px solid #de541e;
+}
+
+#ranking #rankingTableDetalls{
+    border: solid black 1px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    margin-bottom: 5%;
 }
 
 /* PC */
@@ -802,6 +855,10 @@ nav div{
     
     #game #nomUsuari{
         margin-top: 6px;
+        margin-right: 5px;
+    }
+    #game #nomUsuariHall{
+        margin-top: 12px;
         margin-right: 5px;
     }
     

@@ -81,7 +81,7 @@
             </form>
             <div id="botons">
                     <button id="resetBtn" onclick="canviarVisibilitatPopup()"><?php echo $index['botoReset'];?></button>
-                    <button id="rankingBtn"><?php echo $index['botoRanking'];?></button>
+                    <a href="./ranking.php"><button id="rankingBtn"><?php echo $index['botoRanking'];?></button></a>
             </div>
         </div>
         <div id="instruccions">
