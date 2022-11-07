@@ -57,6 +57,12 @@
     top: 20px;
     right: 20px;
 }
+#nomUsuariHall{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: gold;
+}
 
 /*    nav   */
 
@@ -717,6 +723,10 @@ nav div{
     
     #game #nomUsuari{
         margin-top: 6px;
+        margin-right: 5px;
+    }
+    #game #nomUsuariHall{
+        margin-top: 12px;
         margin-right: 5px;
     }
     
