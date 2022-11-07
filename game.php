@@ -36,7 +36,14 @@
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
     </noscript>
 </head>
-<body id="game" onload="inici()">
+<?php
+    if(isset($_POST['botoChrono'])){
+        echo "<body id='game' class='chrono' onload='iniciChrono()'>";
+    }else{
+        echo "<body id='game' onload='inici()'>";
+    }
+?>
+
 <nav>
         <a href="index.php">
             <div>
@@ -66,7 +73,14 @@
     <article>
         <div id="contenedor">
             <div class="reloj" id="Hores">00</div>
-            <div class="reloj" id="Minuts">:00</div>
+            <?php
+                if(isset($_POST['botoChrono'])){
+                    echo "<div class='reloj' id='Minuts'>:02</div>";
+                }else{
+                    echo "<div class='reloj' id='Minuts'>:00</div>";
+                }
+            ?>
+            
             <div class="reloj" id="Segons">:00</div>
         </div>
         <div>

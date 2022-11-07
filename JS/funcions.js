@@ -4,6 +4,14 @@ const soError = new Audio('../SRC/soError.mp3');
 const soExit = new Audio('../SRC/soGuanyar.mp3');
 const soPerdre = new Audio('../SRC/soPerdida.mp3');
 
+if(document.getElementsByClassName("chrono")[0] != undefined){
+    var minuts = 2;
+    var chrono = true;
+}else{
+    var minuts = 0;
+    var chrono = false;
+}
+
 function carregarParaulaSecreta(){
     let paraula = document.getElementById("paraulaSecreta").innerHTML.toUpperCase();
     return paraula;
@@ -14,7 +22,6 @@ var paraulaSecreta = carregarParaulaSecreta();
 var partidaActual = [];
 
 var segons = 0;
-var minuts = 0;
 var hores = 0;
 
 function afegirLletraParaula(lletra){
@@ -156,7 +163,29 @@ function enviar(){
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }
+//Funcions mode Chrono
+function iniciChrono () {
+    control = setInterval(temporitzador,1000);
+}
+function temporitzador(){
+    if (segons == 0){
+        minuts -= 1;
+        segons = 60;
+        if (minuts < 10) { minuts = "0"+minuts }
+        Minuts.innerHTML = ":"+minuts;
+    }
+    if (segons != 0){
+        segons --;
+        if (segons < 10) { segons = "0"+segons }
+        Segons.innerHTML = ":"+segons;
+    }
+    if ( (segons == 0) && (minuts == 0) ) {
+        alert("has perdido")
+    }
+}
 
+
+//Funcons mode normal
 function inici () {
     control = setInterval(cronometre,1000);
 }
