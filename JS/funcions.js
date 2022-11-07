@@ -74,23 +74,29 @@ function revisarParaula(filaActual){
             let lletraSeleccionada = document.getElementById(selector).innerHTML;
 
             if(lletraSeleccionada == paraulaSecreta[i]){
-                document.getElementById(selector).style.backgroundColor ="green";
+                color = "green";
+                document.getElementById(selector).style.backgroundColor =color;
                 if(vuelta==0){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
                     letrasCorrectes += 1;
                 }else if(vuelta == 1){
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
-                document.getElementById(selector).style.backgroundColor ="yellow";
+                color = "yellow";
+                document.getElementById(selector).style.backgroundColor =color;
                 if(vuelta==1){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }else{
-                document.getElementById(selector).style.backgroundColor ="grey";
+                color = "grey";
+                document.getElementById(selector).style.backgroundColor = color;
                 if (vuelta==1){
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }
         }
@@ -99,6 +105,18 @@ function revisarParaula(filaActual){
         soError.play();
     }
     setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
+}
+
+function pintarLetraTeclado(lletraSeleccionada, color){
+    colorDeLletra = document.getElementById(lletraSeleccionada).style.backgroundColor
+    if(colorDeLletra == "green"){
+        document.getElementById(lletraSeleccionada).style.backgroundColor = "green";
+    }
+    else if (color == "yellow" && colorDeLletra == "grey"){
+        document.getElementById(lletraSeleccionada).style.backgroundColor = color;
+    }else{
+        document.getElementById(lletraSeleccionada).style.backgroundColor = color;
+    }
 }
 
 

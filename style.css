@@ -195,7 +195,7 @@ nav div{
     display: flex;
 }  
 
-#game #tecla{
+#game .tecla{
     font-size: 1rem;
     text-transform: uppercase;
     border: none;
@@ -203,7 +203,7 @@ nav div{
     border-radius: 5px;
 }
 
-#game #tecla:hover{
+#game .tecla:hover{
     background-color:#DE541E;
     color: white;
 }
@@ -423,7 +423,7 @@ nav div{
         margin: 50px 0;
     }
 
-    #game #tecla{
+    #game .tecla{
         font-weight: 700;
         padding: 15px;
         margin: 5px ;
@@ -529,7 +529,7 @@ nav div{
         margin: 15px 0px;
     }
         
-    #game #tecla{
+    #game .tecla{
         font-weight: 700;
         padding: 13px;
         margin: 3px ;
@@ -679,10 +679,10 @@ nav div{
     }
 
     #game #teclat {
-        margin: 15px 0px;
+        margin: 10px 0px;
     }
         
-    #game #tecla{
+    #game .tecla{
         font-weight: lighter;
         padding: 6px;
         margin: 2px;

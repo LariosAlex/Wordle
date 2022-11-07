@@ -73,12 +73,12 @@
                 echo "</div><br><div id='filaTeclas'>\n";
                 echo "<form id='formGame' method='post'>\n";
                 echo "<input type='text' id='inputGame' hidden>\n";
-                echo "<input type='submit' id='tecla' type='button' onclick='enviar()' value='$tecla'>\n";
+                echo "<input type='submit' id='tecla' class='tecla' type='button' onclick='enviar()' value='$tecla'>\n";
                 echo "</form>\n";
             }elseif($tecla == 'ESBORRAR' || $tecla == 'BORRAR' || $tecla == 'BACK'){
-                echo "<button id='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
+                echo "<button id='tecla' class='tecla' type='button' onclick='esborrar()'>$tecla</button>\n";
             }else{
-                echo "<button id='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
+                echo "<button id='$tecla' class='tecla' type='button' onclick='afegirLletraParaula(\"$tecla\")'>$tecla</button>\n";
             }
             if($tecla == "P")  {
                 echo "</div><br>
