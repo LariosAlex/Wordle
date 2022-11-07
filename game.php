@@ -11,13 +11,12 @@
     }
 
     if($_SESSION['idioma'] == 'ca'){
-        $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/catala_5.txt');
     }elseif($_SESSION['idioma'] == 'es'){
-        $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/castellano_5.txt');
     }elseif($_SESSION['idioma'] == 'en'){
-        $_SESSION['paraula'] = obtenirParaula('english_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/english_5.txt');
     }
-
     $rankingTXT = getRanking('record.txt');
     $ranking = ranking($rankingTXT);
     $usuariHallFame = $ranking[0]['nombre'];

@@ -1,10 +1,10 @@
 <?php
     if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
-        include('lang_ca.php');
+        include('./lang/lang_ca.php');
     }else if( $_SESSION['idioma'] == 'es'){
-        include('lang_es.php');
+        include('./lang/lang_es.php');
     }else if( $_SESSION['idioma'] == 'en'){
-        include('lang_en.php');
+        include('./lang/lang_en.php');
     }
     function obtenirParaula($nomArxiu){
         $liniesArxiu = file($nomArxiu);
@@ -57,11 +57,14 @@
     }
 
     function llistaParaulesIdioma($idioma){
-        $liniesArxiu = file($idioma.'Teclat.txt');
-        $tecles = [];
-        foreach($liniesArxiu as $tecla) {
-            $tecles = explode(",", $tecla);
-        }
+        if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
+            include('./lang/lang_ca.php');
+        }elseif( $_SESSION['idioma'] == 'es'){
+            include('./lang/lang_es.php');
+        }elseif( $_SESSION['idioma'] == 'en'){
+            include('./lang/lang_en.php');
+        }  
+        $tecles = explode(",", $game['teclat']);
         return $tecles;
     }
     function generarTeclat(){
@@ -96,17 +99,17 @@
             $arrayResumIntents = explode("-",$FilaIntents);
             array_push($partidaActual,$arrayResumIntents);
         }
+        $partidaActual['temps'] = $_POST['temps'];
         array_push($_SESSION['totalPartides'],$partidaActual);
-        
     }
 
-    function mostrarPartides($temps){
+    function mostrarPartides(){
         if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
-            include('lang_ca.php');
+            include('./lang/lang_ca.php');
         }elseif( $_SESSION['idioma'] == 'es'){
-            include('lang_es.php');
+            include('./lang/lang_es.php');
         }elseif( $_SESSION['idioma'] == 'en'){
-            include('lang_en.php');
+            include('./lang/lang_en.php');
         }   
         echo "<table id='estadistiquesGenerals'>\n<tr>\n
         <th>". $fiPartida['partida'] ."</th>\n
@@ -117,12 +120,13 @@
             echo "<tr>\n";
             $puntuacio = 0;
             foreach($_SESSION['totalPartides'][$p] as $intentos){
-                $fila = ((int)$intentos[0])+1;
-                $encert = (int)$intentos[1];
-                $puntuacio += calculPuntuacio($fila,$encert);
+                if($intentos != $_SESSION['totalPartides'][$p]['temps']){
+                    $fila = ((int)$intentos[0])+1;
+                    $encert = (int)$intentos[1];
+                    $puntuacio += calculPuntuacio($fila,$encert);
+                }
             }
-            
-            $puntuacio += calculPuntuacioTemps($temps);
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
             echo "<td>".($p+1)."</td>\n";
             echo "<td>$fila</td>\n";
             echo "<td>$puntuacio</td>\n";
@@ -179,27 +183,27 @@
         return $punts;
     }
 
-    function mostrarPuntuacio($temps){
+    function mostrarPuntuacio(){
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             $puntuacio = 0;
             foreach($_SESSION['totalPartides'][$p] as $intentos){
                 $fila = ((int)$intentos[0])+1;
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
+                $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
             }
         }
-        $puntuacio += calculPuntuacioTemps($temps);
         $_SESSION['puntuacio'] += $puntuacio;
         
     }
 
     function paginaForbidden(){
         if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
-            include('lang_ca.php');
+            include('./lang/lang_ca.php');
         }elseif( $_SESSION['idioma'] == 'es'){
-            include('lang_es.php');
+            include('./lang/lang_es.php');
         }elseif( $_SESSION['idioma'] == 'en'){
-            include('lang_en.php');
+            include('./lang/lang_en.php');
         }
         echo "<div id='forbidden'>
             <div>
@@ -225,6 +229,26 @@
         return $rankingJugador;
     }
 
+
+    function actualitzarRanking(){
+        $resumPartides = [0, 0, 0, 0, 0, 0];
+        foreach($_SESSION['totalPartides'] as $partida){
+            $resumPartides[count($partida)] += 1;
+        }
+        $strResumPartides = implode("-", $resumPartides);
+        $_SESSION['resumPartidesIntents'] = $strResumPartides;
+    }
+
+    function afegirRanking(){
+        $allLines = file('record.txt'); 
+        $lastLine = sizeof($allLines) - 1 ; 
+        unset($lines[$lastLine]);
+
+        $fp = fopen('record.txt', 'w'); 
+        fwrite($fp, implode('', $allLines)); 
+        fclose($fp); 
+    }
+
     function ranking($ranking){
         $dictRank = [];
         foreach($ranking as $p){
@@ -239,7 +263,7 @@
             //Estadisticas
             $estadistiques = [];
             
-            if(trim(end($dades)) == 'active'){ //Jugador activo
+            if(trim(end($dades)) == 'true'){ //Jugador activo
                 $intents = explode("-", $dades[1]); //Separamos las partidas x intentos;
                 for($e = 0; $e < 6; $e++){
                     $intent = $intents[$e]; //Partidas con $e intentos

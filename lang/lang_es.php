@@ -1,4 +1,5 @@
 <?php
+
 $general = [
     'usuari' => 'Jugador: ',
     'boto1' => 'JUGAR',
@@ -21,7 +22,7 @@ $index = [
 ];
 
 $game = [
-    
+    'teclat' => 'Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Ñ,ENVIAR,Z,X,C,V,B,N,M,BORRAR'
 ];
 
 $fiPartida = [

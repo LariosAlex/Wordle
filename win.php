@@ -6,9 +6,10 @@
 
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
         afegirPartida($_POST['estadistiques']);
-        mostrarPuntuacio($_POST['temps']);
+        mostrarPuntuacio();
     }
-    
+    afegirRanking();
+    //actualitzarRanking();
 ?><!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -41,6 +42,11 @@
                 <?php echo $general['boto1'];?> 
             </div>
         </a>
+        <a href="ranking.php">
+            <div>
+                RANKING
+            </div>
+        </a>
     </nav>
 
     <div id="resultadoPartida">
@@ -53,7 +59,7 @@
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
         <?php
-            mostrarPartides($_POST['temps']);
+            mostrarPartides();
         ?>
         
     </div>
