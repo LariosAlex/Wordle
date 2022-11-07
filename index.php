@@ -83,6 +83,10 @@
         </ul>
         </div>
     </main>
+    <button onclick="canviarMode()">Canviar Dark Mode</button>
+    <p id="mode">
+        
+    </p>
     <footer>
         <p>Ies Esteve Terradas</p>
     </footer>

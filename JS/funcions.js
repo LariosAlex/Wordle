@@ -132,3 +132,25 @@ function enviar(){
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }
+
+function canviarMode(){
+    let estatActual = document.getElementById("mode").innerHTML;
+    let prefresDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let estatEnviar = "";
+    if(estatActual == ""){
+        if(prefresDarkScheme.matches){
+            estatEnviar = "light";
+        }else{
+            estatEnviar = "dark";
+        }
+    }else{
+        if(estatActual == "dark"){
+            estatEnviar = "light";
+        }else{
+            estatEnviar = "dark";
+        }
+    }
+    document.getElementById("mode").innerHTML = estatEnviar;
+    document.body.classList.toggle("dark-mode");
+
+  }

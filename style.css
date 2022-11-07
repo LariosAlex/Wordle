@@ -671,104 +671,91 @@ nav div{
     }
 }
 
+body{
+    --colorDeFons:#D6D6B1;
+    --colorLetras-bores:black;
+    --nav:#878472;
+    --teclat:#878472;
+    --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: white;
+    --botoJugar: #3f3f37;
+    --boresJoc-hoverTecla-errorJava: #DE541E;
+}
+
+body.dark-mode{
+    --colorDeFons:#D6D6B1;
+    --colorLetras-bores:black;
+    --nav:#878472;
+    --teclat:#878472;
+    --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: white;
+    --botoJugar: #3f3f37;
+    --boresJoc-hoverTecla-errorJava: #DE541E;
+}
+
 @media (prefers-color-scheme: dark) {
-    :root{
+    body{
         --colorDeFons:#303026;
         --colorLetras-bores:#fcfff2;
         --nav:#59574a;
         --teclat:#707458;
-        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: #7c7a6e;
-        --botoJugar: #34342b;
+        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: #d7d7d7;
+        --botoJugar: #1a1a17;
         --boresJoc-hoverTecla-errorJava: #422519;
-    }
-    h1, h2, h3, h4, p, strong, th, td{
-        color: var(--colorLetras-bores);
-    }
-    body{
-        background-color: var(--colorDeFons);
-    }
-    nav a{
-        color: var(--colorLetras-bores);
-    }
-    nav div{
-        background-color: var(--nav);
-        border: 1px solid var(--colorLetras-bores);
-    }
-    #index #nom_usuari{
-        background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #index #butoJugar{
-        background-color: var(--botoJugar);
-        color: var(--botoJugarLletra);
-    }
-    #game td{
-        border: 1px solid var(--boresJoc-hoverTecla-errorJava);
-        background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #game #tecla{
-        background-color: var(--teclat);
-    }
-    #game #tecla:hover{
-        background-color:var(--boresJoc-hoverTecla-errorJava);
-        color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #errorJavascript{
-        background-color: var(--boresJoc-hoverTecla-errorJava);
-    }
-    #errorJavascript button{
-        background-color: var(--colorDeFondo);
     }
 }
 
-
-
 @media (prefers-color-scheme: light) {
-    :root{
+    body{
         --colorDeFons:#D6D6B1;
         --colorLetras-bores:black;
+        --nav:#878472;
         --teclat:#878472;
         --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: white;
         --botoJugar: #3f3f37;
         --boresJoc-hoverTecla-errorJava: #DE541E;
     }
-    h1, h2, h3, h4, p, strong, th, td{
-        color: var(--colorLetras-bores);
-    }
-    body{
-        background-color: var(--colorDeFons);
-    }
-    nav a{
-        color: var(--colorLetras-bores);
-    }
-    nav div{
-        background-color: var(--teclat);
-        border: 1px solid var(--colorLetras-bores);
-    }
-    #index #nom_usuari{
-        background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #index #butoJugar{
-        background-color: var(--botoJugar);
-        color: var(--botoJugarLletra);
-    }
-    body{
-        background-color: var(--colorDeFons);
-    }
-    #game td{
-        border: 1px solid var(--boresJoc-hoverTecla-errorJava);
-        background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #game #tecla{
-        background-color: #e2e8f0;
-    }
-    #game #tecla:hover{
-        background-color:var(--boresJoc-hoverTecla-errorJava);
-        color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
-    }
-    #errorJavascript{
-        background-color: var(--boresJoc-hoverTecla-errorJava);
-    }
-    #errorJavascript button{
-        background-color: var(--colorDeFondo);
-    }
+}
+
+h1, h2, h3, h4, p, strong, th, td{
+    color: var(--colorLetras-bores);
+}
+body{
+    background-color: var(--colorDeFons);
+}
+nav a{
+    color: var(--colorLetras-bores);
+}
+nav div{
+    background-color: var(--nav);
+    border: 1px solid var(--colorLetras-bores);
+}
+#index #nom_usuari{
+    background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+#index #butoJugar{
+    background-color: var(--botoJugar);
+    color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+body{
+    background-color: var(--colorDeFons);
+}
+#game td{
+    border: 1px solid var(--boresJoc-hoverTecla-errorJava);
+    background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+#game #tecla{
+    background-color: #e2e8f0;
+}
+#game #tecla:hover{
+    background-color:var(--boresJoc-hoverTecla-errorJava);
+    color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+#errorJavascript{
+    background-color: var(--boresJoc-hoverTecla-errorJava);
+}
+#errorJavascript button{
+    background-color: var(--colorDeFondo);
+}
+
+#mode{
+    display: none;
 }
