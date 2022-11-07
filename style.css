@@ -213,6 +213,16 @@ nav div{
     text-align: center;
 }
 
+#game #contenedor{
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+#game .reloj{
+    display: inline;
+    font-size: 40px;
+}
+
 /* FINAL */
 
 #lose, #win{

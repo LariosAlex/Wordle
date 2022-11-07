@@ -6,7 +6,7 @@
 
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
         afegirPartida($_POST['estadistiques']);
-        mostrarPuntuacio();
+        mostrarPuntuacio($_POST['temps']);
     }
     
 ?><!DOCTYPE html>
@@ -53,7 +53,7 @@
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
         <?php
-            mostrarPartides();
+            mostrarPartides($_POST['temps']);
         ?>
         
     </div>

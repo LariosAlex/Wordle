@@ -13,6 +13,10 @@ var paraulaSecreta = carregarParaulaSecreta();
 
 var partidaActual = [];
 
+var segons = 0;
+var minuts = 0;
+var hores = 0;
+
 function afegirLletraParaula(lletra){
     if(paraula.length < 5){
         paraula += lletra;
@@ -52,7 +56,8 @@ function resultatPartida(encerts,filaActual){
         partidaActual.push([filaActual+"-"+encerts]);
     }
     document.getElementById("inputGame").setAttribute("name", "estadistiques");
-    document.getElementById('inputGame').value = partidaActual;  
+    document.getElementById('inputGame').value = partidaActual;
+    document.getElementById('temps').value = hores+":"+minuts+":"+segons;
 
 }
 
@@ -122,6 +127,7 @@ function esborrar(){
     paraula = paraula.substring(0,paraula.length-1);
     escriuParaula(paraula);
 }
+
 function enviar(){
     if(paraula.length === 5){
         revisarParaula(fila);
@@ -131,4 +137,33 @@ function enviar(){
         //resultatPartida(0,fila)
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
+}
+
+function inici () {
+    control = setInterval(cronometre,1000);
+}
+    
+function cronometre () {
+    if (segons < 59) {
+        segons ++;
+        if (segons < 10) { segons = "0"+segons }
+        Segons.innerHTML = ":"+segons;
+    }
+    if (segons == 59) {
+        segons = -1;
+    }
+    if ( (segons == 0) ) {
+        minuts++;
+        if (minuts < 10) { minuts = "0"+minuts }
+        Minuts.innerHTML = minuts;
+    }
+    if (minuts == 59) {
+        minuts = -1;
+    }
+    if ( (segons == 0) && (minuts == 0) ) {
+        hores++;
+        if (hores < 10) { hores = "0"+hores }
+        Hores.innerHTML = hores;
+    }
+
 }

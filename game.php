@@ -31,7 +31,7 @@
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
     </noscript>
 </head>
-<body id="game">
+<body id="game" onload="inici()">
 <nav>
         <a href="index.php">
             <div>
@@ -54,8 +54,10 @@
         ?>
     </header>
     <article>
-        <div>
-            <h1 id="resultat"></h1>
+        <div id="contenedor">
+            <div class="reloj" id="Hores">00</div>
+            <div class="reloj" id="Minuts">:00</div>
+            <div class="reloj" id="Segons">:00</div>
         </div>
         <div>
         <?php
@@ -63,7 +65,6 @@
         ?>
         </div>
     </article>
-    <br>
     <article>
     <?php
         generarTeclat();

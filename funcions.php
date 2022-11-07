@@ -73,6 +73,7 @@
                 echo "</div><br><div id='filaTeclas'>\n";
                 echo "<form id='formGame' method='post'>\n";
                 echo "<input type='text' id='inputGame' hidden>\n";
+                echo "<input type='text' name='temps' id='temps' hidden>\n";
                 echo "<input type='submit' id='tecla' type='button' onclick='enviar()' value='$tecla'>\n";
                 echo "</form>\n";
             }elseif($tecla == 'ESBORRAR' || $tecla == 'BORRAR' || $tecla == 'BACK'){
@@ -99,14 +100,14 @@
         
     }
 
-    function mostrarPartides(){
+    function mostrarPartides($temps){
         if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
             include('lang_ca.php');
         }elseif( $_SESSION['idioma'] == 'es'){
             include('lang_es.php');
         }elseif( $_SESSION['idioma'] == 'en'){
             include('lang_en.php');
-        }
+        }   
         echo "<table id='estadistiquesGenerals'>\n<tr>\n
         <th>". $fiPartida['partida'] ."</th>\n
         <th>". $fiPartida['intents'] ."</th>\n
@@ -120,6 +121,8 @@
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
+            
+            $puntuacio += calculPuntuacioTemps($temps);
             echo "<td>".($p+1)."</td>\n";
             echo "<td>$fila</td>\n";
             echo "<td>$puntuacio</td>\n";
@@ -160,6 +163,19 @@
         return $puntuacio;
     }
 
+    function calculPuntuacioTemps($stringTemps){
+        if($stringTemps == "0"){
+            return 0;
+        }
+        $punts = 500;
+
+        $stringTemps = explode(":",$stringTemps);
+
+        $punts -= ((int)$stringTemps[1] * 60) + (int)$stringTemps[2];
+        
+        return $punts;
+    }
+
     function mostrarPuntuacio(){
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             $puntuacio = 0;
@@ -169,6 +185,7 @@
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
         }
+        $puntuacio += calculPuntuacioTemps($temps);
         $_SESSION['puntuacio'] += $puntuacio;
         
     }
