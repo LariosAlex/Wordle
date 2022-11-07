@@ -182,9 +182,10 @@
         }
         return $paraules;
     }
+
     function ordenarRanking($rankingJugador, $itemSort){
         $keys = array_column($rankingJugador, $itemSort);
-        array_multisort($keys, SORT_ASC, $rankingJugador);
+        array_multisort($keys, SORT_DESC, $rankingJugador);
         return $rankingJugador;
     }
 

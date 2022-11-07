@@ -2,6 +2,8 @@
     session_start();
     //Importar funcions
     include('funcions.php');
+    $rankingTXT = getRanking('record.txt');
+    $ranking = ranking($rankingTXT);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +19,7 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body id="ranking">
+    <h1><img src="./SRC/trofeo.png" alt="trofeo" id="imgTrofeo">HALL OF FAME<img src="./SRC/trofeo.png" alt="trofeo" id="imgTrofeo"></h1>
     <nav>
         <a href="index.php">
             <div>
@@ -27,21 +30,58 @@
     <table id='rankingTable'>
         <tr>
             <th>NOM</th>
-            <th>INTENTS</th>
+            <th>PARTIDES</th>
             <th>PUNTUACIÓ</th>
+            <th>INFO</th>
         </tr>
 
         <?php 
-            $rankingTXT = getRanking('record.txt');
-            $ranking = ranking($rankingTXT);
-            foreach($ranking as $record){
+            for($r = 0; $r < count($ranking); $r++){
                 echo '<tr>';
-                echo '<td>'.$record['nombre'].'</td>';
-                echo '<td> </td>';
-                echo '<td>'.$record['puntuacio'].'</td>';
+                $bground = '';
+                if($r == 0){
+                    $bground = 'gold';
+                }else if ($r == 1){
+                    $bground = '#C0C0C0';
+                }else if($r == 2){
+                    $bground = '#CD7F32';
+                }
+                echo '<td bgcolor = '.$bground.'>'.$ranking[$r]['nombre'].'</td>';
+                $totalPartides = 0;
+                foreach($ranking[$r]['estadistiques'] as $partida){
+                    $totalPartides += $partida;
+                }
+                echo '<td bgcolor = '.$bground.'>'.$totalPartides.'</td>';
+                echo '<td bgcolor = '.$bground.'>'.$ranking[$r]['puntuacio'].'</td>';
+                echo '<td bgcolor = '.$bground.'><a href="../ranking.php?usuariDetalls='.$ranking[$r]['nombre'].'"><img src="./SRC/informacion.png" alt="info" id="iconInfo"></a></td>';
                 echo '</tr>';
             }
         ?>
     </table>
+    <?php
+    if(isset($_GET['usuariDetalls'])){
+    ?>
+        <table id='rankingTableDetalls'>
+            <tr>
+                <th>INTENTS</th>
+                <th>PARTIDES</th>
+            </tr>
+            <?php 
+                foreach($ranking as $detallsRanking){
+                        if($detallsRanking['nombre'] == $_GET['usuariDetalls']){
+                            echo '<caption>'.$detallsRanking['nombre'].'</caption>';
+                            for($d = 0; $d < count($detallsRanking['estadistiques']); $d++){
+                                echo '<tr>';
+                                    echo '<td>'.($d+1).'</td>';
+                                    echo '<td>'.$detallsRanking['estadistiques'][$d].'</td>';
+                                echo '</tr>';
+                            }
+                        };
+                }
+            ?>
+        </table>
+    <?php
+    }
+    ?>
 </body>
 </html>
