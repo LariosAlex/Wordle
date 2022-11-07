@@ -7,7 +7,8 @@ $general = [
 
 $index = [
     'salutacio' => 'Benvingut al WORDLE',
-    'botoJugar' => 'Jugar',
+    'botoJugar' => 'Jugar mode Normal',
+    'botoChrono' => 'Jugar mode Contrarellotge',
     'title' => 'INSTRUCCIONS',
     'punt1' => 'Totes les persones poden jugar a la paraula del dia.',
     'punt2' => "L'objectiu és simple, endevinar la paraula oculta. La paraula té 5 lletres i tens 6 intents per endevinar-la. La paraula és la mateixa per a totesles persones en aquell dia.",
@@ -15,6 +16,8 @@ $index = [
     'itemList1' => '<strong>VERD</strong> significa que la lletra està a la paraula ia la posició <strong>CORRECTA</strong>.',
     'itemList2' => '<strong>GROC</strong> significa que la lletra és present a la paraula però en la posició <strong>INCORRECTA</strong>.',
     'itemList3' => '<strong>GRIS</strong> significa que la lletra <strong>NO</strong> és a la paraula.',
+    'botoReset' => 'Resetear Sesion Actual',
+    'botoRanking' => 'Mostrar Ranking',
 ];
 
 $game = [

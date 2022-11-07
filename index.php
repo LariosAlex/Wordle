@@ -10,10 +10,16 @@
     //Importar funcions
     include('funcions.php');
 
-    //Declarar Sessions
-    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
-    $_SESSION['totalPartides'] = [];
-    $_SESSION['puntuacio'] = 0;
+    //Declarar Sessions si no estan declaradas
+    if(!isset($_SESSION['partides'])){
+        $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
+    }
+    if(!isset($_SESSION['totalPartides'])){
+        $_SESSION['totalPartides'] = [];
+    }
+    if(!isset($_SESSION['puntuacio'])){
+        $_SESSION['puntuacio'] = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +36,12 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body id="index">
+    <?php 
+    if(isset($_POST["reset"])){
+        session_destroy();
+        header("location:index.php");
+    }
+    ?>
     <main>
         <?php echo "<h1>".$index['salutacio']."</h1>"; ?>
         <img id="imatgeWordle" src="./SRC/imatgeWordle.png" alt="imagen del icono de la pagina web (Worddle)">
@@ -65,7 +77,12 @@
             <form action="game.php" method="post" id="formNom">
                 <input type="text" name="nom_usuari" id="nom_usuari" placeholder="<?php echo $general['usuari']; ?>" value="<?php echo $_SESSION['nom_usuari']; ?>" required>
                 <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
+                <input type="submit" name="botoChrono" value="<?php echo $index['botoChrono']; ?>" id="butoChrono">
             </form>
+            <div id="botons">
+                    <button id="resetBtn" onclick="canviarVisibilitatPopup()"><?php echo $index['botoReset'];?></button>
+                    <button id="rankingBtn"><?php echo $index['botoRanking'];?></button>
+            </div>
         </div>
         <div id="instruccions">
         <?php 
@@ -83,6 +100,15 @@
         </ul>
         </div>
     </main>
+    <div id="popupReset">
+        <h2>Deseas resetear la sesion actual?</h2>
+        <div>
+            <form method="post">
+            <input type="submit" name="reset" value="Si">
+            </form>
+            <button onclick="canviarVisibilitatPopup()">No</button>
+        </div>     
+    </div>
     <footer>
         <p>Ies Esteve Terradas</p>
     </footer>

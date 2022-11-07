@@ -173,10 +173,13 @@
 
         $punts -= ((int)$stringTemps[1] * 60) + (int)$stringTemps[2];
         
+        if($punts < 0){
+            $punts = 0;
+        }
         return $punts;
     }
 
-    function mostrarPuntuacio(){
+    function mostrarPuntuacio($temps){
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             $puntuacio = 0;
             foreach($_SESSION['totalPartides'][$p] as $intentos){

@@ -112,6 +112,7 @@ nav div{
     text-align: center;
     font-size: 30px;
     display: block;
+    margin-bottom: 5px;
 }
 
 #index footer p{
@@ -126,13 +127,27 @@ nav div{
 }
 
 #index #butoJugar{
-    display: block;
     background-color: #3f3f37;
     border-radius:12px;
     color: white;
     text-align: center;
     text-decoration: none;
-    margin:4px 2px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+#index #butoChrono{
+    background-color: #3f3f37;
+    border-radius:12px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin:0;
+    margin-bottom: 5px;
+    padding: 0;
     cursor: pointer;
     font-size: 20px;
 }
@@ -325,6 +340,46 @@ nav div{
     cursor: pointer;
 }
 
+#popupReset{
+    position: absolute;
+    top: 200px;
+    height: 300px;
+    width: 100%;
+    background-color: #DE541E;
+    border-top: 5px dashed black;
+    border-bottom: 5px dashed black;
+    text-align: center;
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 70px 70px 80px;
+
+}
+
+#popupReset div{
+    grid-row: 3/4;
+}
+
+#popupReset div button{
+    width: 100px;
+    height: 50px;
+    border-radius: 6%;
+    cursor: pointer;
+}
+
+#popupReset div form{
+    display: inline;
+}
+
+#popupReset div input{
+    width: 100px;
+    height: 50px;
+    border-radius: 6%;
+    cursor: pointer;
+}
+
+#popupReset h2{
+    grid-row: 2/3;
+}
 
 /* PC */
 @media screen and (max-width: 1920px){
@@ -370,7 +425,13 @@ nav div{
     }
     
     #index #butoJugar{
-        width: 605px;
+        width: 298px;
+        height: 50px;
+        display: inline;
+    }
+
+    #index #butoChrono{
+        width: 298px;
         height: 50px;
     }
 
@@ -380,6 +441,31 @@ nav div{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 30px 270px;
+    }
+
+    #index #botons{
+        width: 100%;
+        text-align: center;
+    }
+
+    #index #botons button{
+        width: 49.5%;
+        margin: 0;
+        padding: 0;
+        height: 35px;
+        cursor: pointer;
+        background-color: #3f3f37;
+        border-radius:12px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #index #botons #resetBtn{
+        background-color: #DE541E;
+        color: black;
     }
 
     #labelCa{
@@ -451,7 +537,7 @@ nav div{
 @media screen and (max-width: 1000px){
     #index main{
         display: grid;
-        grid-template-rows: 50px 150px 365px;
+        grid-template-rows: 50px 200px 365px;
         grid-template-columns: 200px 1fr 1fr;
     }
 
@@ -486,9 +572,22 @@ nav div{
         width: 400px;
     }
     
+    #index #butoChrono{
+        width: 200px;
+        font-size: 16px;
+    }
+
+    #index #botons #resetBtn{
+        font-size: 16px;
+    }
+
+    #index #botons #rankingBtn{
+        font-size: 16px;
+    }
+
     #index #butoJugar{
-        width: 405px;
-        height: 50px;
+        width: 200px;
+        font-size: 16px;
     }
 
     #index #divLlenguatge{
@@ -554,7 +653,7 @@ nav div{
 
     #index main{
         display: grid;
-        grid-template-rows: 55px 80px 80px 395px;
+        grid-template-rows: 55px 130px 80px 335px;
         grid-template-columns: 1px 1fr;
     }
     
@@ -578,12 +677,21 @@ nav div{
 
     #nom_usuari{
         height: 28px;
-        width: 195px;
+        width: 317px;
+        font-size: 10px;
+        margin-left: 3px;
     }
     
     #index #butoJugar{
-        width: 200px;
-        height: 30px;
+        width: 160px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    #index #butoChrono{
+        font-size: 12px;
+        width: 160px;
+        height: 32px;
     }
 
     #index #instruccions{
@@ -605,6 +713,20 @@ nav div{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 20px 60px;
+    }
+
+    #index #botons #rankingBtn{
+        width: 160px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    #index #botons #resetBtn{
+        height: 30px;
+        background-color: #DE541E;
+        color: black;
+        width: 160px;
+        font-size: 12px;
     }
 
     #formIdioma{

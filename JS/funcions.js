@@ -165,5 +165,13 @@ function cronometre () {
         if (hores < 10) { hores = "0"+hores }
         Hores.innerHTML = hores;
     }
+}
 
+function canviarVisibilitatPopup(){
+    popup = document.getElementById("popupReset");
+    if(popup.style.display == "grid"){
+        popup.style.display = "none"
+    }else{
+        popup.style.display = "grid"
+    }
 }
