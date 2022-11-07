@@ -134,6 +134,7 @@ function enviar(){
 }
 
 function canviarMode(){
+        // Definiu aqui el vostre codi
     let estatActual = document.getElementById("mode").innerHTML;
     let prefresDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     let estatEnviar = "";
