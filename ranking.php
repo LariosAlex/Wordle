@@ -2,6 +2,10 @@
     session_start();
     //Importar funcions
     include('funcions.php');
+    if(isset($_POST['afegirEstadistiques'])){
+        deleteLastRecordUser('record.txt');
+        afegirRanking();
+    }
     $rankingTXT = getRanking('record.txt');
     $ranking = ranking($rankingTXT);
 ?>

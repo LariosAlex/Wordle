@@ -3,13 +3,11 @@
     include "funcions.php";
     
     $_SESSION['partides']['guanyades'] += 1;
-
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
         afegirPartida($_POST['estadistiques']);
         mostrarPuntuacio();
     }
-    afegirRanking();
-    //actualitzarRanking();
+    actualitzarRanking();
 ?><!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -47,6 +45,10 @@
                 RANKING
             </div>
         </a>
+        <form action="ranking.php" method="post">
+            <input type="text" name="afegirEstadistiques" value="true" hidden>
+            <input type="submit" value="Enviar formulario" />
+        </form>
     </nav>
 
     <div id="resultadoPartida">

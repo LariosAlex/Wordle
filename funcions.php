@@ -190,8 +190,8 @@
                 $fila = ((int)$intentos[0])+1;
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
-                $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
             }
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
         }
         $_SESSION['puntuacio'] += $puntuacio;
         
@@ -217,8 +217,8 @@
     function getRanking($nomArxiu){
         $liniesArxiu = file($nomArxiu);
         $paraules = [];
-        foreach($liniesArxiu as $paraula) {
-            array_push($paraules, $paraula);
+        foreach($liniesArxiu as $linia) {
+            array_push($paraules, $linia);
         }
         return $paraules;
     }
@@ -233,20 +233,37 @@
     function actualitzarRanking(){
         $resumPartides = [0, 0, 0, 0, 0, 0];
         foreach($_SESSION['totalPartides'] as $partida){
-            $resumPartides[count($partida)] += 1;
+            $intentsPartida = count($partida[0]) - 1;
+            $resumPartides[$intentsPartida - 1] += 1;
         }
         $strResumPartides = implode("-", $resumPartides);
         $_SESSION['resumPartidesIntents'] = $strResumPartides;
     }
 
     function afegirRanking(){
-        $allLines = file('record.txt'); 
-        $lastLine = sizeof($allLines) - 1 ; 
-        unset($lines[$lastLine]);
+        $strEst = $_SESSION['nom_usuari'].",".$_SESSION['resumPartidesIntents'].",".$_SESSION['puntuacio'].",true";
+        $file = 'record.txt';
+        $actual = file_get_contents($file);
+        $actual .= "$strEst\n";
+        file_put_contents($file,$actual);
+    }
 
-        $fp = fopen('record.txt', 'w'); 
-        fwrite($fp, implode('', $allLines)); 
-        fclose($fp); 
+    function deleteLastRecordUser($nomArxiu){
+        $liniesArxiu = file($nomArxiu);
+        $deleteLines = [];
+        if(count($liniesArxiu) > 0){
+            foreach($liniesArxiu as $linia) {
+                $dades = explode(",", $linia);  //Separamos los datos
+                if($dades[0] === $_SESSION['nom_usuari']){
+                    array_push($deleteLines, $linia);
+                }
+            }
+            foreach($deleteLines as $dLinies){
+                $contents = file_get_contents($nomArxiu);
+                $contents = str_replace($dLinies, '', $contents);
+                file_put_contents($nomArxiu, $contents);
+            }
+        }
     }
 
     function ranking($ranking){
