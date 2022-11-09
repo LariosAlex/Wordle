@@ -158,14 +158,15 @@ function enviar(){
         fila += 1;
         paraula = "";
     }else{
-        //resultatPartida(0,fila)
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
     }
 }
+
 //Funcions mode Chrono
 function iniciChrono () {
     control = setInterval(temporitzador,1000);
 }
+
 function temporitzador(){
     if(segons == 0){
         minuts -= 1;
@@ -180,11 +181,10 @@ function temporitzador(){
         }
         Segons.innerHTML = ":"+segons;
     }
+    //Has perdut per temps
     if((segons == 0) && (minuts == 0)) {
         document.getElementById("formGame").setAttribute("action", "lose.php");
-        document.getElementById("inputGame").setAttribute("name", "estadistiques");
-        document.getElementById('inputGame').value = "lose_for_time";
-        document.getElementById('temps').value = "";
+        document.getElementById('temps').value = "00:00:00";
         document.enviarDatos.submit();
     }
 }
@@ -195,7 +195,7 @@ function inici () {
     control = setInterval(cronometre,1000);
 }
     
-function cronometre () {
+function cronometre() {
     if(segons < 59) {
         segons ++;
         if (segons < 10) { 

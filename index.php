@@ -12,7 +12,7 @@
 
     //Declarar Sessions si no estan declaradas
     if(!isset($_SESSION['partides'])){
-        $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => [] ];
+        $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
     }
     if(!isset($_SESSION['totalPartides'])){
         $_SESSION['totalPartides'] = [];

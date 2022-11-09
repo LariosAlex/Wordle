@@ -1,5 +1,2 @@
-Alex,0-3-0-0-2-0,20000,active
-Pau,0-0-2-0-3-0,25000,active
-Unai,1-0-5-0-0-0,60000,active
-Pepe,1-0-5-0-0-0,15000,active
-
+Alex,2-0-0-0-0-0,1992,true
+Kamehame,6-0-0-0-0-0,3052,true

@@ -2,22 +2,24 @@
     session_start();
     include('funcions.php');
 
-    if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
-        include('lang_ca.php');
-    }elseif( $_SESSION['idioma'] == 'es'){
-        include('lang_es.php');
-    }elseif( $_SESSION['idioma'] == 'en'){
-        include('lang_en.php');
-    }
-
+    //Idioma al que estem jugant
     if($_SESSION['idioma'] == 'ca'){
-        $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/catala_5.txt');
     }elseif($_SESSION['idioma'] == 'es'){
-        $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/castellano_5.txt');
     }elseif($_SESSION['idioma'] == 'en'){
-        $_SESSION['paraula'] = obtenirParaula('english_5.txt');
+        $_SESSION['paraula'] = obtenirParaula('./lang/english_5.txt');
     }
 
+    //Comprova el mode al que estem
+    if(isset($_POST['botoChrono'])){
+        $_SESSION['modo'] = 'crono';
+    }
+    if(isset($_POST['botoJugar'])){
+        $_SESSION['modo'] = 'normal';
+    }
+
+    //Mostrar posicio 1 del ranking
     $rankingTXT = getRanking('record.txt');
     $ranking = ranking($rankingTXT);
     $usuariHallFame = $ranking[0]['nombre'];
@@ -37,7 +39,7 @@
     </noscript>
 </head>
 <?php
-    if(isset($_POST['botoChrono'])){
+    if($_SESSION['modo'] == 'crono'){
         echo "<body id='game' class='chrono' onload='iniciChrono()'>";
     }else{
         echo "<body id='game' onload='inici()'>";
@@ -59,7 +61,7 @@
         <?php
             if(isset($_POST['nom_usuari'])){
                 if($_POST['nom_usuari'] != $_SESSION['nom_usuari']){
-                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => []];
+                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
                     $_SESSION['totalPartides'] = [];
                     $_SESSION['puntuacio'] = 0;
                 }
@@ -74,13 +76,12 @@
         <div id="contenedor">
             <div class="reloj" id="Hores">00</div>
             <?php
-                if(isset($_POST['botoChrono'])){
+                if($_SESSION['modo'] == 'crono'){
                     echo "<div class='reloj' id='Minuts'>:02</div>";
                 }else{
                     echo "<div class='reloj' id='Minuts'>:00</div>";
                 }
             ?>
-            
             <div class="reloj" id="Segons">:00</div>
         </div>
         <div>

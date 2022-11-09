@@ -291,6 +291,10 @@ nav div{
     grid-template-rows: 1px auto 50px;
 }
 
+#win #rankingPublic{
+    background-color: #90EE90;
+}
+
 #partidesPerdudes{
     grid-row: 3/4;
     grid-column: 2/3;

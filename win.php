@@ -2,17 +2,13 @@
     session_start();
     include "funcions.php";
 
-    $totalPartides = count($_SESSION['partides']);
-    array_push($_SESSION['partides']['guanyades'],[$totalPartides,$_POST['temps']]);
-
+    $totalPartides = count($_SESSION['totalPartides']);
+    $_SESSION['partides']['guanyades'] += 1;
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
-        afegirPartida($_POST['estadistiques'],$_POST['temps']);
-        mostrarPuntuacio();
-    }else if(isset($_POST['estadistiquesChrono']) && isset($_SESSION)){
-        afegirPartida($_POST['estadistiques'],$_POST['temps']);
+        afegirPartida($_POST['estadistiques']);
         mostrarPuntuacio();
     }
-    
+    actualitzarRanking();
 ?><!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -28,11 +24,11 @@
 </head>
 <body onload="executarSo('guanyada')" id="win">
     <?php
-        if(!isset($_POST['estadistiques'])){
-            http_response_code(403);
-            paginaForbidden();
-            die();
-        }
+        // if(!isset($_POST['estadistiques'])){
+        //     http_response_code(403);
+        //     paginaForbidden();
+        //     die();
+        // }
     ?>
     <nav>
         <a href="index.php">
@@ -45,6 +41,15 @@
                 <?php echo $general['boto1'];?> 
             </div>
         </a>
+        <a href="ranking.php">
+            <div>
+                RANKING
+            </div>
+        </a>
+        <form action="ranking.php" method="post">
+            <input type="text" name="afegirEstadistiques" value="true" hidden>
+            <input type="submit" value="Publicar resultats" id='rankingPublic'/>
+        </form>
     </nav>
 
     <div id="resultadoPartida">
