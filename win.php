@@ -1,12 +1,16 @@
 <?php
     session_start();
     include "funcions.php";
-    
-    $_SESSION['partides']['guanyades'] += 1;
+
+    $totalPartides = count($_SESSION['partides']);
+    array_push($_SESSION['partides']['guanyades'],[$totalPartides,$_POST['temps']]);
 
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
-        afegirPartida($_POST['estadistiques']);
-        mostrarPuntuacio($_POST['temps']);
+        afegirPartida($_POST['estadistiques'],$_POST['temps']);
+        mostrarPuntuacio();
+    }else if(isset($_POST['estadistiquesChrono']) && isset($_SESSION)){
+        afegirPartida($_POST['estadistiques'],$_POST['temps']);
+        mostrarPuntuacio();
     }
     
 ?><!DOCTYPE html>
@@ -53,7 +57,7 @@
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
         <?php
-            mostrarPartides($_POST['temps']);
+            mostrarPartides();
         ?>
         
     </div>

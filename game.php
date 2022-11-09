@@ -59,7 +59,7 @@
         <?php
             if(isset($_POST['nom_usuari'])){
                 if($_POST['nom_usuari'] != $_SESSION['nom_usuari']){
-                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
+                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => []];
                     $_SESSION['totalPartides'] = [];
                     $_SESSION['puntuacio'] = 0;
                 }

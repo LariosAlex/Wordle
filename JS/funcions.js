@@ -62,7 +62,6 @@ function resultatPartida(encerts,filaActual){
     if( valor != undefined || valor != null){
         partidaActual.push([filaActual+"-"+encerts]);
     }
-    document.getElementById("inputGame").setAttribute("name", "estadistiques");
     document.getElementById('inputGame').value = partidaActual;
     document.getElementById('temps').value = hores+":"+minuts+":"+segons;
 
@@ -168,19 +167,25 @@ function iniciChrono () {
     control = setInterval(temporitzador,1000);
 }
 function temporitzador(){
-    if (segons == 0){
+    if(segons == 0){
         minuts -= 1;
         segons = 60;
         if (minuts < 10) { minuts = "0"+minuts }
         Minuts.innerHTML = ":"+minuts;
     }
-    if (segons != 0){
+    if(segons != 0){
         segons --;
-        if (segons < 10) { segons = "0"+segons }
+        if(segons < 10) { 
+            segons = "0"+segons 
+        }
         Segons.innerHTML = ":"+segons;
     }
-    if ( (segons == 0) && (minuts == 0) ) {
-        alert("has perdido")
+    if((segons == 0) && (minuts == 0)) {
+        document.getElementById("formGame").setAttribute("action", "lose.php");
+        document.getElementById("inputGame").setAttribute("name", "estadistiques");
+        document.getElementById('inputGame').value = "lose_for_time";
+        document.getElementById('temps').value = "";
+        document.enviarDatos.submit();
     }
 }
 
@@ -191,25 +196,31 @@ function inici () {
 }
     
 function cronometre () {
-    if (segons < 59) {
+    if(segons < 59) {
         segons ++;
-        if (segons < 10) { segons = "0"+segons }
+        if (segons < 10) { 
+            segons = "0"+segons 
+        }
         Segons.innerHTML = ":"+segons;
     }
-    if (segons == 59) {
+    if(segons == 59) {
         segons = -1;
     }
-    if ( (segons == 0) ) {
+    if((segons == 0)) {
         minuts++;
-        if (minuts < 10) { minuts = "0"+minuts }
+        if (minuts < 10) { 
+            minuts = "0"+minuts
+        }
         Minuts.innerHTML = minuts;
     }
-    if (minuts == 59) {
+    if(minuts == 59) {
         minuts = -1;
     }
-    if ( (segons == 0) && (minuts == 0) ) {
+    if((segons == 0) && (minuts == 0)) {
         hores++;
-        if (hores < 10) { hores = "0"+hores }
+        if (hores < 10) { 
+            hores = "0"+hores
+        }
         Hores.innerHTML = hores;
     }
 }

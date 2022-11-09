@@ -4,10 +4,13 @@
     
     $_SESSION['partides']['perdudes'] += 1;
 
-    
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
-        afegirPartida($_POST['estadistiques']);
-        mostrarPuntuacio("0");
+        if($_POST['estadistiques'] != "lose_for_time"){
+            $_POST['temps'] = 0;
+            afegirPartida($_POST['estadistiques'],$_POST['temps']);
+            mostrarPuntuacio();
+        }
+        
     }
 ?>
 <!DOCTYPE html>
@@ -53,7 +56,7 @@
     <h3><?php echo $fiPartida['estadistica'];?></h3>
     <div id="estadistiques">
         <?php
-            mostrarPartides($_POST['temps']);
+            mostrarPartides();
         ?>
     </div>
 </body>

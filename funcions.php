@@ -71,8 +71,12 @@
         foreach($llista as $tecla){
             if($tecla == 'ENVIAR' || $tecla == 'SEND'){
                 echo "</div><br><div id='filaTeclas'>\n";
-                echo "<form id='formGame' method='post'>\n";
-                echo "<input type='text' id='inputGame' hidden>\n";
+                echo "<form id='formGame' method='post' name='enviarDatos'>\n";
+                if(isset($_POST['botoChrono'])){
+                    echo "<input type='text' name='estadistiquesChrono' id='inputGame' hidden>\n";
+                }else{
+                    echo "<input type='text' name='estadistiques' id='inputGame' hidden>\n";
+                }
                 echo "<input type='text' name='temps' id='temps' hidden>\n";
                 echo "<input type='submit' id='tecla' class='tecla' type='button' onclick='enviar()' value='$tecla'>\n";
                 echo "</form>\n";
@@ -89,25 +93,26 @@
         echo "</div>";
     }
 
-    function afegirPartida($resumPartida){
+    function afegirPartida($resumPartida,$temps){
         $arrayPartida = explode(",",$resumPartida);
+        
         $partidaActual = [];
         foreach($arrayPartida as $FilaIntents){
             $arrayResumIntents = explode("-",$FilaIntents);
+            
             array_push($partidaActual,$arrayResumIntents);
         }
-        array_push($_SESSION['totalPartides'],$partidaActual);
-        
+        array_push($_SESSION['totalPartides'],[$partidaActual,$temps]);
     }
 
-    function mostrarPartides($temps){
+    function mostrarPartides($bool){
         if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
             include('lang_ca.php');
         }elseif( $_SESSION['idioma'] == 'es'){
             include('lang_es.php');
         }elseif( $_SESSION['idioma'] == 'en'){
             include('lang_en.php');
-        }   
+        }
         echo "<table id='estadistiquesGenerals'>\n<tr>\n
         <th>". $fiPartida['partida'] ."</th>\n
         <th>". $fiPartida['intents'] ."</th>\n
@@ -116,13 +121,14 @@
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             echo "<tr>\n";
             $puntuacio = 0;
-            foreach($_SESSION['totalPartides'][$p] as $intentos){
+            foreach($_SESSION['totalPartides'][$p][0] as $intentos){
                 $fila = ((int)$intentos[0])+1;
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
+
             }
-            
-            $puntuacio += calculPuntuacioTemps($temps);
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1],$bool);
+
             echo "<td>".($p+1)."</td>\n";
             echo "<td>$fila</td>\n";
             echo "<td>$puntuacio</td>\n";
@@ -136,13 +142,14 @@
         echo "<th>". $fiPartida['pPerdudes'] ."</th>\n";
         echo "</tr>\n";
         echo "<tr>\n";
-        echo "<td>". $_SESSION['partides']['guanyades'] ."</td>\n";
+        echo "<td>". $_SESSION['partides']['guanyades'][$p][0] ."</td>\n";
         echo "<td>". $_SESSION['partides']['perdudes'] ."</td>\n";
         echo "</tr>\n";
         echo "</table>\n";
         
         
     }
+
     function calculPuntuacio($fila,$encerts){
         $puntuacio = 0;
             if($fila == 1){
@@ -163,9 +170,12 @@
         return $puntuacio;
     }
 
-    function calculPuntuacioTemps($stringTemps){
-        if($stringTemps == "0"){
+    function calculPuntuacioTemps($stringTemps,$bool){
+        if($stringTemps == 0){
             return 0;
+        }
+        if ($bool){
+            
         }
         $punts = 500;
 
@@ -179,16 +189,16 @@
         return $punts;
     }
 
-    function mostrarPuntuacio($temps){
+    function mostrarPuntuacio($bool){
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             $puntuacio = 0;
-            foreach($_SESSION['totalPartides'][$p] as $intentos){
+            foreach($_SESSION['totalPartides'][$p][0] as $intentos){
                 $fila = ((int)$intentos[0])+1;
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1],$bool);
         }
-        $puntuacio += calculPuntuacioTemps($temps);
         $_SESSION['puntuacio'] += $puntuacio;
         
     }
