@@ -1,5 +1,6 @@
 let fila = 0;
 var paraula ="";
+var easterEgg  = "";
 const soError = new Audio('../SRC/soError.mp3');
 const soExit = new Audio('../SRC/soGuanyar.mp3');
 const soPerdre = new Audio('../SRC/soPerdida.mp3');
@@ -155,6 +156,10 @@ function esborrar(){
 function enviar(){
     if(paraula.length === 5){
         revisarParaula(fila);
+        easterEgg += paraula[fila];
+        if(easterEgg == "SCRUM"){
+            window.open("https://borsa.ieti.cat/scrum/projectes", '_blank');
+        }
         fila += 1;
         paraula = "";
     }else{
