@@ -105,7 +105,7 @@
         array_push($_SESSION['totalPartides'],[$partidaActual,$temps]);
     }
 
-    function mostrarPartides($bool){
+    function mostrarPartides(){
         if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
             include('lang_ca.php');
         }elseif( $_SESSION['idioma'] == 'es'){
@@ -127,7 +127,7 @@
                 $puntuacio += calculPuntuacio($fila,$encert);
 
             }
-            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1],$bool);
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1]);
 
             echo "<td>".($p+1)."</td>\n";
             echo "<td>$fila</td>\n";
@@ -170,12 +170,9 @@
         return $puntuacio;
     }
 
-    function calculPuntuacioTemps($stringTemps,$bool){
+    function calculPuntuacioTemps($stringTemps){
         if($stringTemps == 0){
             return 0;
-        }
-        if ($bool){
-            
         }
         $punts = 500;
 
@@ -189,7 +186,7 @@
         return $punts;
     }
 
-    function mostrarPuntuacio($bool){
+    function mostrarPuntuacio(){
         for($p = 0; $p < count($_SESSION['totalPartides']); $p++){
             $puntuacio = 0;
             foreach($_SESSION['totalPartides'][$p][0] as $intentos){
@@ -197,7 +194,7 @@
                 $encert = (int)$intentos[1];
                 $puntuacio += calculPuntuacio($fila,$encert);
             }
-            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1],$bool);
+            $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p][1]);
         }
         $_SESSION['puntuacio'] += $puntuacio;
         

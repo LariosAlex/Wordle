@@ -5,10 +5,10 @@
     $totalPartides = count($_SESSION['partides']);
     array_push($_SESSION['partides']['guanyades'],[$totalPartides,$_POST['temps']]);
 
-    if(isset($_POST['estadistiques']) && isset($_SESSION)){
+    if(isset($_POST['estadistiques']) && isset($_SESSION['boolean'])){
         afegirPartida($_POST['estadistiques'],$_POST['temps']);
         mostrarPuntuacio();
-    }else if(isset($_POST['estadistiquesChrono']) && isset($_SESSION)){
+    }else if(isset($_POST['estadistiquesChrono']) && isset($_SESSION['boolean'])){
         afegirPartida($_POST['estadistiques'],$_POST['temps']);
         mostrarPuntuacio();
     }
@@ -63,3 +63,6 @@
     </div>
 </body>
 </html>
+<?php
+    unset($_SESSION['boolean']);
+?>

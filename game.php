@@ -22,6 +22,8 @@
     $ranking = ranking($rankingTXT);
     $usuariHallFame = $ranking[0]['nombre'];
     $puntuacioHallFame = $ranking[0]['puntuacio'];
+
+    $_SESSION['boolean'] = TRUE;
 ?> 
 <!DOCTYPE html>
 <html lang="ca">

@@ -1,10 +1,9 @@
 <?php
     session_start();
     include "funcions.php";
-    
-    $_SESSION['partides']['perdudes'] += 1;
 
-    if(isset($_POST['estadistiques']) && isset($_SESSION)){
+    if(isset($_POST['estadistiques']) && isset($_SESSION['boolean'])){
+        $_SESSION['partides']['perdudes'] += 1;
         if($_POST['estadistiques'] != "lose_for_time"){
             $_POST['temps'] = 0;
             afegirPartida($_POST['estadistiques'],$_POST['temps']);
@@ -61,3 +60,6 @@
     </div>
 </body>
 </html>
+<?php
+    unset($_SESSION['boolean']);
+?>
