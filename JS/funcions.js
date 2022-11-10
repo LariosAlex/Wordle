@@ -1,8 +1,17 @@
 let fila = 0;
 var paraula ="";
+var easterEgg  = "";
 const soError = new Audio('../SRC/soError.mp3');
 const soExit = new Audio('../SRC/soGuanyar.mp3');
 const soPerdre = new Audio('../SRC/soPerdida.mp3');
+
+if(document.getElementsByClassName("chrono")[0] != undefined){
+    var minuts = 2;
+    var chrono = true;
+}else{
+    var minuts = 0;
+    var chrono = false;
+}
 
 function carregarParaulaSecreta(){
     let paraula = document.getElementById("paraulaSecreta").innerHTML.toUpperCase();
@@ -12,6 +21,9 @@ function carregarParaulaSecreta(){
 var paraulaSecreta = carregarParaulaSecreta();
 
 var partidaActual = [];
+
+var segons = 0;
+var hores = 0;
 
 function afegirLletraParaula(lletra){
     if(paraula.length < 5){
@@ -51,8 +63,8 @@ function resultatPartida(encerts,filaActual){
     if( valor != undefined || valor != null){
         partidaActual.push([filaActual+"-"+encerts]);
     }
-    document.getElementById("inputGame").setAttribute("name", "estadistiques");
-    document.getElementById('inputGame').value = partidaActual;  
+    document.getElementById('inputGame').value = partidaActual;
+    document.getElementById('temps').value = hores+":"+minuts+":"+segons;
 
 }
 
@@ -74,23 +86,29 @@ function revisarParaula(filaActual){
             let lletraSeleccionada = document.getElementById(selector).innerHTML;
 
             if(lletraSeleccionada == paraulaSecreta[i]){
-                document.getElementById(selector).style.backgroundColor ="green";
+                color = "green";
+                document.getElementById(selector).style.backgroundColor =color;
                 if(vuelta==0){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
                     letrasCorrectes += 1;
                 }else if(vuelta == 1){
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }else if(paraulaSecreta.includes(lletraSeleccionada) && diccionariContadorLletresSecreta[lletraSeleccionada]>0){
-                document.getElementById(selector).style.backgroundColor ="yellow";
+                color = "yellow";
+                document.getElementById(selector).style.backgroundColor =color;
                 if(vuelta==1){
                     diccionariContadorLletresSecreta[lletraSeleccionada] -= 1;
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }else{
-                document.getElementById(selector).style.backgroundColor ="grey";
+                color = "grey";
+                document.getElementById(selector).style.backgroundColor = color;
                 if (vuelta==1){
                     stringInsertado += lletraSeleccionada;
+                    pintarLetraTeclado(lletraSeleccionada, color);
                 }
             }
         }
@@ -99,6 +117,18 @@ function revisarParaula(filaActual){
         soError.play();
     }
     setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
+}
+
+function pintarLetraTeclado(lletraSeleccionada, color){
+    colorDeLletra = document.getElementById(lletraSeleccionada).style.backgroundColor
+    if(colorDeLletra == "green"){
+        document.getElementById(lletraSeleccionada).style.backgroundColor = "green";
+    }
+    else if (color == "yellow" && colorDeLletra == "grey"){
+        document.getElementById(lletraSeleccionada).style.backgroundColor = color;
+    }else{
+        document.getElementById(lletraSeleccionada).style.backgroundColor = color;
+    }
 }
 
 
@@ -122,13 +152,89 @@ function esborrar(){
     paraula = paraula.substring(0,paraula.length-1);
     escriuParaula(paraula);
 }
+
 function enviar(){
     if(paraula.length === 5){
         revisarParaula(fila);
+        easterEgg += paraula[fila];
+        if(easterEgg == "SCRUM"){
+            window.open("https://borsa.ieti.cat/scrum/projectes", '_blank');
+        }
         fila += 1;
         paraula = "";
     }else{
-        //resultatPartida(0,fila)
         document.getElementById("formGame").setAttribute("onsubmit", "return false");
+    }
+}
+
+//Funcions mode Chrono
+function iniciChrono () {
+    control = setInterval(temporitzador,1000);
+}
+
+function temporitzador(){
+    if(segons == 0){
+        minuts -= 1;
+        segons = 60;
+        if (minuts < 10) { minuts = "0"+minuts }
+        Minuts.innerHTML = ":"+minuts;
+    }
+    if(segons != 0){
+        segons --;
+        if(segons < 10) { 
+            segons = "0"+segons 
+        }
+        Segons.innerHTML = ":"+segons;
+    }
+    //Has perdut per temps
+    if((segons == 0) && (minuts == 0)) {
+        document.getElementById("formGame").setAttribute("action", "lose.php");
+        document.getElementById('temps').value = "00:00:00";
+        document.enviarDatos.submit();
+    }
+}
+
+
+//Funcons mode normal
+function inici () {
+    control = setInterval(cronometre,1000);
+}
+    
+function cronometre() {
+    if(segons < 59) {
+        segons ++;
+        if (segons < 10) { 
+            segons = "0"+segons 
+        }
+        Segons.innerHTML = ":"+segons;
+    }
+    if(segons == 59) {
+        segons = -1;
+    }
+    if((segons == 0)) {
+        minuts++;
+        if (minuts < 10) { 
+            minuts = "0"+minuts
+        }
+        Minuts.innerHTML = ":" + minuts;
+    }
+    if(minuts == 59) {
+        minuts = -1;
+    }
+    if((segons == 0) && (minuts == 0)) {
+        hores++;
+        if (hores < 10) { 
+            hores = "0"+hores
+        }
+        Hores.innerHTML = hores;
+    }
+}
+
+function canviarVisibilitatPopup(){
+    popup = document.getElementById("popupReset");
+    if(popup.style.display == "grid"){
+        popup.style.display = "none"
+    }else{
+        popup.style.display = "grid"
     }
 }
