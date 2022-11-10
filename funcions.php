@@ -6,6 +6,7 @@
     }else if( $_SESSION['idioma'] == 'en'){
         include('./lang/lang_en.php');
     }
+
     function obtenirParaula($nomArxiu){
         $liniesArxiu = file($nomArxiu);
         $paraules = [];
@@ -140,16 +141,21 @@
             if($_SESSION['totalPartides'][$p]['modo'] == $_SESSION['modo']){
                 echo "<tr>\n";
                 $puntuacio = 0;
+                $fila = 0;
                 foreach($_SESSION['totalPartides'][$p] as $intentos){
-                    if($intentos != $_SESSION['totalPartides'][$p]['temps']){
+                    if($intentos != $_SESSION['totalPartides'][$p]['temps'] && $intentos != $_SESSION['totalPartides'][$p]['modo']){
                         $fila = ((int)$intentos[0])+1;
                         $encert = (int)$intentos[1];
                         $puntuacio += calculPuntuacio($fila,$encert);
                     }
                 }
                 $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
+                if($fila == 6 && $encert != 5){
+                    $puntuacio = 0;
+                    $_SESSION['partides']['perdudes'] += 1;
+                }
                 echo "<td>".($p+1)."</td>\n";
-                echo "<td>$fila</td>\n";
+                echo "<td>".$fila."</td>\n";
                 echo "<td>$puntuacio</td>\n";
                 echo "</tr>\n";
             }
@@ -201,6 +207,9 @@
                         $fila = ((int)$intentos[0])+1;
                         $encert = (int)$intentos[1];
                         $puntuacio += calculPuntuacio($fila,$encert);
+                        if($fila == 6 && $encert != 5){
+                            $puntuacio = 0;
+                        }
                     }
                 }
             }

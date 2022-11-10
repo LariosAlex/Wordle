@@ -1,9 +1,7 @@
 <?php
     session_start();
     include "funcions.php";
-    
-    $_SESSION['partides']['perdudes'] += 1;
-
+    $_SESSION['partides']['perdudes'] = 0;
     if(isset($_POST['estadistiques']) && isset($_SESSION)){
         afegirPartida($_POST['estadistiques']);
         mostrarPuntuacio();
@@ -24,11 +22,11 @@
 </head>
 <body onload="executarSo('perdida')" id="lose">
     <?php
-        // if(!isset($_POST['estadistiques'])){
-        //     http_response_code(403);
-        //     paginaForbidden();
-        //     die();
-        // }
+        if(!isset($_POST['estadistiques'])){
+            http_response_code(403);
+            paginaForbidden();
+            die();
+        }
     ?>
     <nav>
         <a href="index.php">
