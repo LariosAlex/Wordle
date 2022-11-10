@@ -1,13 +1,14 @@
 <?php
     session_start();
     include "funcions.php";
-    
-    $_SESSION['partides']['guanyades'] += 1;
 
-    afegirPartida($_POST['estadistiques']);
-    mostrarPuntuacio()
-?>
-<!DOCTYPE html>
+    if(isset($_POST['estadistiques']) && isset($_SESSION['boolean'])){
+        $_SESSION['partides']['guanyades'] += 1;
+        afegirPartida($_POST['estadistiques']);
+        mostrarPuntuacio();
+    }
+    actualitzarRanking();
+?><!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,13 @@
     <script src="./JS/funcions.js"></script>
 </head>
 <body onload="executarSo('guanyada')" id="win">
+    <?php
+        if(!isset($_POST['estadistiques'])){
+            http_response_code(403);
+            paginaForbidden();
+            die();
+        }
+    ?>
     <nav>
         <a href="index.php">
             <div>
@@ -32,6 +40,15 @@
                 <?php echo $general['boto1'];?> 
             </div>
         </a>
+        <a href="ranking.php">
+            <div>
+                RANKING
+            </div>
+        </a>
+        <form action="ranking.php" method="post">
+            <input type="text" name="afegirEstadistiques" value="true" hidden>
+            <input type="submit" value="Publicar resultats" id='rankingPublic'/>
+        </form>
     </nav>
 
     <div id="resultadoPartida">
@@ -50,3 +67,6 @@
     </div>
 </body>
 </html>
+<?php
+    unset($_SESSION['boolean']);
+?>

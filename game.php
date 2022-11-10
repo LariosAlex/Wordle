@@ -2,22 +2,31 @@
     session_start();
     include('funcions.php');
 
-    if( $_SESSION['idioma'] == 'ca' or (!isset( $_SESSION['idioma']))){
-        include('lang_ca.php');
-    }elseif( $_SESSION['idioma'] == 'es'){
-        include('lang_es.php');
-    }elseif( $_SESSION['idioma'] == 'en'){
-        include('lang_en.php');
+    //Idioma al que estem jugant
+    if($_SESSION['idioma'] == 'ca'){
+        $_SESSION['paraula'] = obtenirParaula('./lang/catala_5.txt');
+    }elseif($_SESSION['idioma'] == 'es'){
+        $_SESSION['paraula'] = obtenirParaula('./lang/castellano_5.txt');
+    }elseif($_SESSION['idioma'] == 'en'){
+        $_SESSION['paraula'] = obtenirParaula('./lang/english_5.txt');
     }
 
-    if($_SESSION['idioma'] == 'ca'){
-        $_SESSION['paraula'] = obtenirParaula('catala_5.txt');
-    }elseif($_SESSION['idioma'] == 'es'){
-        $_SESSION['paraula'] = obtenirParaula('castellano_5.txt');
-    }elseif($_SESSION['idioma'] == 'en'){
-        $_SESSION['paraula'] = obtenirParaula('english_5.txt');
+    //Comprova el mode al que estem
+    if(isset($_POST['botoChrono'])){
+        $_SESSION['modo'] = 'crono';
     }
-?>
+    if(isset($_POST['botoJugar'])){
+        $_SESSION['modo'] = 'normal';
+    }
+
+    //Mostrar posicio 1 del ranking
+    $rankingTXT = getRanking('record.txt');
+    $ranking = ranking($rankingTXT);
+    $usuariHallFame = $ranking[0]['nombre'];
+    $puntuacioHallFame = $ranking[0]['puntuacio'];
+
+    $_SESSION['boolean'] = TRUE;
+?> 
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -31,7 +40,14 @@
         <META HTTP-EQUIV="Refresh" CONTENT="0;URL=errorJavascript.php">
     </noscript>
 </head>
-<body id="game">
+<?php
+    if($_SESSION['modo'] == 'crono'){
+        echo "<body id='game' class='chrono' onload='iniciChrono()'>";
+    }else{
+        echo "<body id='game' onload='inici()'>";
+    }
+?>
+
 <nav>
         <a href="index.php">
             <div>
@@ -46,16 +62,29 @@
     </nav>
         <?php
             if(isset($_POST['nom_usuari'])){
+                if($_POST['nom_usuari'] != $_SESSION['nom_usuari']){
+                    $_SESSION['partides'] = ["perdudes" => 0,"guanyades" => 0];
+                    $_SESSION['totalPartides'] = [];
+                    $_SESSION['puntuacio'] = 0;
+                }
                 $_SESSION['nom_usuari'] = $_POST['nom_usuari'];
             }
         ?>
     <header>
-        <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari']."<br>". $fiPartida['punts'].$_SESSION['puntuacio'] ."</strong></div>\n<br>\n";
-        ?>
+        <?php echo "<div id='nomUsuariHall'><strong>Hall of Fame: ".$usuariHallFame."</strong></div>\n<br>\n";?>
+        <?php echo "<div id='nomUsuari'><strong>".$general['usuari'].$_SESSION['nom_usuari'].' - '.$fiPartida['punts'].$_SESSION['puntuacio']."</strong></div>\n<br>\n";?>
     </header>
     <article>
-        <div>
-            <h1 id="resultat"></h1>
+        <div id="contenedor">
+            <div class="reloj" id="Hores">00</div>
+            <?php
+                if($_SESSION['modo'] == 'crono'){
+                    echo "<div class='reloj' id='Minuts'>:02</div>";
+                }else{
+                    echo "<div class='reloj' id='Minuts'>:00</div>";
+                }
+            ?>
+            <div class="reloj" id="Segons">:00</div>
         </div>
         <div>
         <?php
@@ -63,15 +92,14 @@
         ?>
         </div>
     </article>
-    <br>
     <article>
     <?php
         generarTeclat();
     ?>
     </article>
     <?php
-        echo "<p id='paraulaSecreta' hidden>".$_SESSION['paraula']."</p>";
+        echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
     ?>
-        <script src="./JS/funcions.js"></script>
+    <script src="./JS/funcions.js"></script>
 </body>
 </html>
