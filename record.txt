@@ -1,3 +1,3 @@
-Alex,2-0-0-0-0-0,1992,true
-Kamehame,6-0-0-0-0-0,3052,true
-Pau Rius,2-0-0-0-0-0,1992,true
+Enric,4-0-1-0-0-0,1500,true
+Lean,3-0-2-0-0-0,1200,true
+Xavi,2-0-0-0-2-0,1000,true

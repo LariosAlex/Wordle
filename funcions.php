@@ -253,8 +253,16 @@
     function actualitzarRanking(){
         $resumPartides = [0, 0, 0, 0, 0, 0];
         foreach($_SESSION['totalPartides'] as $partida){
-            $intentsPartida = count($partida[0]) - 1;
-            $resumPartides[$intentsPartida - 1] += 1;
+            $intentsPartida = 0;
+            if($partida['modo'] == $_SESSION['modo']){
+                foreach($partida as $item){
+                    if($item != $partida['modo'] && $item != $partida['temps']){
+                        $intentsPartida += 1;
+                    }
+                }
+                echo $intentsPartida;
+                $resumPartides[$intentsPartida - 1] += 1;
+            }
         }
         $strResumPartides = implode("-", $resumPartides);
         $_SESSION['resumPartidesIntents'] = $strResumPartides;
