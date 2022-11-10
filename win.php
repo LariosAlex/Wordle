@@ -3,6 +3,9 @@
     include "funcions.php";
     
     $_SESSION['partides']['guanyades'] += 1;
+    if(isset($_POST['theme'])){
+        $_SESSION['theme'] = $_POST['theme'];
+    }
 
     afegirPartida($_POST['estadistiques']);
     mostrarPuntuacio();
@@ -20,9 +23,12 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body onload="executarSo('guanyada')" id="win">
+<body id="body" class="body_win" name="body" onload="compararColorExecutarSo('guanyada')">
     <nav>
-        <a href="index.php">
+    <form action="index.php" method="post" id="formNom" name="formInici">
+                <input class="disNone" type="text" name="theme" value="" id="colorDeTema">
+            </form>
+        <a onclick="cambiarPantallaSubmit()">
             <div>
                 <?php echo $general['boto2'];?> 
             </div>
@@ -48,5 +54,8 @@
         ?>
         
     </div>
+    <?php
+       echo "<p id='colorAnterior' class='disNone'>".$_SESSION['theme']."</p>";
+    ?>
 </body>
 </html>

@@ -101,10 +101,6 @@ function revisarParaula(filaActual){
     setTimeout(resultatPartida(letrasCorrectes,filaActual),5000);
 }
 
-
-
-
-
 function escriuParaula(par){
     for(let i = 0;i < 5;i++){
         let identificador = String(fila)+String(i);
@@ -134,24 +130,40 @@ function enviar(){
 }
 
 function canviarMode(){
-        // Definiu aqui el vostre codi
-    let estatActual = document.getElementById("mode").innerHTML;
-    let prefresDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    let estatEnviar = "";
-    if(estatActual == ""){
-        if(prefresDarkScheme.matches){
-            estatEnviar = "light";
-        }else{
-            estatEnviar = "dark";
-        }
-    }else{
-        if(estatActual == "dark"){
-            estatEnviar = "light";
-        }else{
-            estatEnviar = "dark";
-        }
-    }
-    document.getElementById("mode").innerHTML = estatEnviar;
+    // Definiu aqui el vostre codi
+    enviarColorAlInput();
     document.body.classList.toggle("dark-mode");
-
   }
+
+function enviarColorAlInput(){
+    let style = mirarColor();
+    document.getElementById('colorDeTema').value = style;    
+}
+
+function mirarColor(){
+    let colorDeBody = document.getElementById('body');
+    let style = getComputedStyle(colorDeBody).backgroundColor;
+    if(style == 'rgb(214, 214, 177)'){
+        return "light";
+    }else{
+        return "dark";
+    }
+}
+
+function compararColor(){
+    let colorPaginaAnterior = document.getElementById("colorAnterior").innerHTML;
+    let colorActual = mirarColor();
+    if(colorActual != colorPaginaAnterior){
+        canviarMode();
+    }
+}
+
+function compararColorExecutarSo(so){
+    compararColor();
+    executarSo(so);
+}
+
+function cambiarPantallaSubmit(){
+    enviarColorAlInput();
+    document.formInici.submit();
+}

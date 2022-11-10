@@ -4,6 +4,10 @@
     
     $_SESSION['partides']['perdudes'] += 1;
 
+    if(isset($_POST['theme'])){
+        $_SESSION['theme'] = $_POST['theme'];
+    }
+    
     afegirPartida($_POST['estadistiques']);
     mostrarPuntuacio();
 ?>
@@ -20,9 +24,12 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body onload="executarSo('perdida')" id="lose">
+<body id="body" class="body_lose" name="body" onload="compararColorExecutarSo('perdida')">
     <nav>
-        <a href="index.php">
+    <form action="index.php" method="post" id="formNom" name="formInici">
+                <input class="disNone" type="text" name="theme" value="" id="colorDeTema">
+            </form>
+        <a onclick="cambiarPantallaSubmit()">
             <div>
                 <?php echo $general['boto2'];?> 
             </div>
@@ -46,5 +53,8 @@
             mostrarPartides();
         ?>
     </div>
+    <?php 
+        echo "<p id='colorAnterior' class='disNone'>".$_SESSION['theme']."</p>"
+    ?>
 </body>
 </html>
