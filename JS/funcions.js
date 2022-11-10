@@ -216,7 +216,7 @@ function cronometre() {
         if (minuts < 10) { 
             minuts = "0"+minuts
         }
-        Minuts.innerHTML = minuts;
+        Minuts.innerHTML = ":" + minuts;
     }
     if(minuts == 59) {
         minuts = -1;
