@@ -926,7 +926,7 @@ nav div{
     }
 }
 
-h1, h2, h3, h4, p, strong, th, li, .body_lose td, .body_win td{
+h1, h2, h3, h4, p, strong, th, li, .body_lose td, .body_win td, #Hores, #Minuts, #Segons{
     color: var(--colorLetras-bores);
 }
 body{
