@@ -2,9 +2,8 @@
     session_start();
     include "funcions.php";
 
-    $totalPartides = count($_SESSION['totalPartides']);
-    $_SESSION['partides']['guanyades'] += 1;
-    if(isset($_POST['estadistiques']) && isset($_SESSION)){
+    if(isset($_POST['estadistiques']) && isset($_SESSION['boolean'])){
+        $_SESSION['partides']['guanyades'] += 1;
         afegirPartida($_POST['estadistiques']);
         mostrarPuntuacio();
     }
@@ -68,3 +67,6 @@
     </div>
 </body>
 </html>
+<?php
+    unset($_SESSION['boolean']);
+?>

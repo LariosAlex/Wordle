@@ -115,9 +115,8 @@
         }elseif($_SESSION['modo'] == 'crono'){
             $punts = 0;
             $stringTemps = explode(":",$stringTemps);
-            $punts += (((int)$stringTemps[1] * 60) + (int)$stringTemps[2]) * 4.5;
+            $punts += (((int)$stringTemps[1] * 60) + (int)$stringTemps[2]) * 5;
         }
-     
         if($punts < 0){
             $punts = 0;
         }
@@ -152,7 +151,6 @@
                 $puntuacio += calculPuntuacioTemps($_SESSION['totalPartides'][$p]['temps']);
                 if($fila == 6 && $encert != 5){
                     $puntuacio = 0;
-                    $_SESSION['partides']['perdudes'] += 1;
                 }
                 echo "<td>".($p+1)."</td>\n";
                 echo "<td>".$fila."</td>\n";
