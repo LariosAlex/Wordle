@@ -6,7 +6,9 @@
     }elseif(isset($_POST['idioma'])){
         $_SESSION['idioma'] = $_POST['idioma'];
     }
-
+    if(isset($_POST['theme'])){
+        $_SESSION['theme'] = $_POST['theme'];
+    }
     //Importar funcions
     include('funcions.php');
 
@@ -35,8 +37,8 @@
     </noscript>
     <script src="./JS/funcions.js"></script>
 </head>
-<body id="index">
-    <?php 
+<body id="body" class="body_index" name="body" onload="compararColor()">
+<?php 
     if(isset($_POST["reset"])){
         session_destroy();
         header("location:index.php");
@@ -74,10 +76,11 @@
             </form>
         </div>
         <div id="divNom">
-            <form action="game.php" method="post" id="formNom">
+            <form action="game.php" method="post" id="formNom" name="formInici">
                 <input type="text" name="nom_usuari" id="nom_usuari" placeholder="<?php echo $general['usuari']; ?>" value="<?php echo $_SESSION['nom_usuari']; ?>" required>
-                <input type="submit" name="botoJugar" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
-                <input type="submit" name="botoChrono" value="<?php echo $index['botoChrono']; ?>" id="butoChrono">
+                <input class="disNone" type="text" name="theme" value="" id="colorDeTema">
+                <input name="botoJugar" onclick="cambiarPantallaSubmit()" value="<?php echo $index['botoJugar']; ?>" id="butoJugar">
+                <input onclick="cambiarPantallaSubmit()" name="botoChrono" value="<?php echo $index['botoChrono']; ?>" id="butoChrono">
             </form>
             <div id="botons">
                     <button id="resetBtn" onclick="canviarVisibilitatPopup()"><?php echo $index['botoReset'];?></button>
@@ -109,6 +112,15 @@
             <button onclick="canviarVisibilitatPopup()">No</button>
         </div>     
     </div>
+    <form action="index.php" method="post" id="formNom" name="formInici2">
+        <input class="disNone" type="text" name="theme" value="" id="colorDeTema2">
+        <input name="botoJugar" onclick="canviarMode()" value="Canviar Mode" id="botoCanviarMode">
+    </form>
+    <?php 
+        if(isset($_SESSION['theme'])){
+            echo "<p id='colorAnterior' class='disNone'>".$_SESSION['theme']."</p>";
+        }
+    ?>
     <footer>
         <p>Ies Esteve Terradas</p>
     </footer>

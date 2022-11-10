@@ -169,6 +169,7 @@ function enviar(){
 
 //Funcions mode Chrono
 function iniciChrono () {
+    compararColor();
     control = setInterval(temporitzador,1000);
 }
 
@@ -197,6 +198,7 @@ function temporitzador(){
 
 //Funcons mode normal
 function inici () {
+    compararColor();
     control = setInterval(cronometre,1000);
 }
     
@@ -237,4 +239,42 @@ function canviarVisibilitatPopup(){
     }else{
         popup.style.display = "grid"
     }
+}
+function canviarMode(){
+    // Definiu aqui el vostre codi
+    enviarColorAlInput();
+    document.body.classList.toggle("dark-mode");
+  }
+
+function enviarColorAlInput(){
+    let style = mirarColor();
+    document.getElementById('colorDeTema').value = style;    
+}
+
+function mirarColor(){
+    let colorDeBody = document.getElementById('body');
+    let style = getComputedStyle(colorDeBody).backgroundColor;
+    if(style == 'rgb(214, 214, 177)'){
+        return "light";
+    }else{
+        return "dark";
+    }
+}
+
+function compararColor(){
+    let colorPaginaAnterior = document.getElementById("colorAnterior").innerHTML;
+    let colorActual = mirarColor();
+    if(colorActual != colorPaginaAnterior){
+        canviarMode();
+    }
+}
+
+function compararColorExecutarSo(so){
+    compararColor();
+    executarSo(so);
+}
+
+function cambiarPantallaSubmit(){
+    enviarColorAlInput();
+    document.formInici.submit();
 }

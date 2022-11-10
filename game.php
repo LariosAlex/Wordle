@@ -26,7 +26,11 @@
     $puntuacioHallFame = $ranking[0]['puntuacio'];
 
     $_SESSION['boolean'] = TRUE;
-?> 
+
+    if(isset($_POST['theme'])){
+        $_SESSION['theme'] = $_POST['theme'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -42,14 +46,16 @@
 </head>
 <?php
     if($_SESSION['modo'] == 'crono'){
-        echo "<body id='game' class='chrono' onload='iniciChrono()'>";
+        echo "<body id='body' class='body_game chrono' onload='iniciChrono()'>";
     }else{
-        echo "<body id='game' onload='inici()'>";
+        echo "<body id='body' class='body_game' onload='inici()'>";
     }
 ?>
-
 <nav>
-        <a href="index.php">
+        <form action="index.php" method="post" id="formNom" name="formInici">
+                <input class="disNone" type="text" name="theme" value="" id="colorDeTema">
+            </form>
+        <a onclick="cambiarPantallaSubmit()">
             <div>
                 <?php echo $general['boto2'];?> 
             </div>
@@ -99,6 +105,7 @@
     </article>
     <?php
         echo "<p id='paraulaSecreta'>".$_SESSION['paraula']."</p>";
+        echo "<p id='colorAnterior' class='disNone'>".$_SESSION['theme']."</p>"
     ?>
     <script src="./JS/funcions.js"></script>
 </body>

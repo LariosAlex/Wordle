@@ -46,10 +46,9 @@
     }} 
 
 
-#index{
+.body_index{
     margin: 0;
     padding: 0;
-    background-color: #D6D6B1;
 }
 
 #nomUsuari{
@@ -76,30 +75,28 @@ nav{
 
 nav a{
     text-decoration: none;
-    color: black ;
+    cursor: pointer;
 }
 
 nav div{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #878472;
     margin-bottom: 10px;
     text-align: center;
     width: 70px;
     height: 50px;
     text-decoration: none;
     border-radius: 13%;
-    border: 1px solid black;
 }
 
-#index h1{
+.body_index h1{
     align-self: center;
     justify-self: center;
     text-align: center;
 }
 
-#index #instruccions{
+.body_index #instruccions{
     display: block;
     width: auto;
     margin-left: 10px;
@@ -107,13 +104,12 @@ nav div{
     justify-self: center;
 }
 
-#index #divNom{
+.body_index #divNom{
     align-self: center;
     justify-self: center;
 }
 
-#index #nom_usuari{
-    background-color: white;
+.body_index #nom_usuari{
     border-radius:12px;
     text-align: center;
     font-size: 30px;
@@ -121,21 +117,20 @@ nav div{
     margin-bottom: 5px;
 }
 
-#index footer p{
+.body_index footer p{
     text-align: center;
 }
 
-#index #listaInstruccions{
+.body_index #listaInstruccions{
     display: flex;
     justify-content: center;
     flex-direction: column;
     width: auto;
 }
 
-#index #butoJugar{
-    background-color: #3f3f37;
+.body_index #butoJugar{
+    display: inline;
     border-radius:12px;
-    color: white;
     text-align: center;
     text-decoration: none;
     margin: 0;
@@ -145,10 +140,8 @@ nav div{
     margin-left: 2px;
 }
 
-#index #butoChrono{
-    background-color: #3f3f37;
+.body_index #butoChrono{
     border-radius:12px;
-    color: white;
     text-align: center;
     text-decoration: none;
     margin:0;
@@ -156,6 +149,13 @@ nav div{
     padding: 0;
     cursor: pointer;
     font-size: 20px;
+}
+
+#botoCanviarMode{
+    border-radius:12px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #formIdioma{
@@ -186,96 +186,83 @@ nav div{
 
 /*  game   */
 
-#game{
-    background-color: #D6D6B1;
-}
-
-#game table{
+.body_game table{
     display: flex;
     justify-content: center;
 }
 
-#game tr{
+.body_game tr{
     align-items: center;
 }
 
-#game td{
-    border: 1px solid #DE541E;
-    background-color: white;
+.body_game td{
     border-radius: 5px;
     text-align: center;
 }
 
-#game #teclat{
+.body_game #teclat{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#game #teclat div {
+.body_game #teclat div {
     display: flex;
 }  
 
-#game .tecla{
+.body_game .tecla{
     font-size: 1rem;
     text-transform: uppercase;
     border: none;
-    background-color: rgb(226,232,240);
     border-radius: 5px;
 }
 
-#game .tecla:hover{
-    background-color:#DE541E;
-    color: white;
-}
-
-#game #resultat{
+.body_game #resultat{
     display: none;
     text-align: center;
 }
 
-#game #contenedor{
+.body_game #contenedor{
     width: auto;
     height: auto;
     text-align: center;
 }
-#game .reloj{
+.body_game .reloj{
     display: inline;
     font-size: 40px;
 }
 
 /* FINAL */
 
-#lose, #win{
-    background-color: #D6D6B1;
+.body_lose, .body_win{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 70px 60px 50px auto;
 }
 
-#lose #resultadoPartida{
+.body_lose #resultadoPartida{
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-#win #resultadoPartida{
+.body_win #resultadoPartida{
     margin-top: 0;
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
-#loseParaulaSecreta{
+.body_loseParaulaSecreta{
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
-#lose h3, #win h3{
+.body_lose h3, .body_win h3{
     grid-row: 3/4;
     grid-column: 1/2;
     text-align: center;
 }
 
-#lose #estadistiques {
+.body_lose #estadistiques {
     display: grid;
     grid-row: 4/5;
     grid-column: 1/2;
@@ -283,7 +270,7 @@ nav div{
     grid-template-rows: 50px auto 50px;
 }
 
-#win #estadistiques {
+.body_win #estadistiques {
     display: grid;
     grid-row: 4/5;
     grid-column: 1/2;
@@ -291,7 +278,7 @@ nav div{
     grid-template-rows: 1px auto 50px;
 }
 
-#win #rankingPublic{
+ .body_win #rankingPublic{
     background-color: #90EE90;
 }
 
@@ -320,7 +307,6 @@ nav div{
 /* Error */
 
 #errorJavascript{
-    background-color: #DE541E;
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
@@ -345,7 +331,6 @@ nav div{
     width: 160px;
     height: 50px;
     font-size: 30px;
-    background-color: #D6D6B1;
     border-radius:12px;
     cursor: pointer;
 }
@@ -440,18 +425,18 @@ nav div{
 
 /* PC */
 @media screen and (max-width: 1920px){
-    #index main{
+    .body_index main{
         display: grid;
         grid-template-rows: 60px 320px 315px ;
         grid-template-columns: 1fr auto 1fr 1fr;
     }
 
-    #index h1{
+    .body_index h1{
         grid-column: 1/6;
         grid-row: 1/1;
     }
     
-    #index #imatgeWordle{
+    .body_index #imatgeWordle{
         height: 300px;
         width: 250px;
         grid-row: 2/3;
@@ -460,18 +445,18 @@ nav div{
         justify-self: center;
     }
 
-    #index #instruccions{
+    .body_index #instruccions{
         grid-column: 3/4;
         grid-row: 3/4;
         max-width: 750px;
         margin-top: -20px;
     }
 
-    #index #instruccions h1{
+    .body_index #instruccions h1{
         line-height: 0.5;
     }
 
-    #index #divNom{
+    .body_index #divNom{
         grid-row: 2/3;
         grid-column: 3/4;
     }
@@ -481,18 +466,22 @@ nav div{
         width: 600px;
     }
     
-    #index #butoJugar{
-        width: 298px;
-        height: 50px;
-        display: inline;
-    }
-
-    #index #butoChrono{
-        width: 298px;
+    .body_index #butoJugar{
+        width: 297px;
         height: 50px;
     }
 
-    #index #divLlenguatge{
+    .body_index #butoChrono{
+        width: 297px;
+        height: 50px;
+    }
+
+    #botoCanviarMode{
+        width: 90px;
+        height: 40px;
+    }
+
+    .body_index #divLlenguatge{
         grid-column: 2/3;
         grid-row: 3/4;
         display: grid;
@@ -500,27 +489,25 @@ nav div{
         grid-template-rows: 30px 270px;
     }
 
-    #index #botons{
+    .body_index #botons{
         width: 100%;
         text-align: center;
     }
 
-    #index #botons button{
+    .body_index #botons button{
         width: 49.5%;
         margin: 0;
         padding: 0;
         height: 35px;
         cursor: pointer;
-        background-color: #3f3f37;
         border-radius:12px;
-        color: white;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
         font-size: 16px;
     }
 
-    #index #botons #resetBtn{
+    .body_index #botons #resetBtn{
         background-color: #DE541E;
         color: black;
     }
@@ -568,15 +555,15 @@ nav div{
 
     /*  game   */
 
-    #game td{
+    .body_game td{
         width: 50px;
         height: 50px;
     }
-    #game #teclat {
+    .body_game #teclat {
         margin: 50px 0;
     }
 
-    #game .tecla{
+    .body_game .tecla{
         font-weight: 700;
         padding: 15px;
         margin: 5px ;
@@ -592,19 +579,19 @@ nav div{
 /* TABLET (800X600) */
 
 @media screen and (max-width: 1000px){
-    #index main{
+    .body_index main{
         display: grid;
         grid-template-rows: 50px 200px 365px;
         grid-template-columns: 200px 1fr 1fr;
     }
 
-    #index h1{
+    .body_index h1{
         grid-column: 1/3;
         grid-row: 1/2;
         line-height: 0;
     }
 
-    #index #imatgeWordle{
+    .body_index #imatgeWordle{
         height: 150px;
         width: 130px;
         grid-row: 2/3;
@@ -613,13 +600,13 @@ nav div{
         justify-self: center;
     }
     
-    #index #instruccions{
+    .body_index #instruccions{
         grid-column: 2/4;
         grid-row: 3/4;
         max-width: 750px;
     }
 
-    #index #divNom{
+    .body_index #divNom{
         grid-row: 2/3;
         grid-column: 2/4;
     }
@@ -629,25 +616,26 @@ nav div{
         width: 400px;
     }
     
-    #index #butoChrono{
+    .body_index #butoChrono{
+        width: 200px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .body_index #botons #resetBtn{
+        font-size: 16px;
+    }
+
+    .body_index #botons #rankingBtn{
+        font-size: 16px;
+    }
+
+    .body_index #butoJugar{
         width: 200px;
         font-size: 16px;
     }
 
-    #index #botons #resetBtn{
-        font-size: 16px;
-    }
-
-    #index #botons #rankingBtn{
-        font-size: 16px;
-    }
-
-    #index #butoJugar{
-        width: 200px;
-        font-size: 16px;
-    }
-
-    #index #divLlenguatge{
+    .body_index #divLlenguatge{
         margin-top: 40px;
         grid-column: 1/2;
         grid-row: 3/4;
@@ -686,16 +674,16 @@ nav div{
     
     /*  game   */
 
-    #game td{
+    .body_game td{
         width: 45px;
         height: 45px;
     }
 
-    #game #teclat {
+    .body_game #teclat {
         margin: 15px 0px;
     }
         
-    #game .tecla{
+    .body_game .tecla{
         font-weight: 700;
         padding: 13px;
         margin: 3px ;
@@ -708,13 +696,13 @@ nav div{
 /* MOVIL (375x667) */
 @media screen and (max-width: 600px){
 
-    #index main{
+    .body_index main{
         display: grid;
         grid-template-rows: 55px 130px 80px 335px;
         grid-template-columns: 1px 1fr;
     }
     
-    #index h1{
+    .body_index h1{
         grid-column: 2/3;
         grid-row: 1/2;
         font-size: 24px;
@@ -722,7 +710,7 @@ nav div{
         margin-left: 35px;
     }
 
-    #index #imatgeWordle{
+    .body_index #imatgeWordle{
         position: absolute;
         top: 0;
         left: 0;
@@ -738,20 +726,14 @@ nav div{
         font-size: 10px;
         margin-left: 3px;
     }
-    
-    #index #butoJugar{
-        width: 160px;
-        height: 32px;
-        font-size: 12px;
-    }
 
-    #index #butoChrono{
+    .body_index #butoChrono{
         font-size: 12px;
         width: 160px;
         height: 32px;
     }
 
-    #index #instruccions{
+    .body_index #instruccions{
         grid-column: 2/3;
         grid-row: 4/5;
         max-width: 380px;
@@ -759,11 +741,11 @@ nav div{
         line-height: 1;
     }
     
-    #index #listaInstruccions{
+    .body_index #listaInstruccions{
         margin-left: -25px;
     }
 
-    #index #divLlenguatge{
+    .body_index #divLlenguatge{
         margin-top: 0px;
         grid-column: 2/3;
         grid-row: 3/4;
@@ -772,13 +754,13 @@ nav div{
         grid-template-rows: 20px 60px;
     }
 
-    #index #botons #rankingBtn{
+    .body_index #botons #rankingBtn{
         width: 160px;
         height: 30px;
         font-size: 12px;
     }
 
-    #index #botons #resetBtn{
+    .body_index #botons #resetBtn{
         height: 30px;
         background-color: #DE541E;
         color: black;
@@ -853,35 +835,35 @@ nav div{
         height: 40px;
     }
 
-    #game{
+    .body_game{
         margin-top: 80px;
     }
     
-    #game #nomUsuari{
+    .body_game #nomUsuari{
         margin-top: 6px;
         margin-right: 5px;
     }
-    #game #nomUsuariHall{
+    .body_game #nomUsuariHall{
         margin-top: 12px;
         margin-right: 5px;
     }
     
-    #game td{
+    .body_game td{
         width: 35px;
         height: 35px;
     }
 
-    #game #teclat {
-        margin: 10px 0px;
+    .body_game #teclat {
+        margin: 15px 0px;
     }
         
-    #game .tecla{
+    .body_game .tecla{
         font-weight: lighter;
         padding: 6px;
         margin: 2px;
     }
     
-    #lose{
+    .body_lose{
         margin-top: 50px;
     }
 }
@@ -900,4 +882,91 @@ nav div{
 }
 #forbidden div #subTitol{
     font-size: 20px;
+}
+@media (prefers-color-scheme: dark) {
+    body{
+        --colorDeFons:#303026;
+        --colorLetras-bores:#fcfff2;
+        --nav:#59574a;
+        --teclat:#707458;
+        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: #d7d7d7;
+        --botoJugar: #1a1a17;
+        --boresJoc-hoverTecla-errorJava: #422519;
+    }
+    
+    body.dark-mode{
+        --colorDeFons:#D6D6B1;
+        --colorLetras-bores:black;
+        --nav:#878472;
+        --teclat:#878472;
+        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: white;
+        --botoJugar: #3f3f37;
+        --boresJoc-hoverTecla-errorJava: #DE541E;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body{
+        --colorDeFons:#D6D6B1;
+        --colorLetras-bores:black;
+        --nav:#878472;
+        --teclat:#878472;
+        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: white;
+        --botoJugar: #3f3f37;
+        --boresJoc-hoverTecla-errorJava: #DE541E;
+    }
+    body.dark-mode{
+        --colorDeFons:#303026;
+        --colorLetras-bores:#fcfff2;
+        --nav:#59574a;
+        --teclat:#707458;
+        --nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover: #d7d7d7;
+        --botoJugar: #1a1a17;
+        --boresJoc-hoverTecla-errorJava: #422519;
+    }
+}
+
+h1, h2, h3, h4, p, strong, th, li, .body_lose td, .body_win td{
+    color: var(--colorLetras-bores);
+}
+body{
+    background-color: var(--colorDeFons);
+}
+nav a{
+    color: var(--colorLetras-bores);
+}
+nav div{
+    background-color: var(--nav);
+    border: 1px solid var(--colorLetras-bores);
+}
+.body_index #nom_usuari{
+    background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+.body_index #butoJugar, #botoCanviarMode, #butoChrono, #rankingBtn{
+    background-color: var(--botoJugar);
+    color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+body, td{
+    background-color: var(--colorDeFons);
+}
+.body_game td{
+    border: 1px solid var(--boresJoc-hoverTecla-errorJava);
+    background-color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+.body_game .tecla{
+    background-color: #e2e8f0;
+}
+.body_game .tecla:hover{
+    background-color:var(--boresJoc-hoverTecla-errorJava);
+    color: var(--nomUsuari-LletresParaula-botoJugarLletra-colorLletraHover);
+}
+#errorJavascript{
+    background-color: var(--boresJoc-hoverTecla-errorJava);
+}
+#errorJavascript button{
+    background-color: var(--colorDeFondo);
+}
+
+.disNone{
+    display: none;
 }
